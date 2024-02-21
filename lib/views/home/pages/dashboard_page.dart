@@ -222,20 +222,17 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
           ),
-          AuthorizationWrapper(
-            requestAction: PermissionLevel.discountsByQuote,
-            child: Column(
-              children: [
-                spaceButton,
-                CustomButtonWidget(
-                    text: "Descuentos",
-                    onTap: () => Get.toNamed(
-                        RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
-                        arguments: {"isWatchMode": false}),
-                    padding: defaultPadding),
-              ],
-            ),
-          ),
+          authItem(
+              PermissionLevel.discountsByQuote,
+              "Descuentos",
+              () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
+                  arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.applicationEvaluation,
+              "Solicitudes",
+              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+                  arguments: {"isWatchMode": false})),
+
           // AuthorizationWrapper(
           //   requestAction: PermissionLevel.manageCompany,
           //   child: Column(
@@ -284,6 +281,20 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                   ))
               .toList(),
+        ],
+      ),
+    );
+  }
+
+  AuthorizationWrapper authItem(
+      String requestAction, String label, void Function() doAction) {
+    return AuthorizationWrapper(
+      requestAction: requestAction,
+      child: Column(
+        children: [
+          spaceButton,
+          CustomButtonWidget(
+              text: label, onTap: doAction, padding: defaultPadding),
         ],
       ),
     );

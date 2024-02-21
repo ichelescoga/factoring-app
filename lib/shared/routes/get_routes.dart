@@ -3,6 +3,7 @@ import 'package:developer_company/views/CDI/cdi_manage_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
+import 'package:developer_company/views/aplication_evaluation/aplication_evaluation_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_client_detail_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_client_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_page.dart';
@@ -57,7 +58,7 @@ class GetRoutes{
       GetPage(name: RouterPaths.LOGIN_PAGE, page: () => const LoginPage()),
       GetPage(name: RouterPaths.REGISTER_PAGE, page: () => const RegisterPage()),
       GetPage(name: RouterPaths.DASHBOARD_PAGE, page: () => const DashboardPage()),
-      
+
 
       GetPage(name: RouterPaths.CREATE_ADVISER_PAGE, page: () => const CreateAdviserPage()),
       GetPage(name: RouterPaths.QUOTE_CONSULT_PAGE, page: () => const QuoteConsultPage()),
@@ -88,7 +89,7 @@ class GetRoutes{
       GetPage(name: RouterPaths.CREDIT_DETAIL_PAGE, page: () => const CreditDetailPage()),
       GetPage(name: RouterPaths.CREDIT_RESOLUTION_DETAIL_PAGE, page: () => const CreditResolutionDetailPage()),
       GetPage(name: RouterPaths.ADVISER_CREDITS_RESERVED_APPROVED, page: () => const CreditsReservedApproved()),
-      
+
 
       // MARKETING 🖼️🖼️🎞️🎞️
       GetPage(name: RouterPaths.MARKETING_MAINTENANCE_ALBUMS, page: () => const MarketingAlbumsMaintenancePage()),
@@ -118,6 +119,9 @@ class GetRoutes{
       //CDI
       GetPage(name: RouterPaths.LIST_CDI_PAGE, page: () => const CDIListPage()),
       GetPage(name: RouterPaths.MANAGE_CDI_PAGE, page: () => const CDIManagePage()),
+
+      //APPLICATION EVALUATION PAGES
+      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
 
     ];
   }
