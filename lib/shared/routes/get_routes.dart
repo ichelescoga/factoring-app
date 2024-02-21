@@ -3,7 +3,7 @@ import 'package:developer_company/views/CDI/cdi_manage_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
-import 'package:developer_company/views/aplication_evaluation/aplication_evaluation_page.dart';
+import 'package:developer_company/views/application_evaluation/pages/aplication_evaluation_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_client_detail_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_client_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_page.dart';
