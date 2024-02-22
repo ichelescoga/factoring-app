@@ -74,5 +74,6 @@ class RouterPaths{
 
   //ApplicationEvaluations
   static const String APPLICATION_EVALUATION_PAGE = "/applicationEvaluationPage";
+  static const String CREDIT_APPLICATION_FORM_PAGE = "/creditApplicationFormPage";
 }
 

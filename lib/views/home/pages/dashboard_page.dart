@@ -156,6 +156,11 @@ class _DashboardPageState extends State<DashboardPage> {
               "Solicitudes",
               () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
                   arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.creditApplicationFrom,
+              "Solicitud de crédito",
+              () => Get.toNamed(RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
+                  arguments: {"isWatchMode": false}))
         ],
       ),
     );

@@ -20,6 +20,7 @@ class AuthorizationService {
         PermissionLevel.sideBarContacts,
         PermissionLevel.sideBarMarketing,
         PermissionLevel.applicationEvaluation,
+        PermissionLevel.creditApplicationFrom,
       ],
       'Analista': [
         PermissionLevel.analystCreditByClient,

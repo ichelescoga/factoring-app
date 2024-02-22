@@ -32,5 +32,6 @@ class PermissionLevel {
   static const String list_cdi = "list_cdi";
 
   static const String applicationEvaluation = "manage_application_evaluation_form";
+  static const String creditApplicationFrom = "manage_credit_application_form";
   // Add more permission levels as needed
 }
