@@ -2,6 +2,7 @@ import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:developer_company/shared/utils/permission_level.dart';
+import 'package:developer_company/widgets/AuthorizationWrapper.dart';
 // import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
@@ -127,76 +128,24 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           ...cdi
               .map((e) => Column(
-                children: [
-                  spaceButton,
-                  CustomButtonWidget(
-                      text: e["label"].toString(),
-                      onTap: () => Get.toNamed(RouterPaths.LIST_CDI_PAGE,
-                              arguments: {
-                                "entityId": e["entityId"],
-                                "label": e["label"],
-                                "listEndpoint": e["listEndpoint"],
-                                "editEndpoint": e["editEndpoint"],
-                                "addEndpoint": e["addEndpoint"],
-                                "removeEndpoint": e["removeEndpoint"],
-                                "getByIdEndpoint": e["getByIdEndpoint"],
-                              }),
-                      padding: defaultPadding),
-                ],
-              )),
-          const SizedBox(height: Dimensions.heightSize),
-          AuthorizationWrapper(
-            requestAction: PermissionLevel.dashboardQueryQuoteButton,
-            child: GestureDetector(
-              child: Container(
-                height: 50.0,
-                width: Get.width,
-                decoration: const BoxDecoration(
-                    color: AppColors.mainColor,
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(Dimensions.radius))),
-                child: const Center(
-                  child: Text(
-                    "Consulta de cotizaciones por unidad",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: Dimensions.largeTextSize,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              onTap: () {
-                Get.toNamed(RouterPaths.QUOTE_UNIT_STATUS_PAGE);
-              },
-            ),
-          ),
-          AuthorizationWrapper(
-            requestAction: PermissionLevel.adviserCreditsApprovedAndReserved,
-            child: Column(
-              children: [
-                spaceButton,
-                CustomButtonWidget(
-                    text: "Créditos Aprobados",
-                    onTap: () => Get.toNamed(
-                        RouterPaths.ADVISER_CREDITS_RESERVED_APPROVED),
-                    padding: defaultPadding),
-              ],
-            ),
-          ),
-          AuthorizationWrapper(
-            requestAction: PermissionLevel.marketingMaintenance,
-            child: Column(
-              children: [
-                spaceButton,
-                CustomButtonWidget(
-                    text: "Material Audio Visual",
-                    onTap: () => Get.toNamed(
-                        RouterPaths.MARKETING_MAINTENANCE_ALBUMS,
-                        arguments: {"isWatchMode": false}),
-                    padding: defaultPadding),
-              ],
-            ),
-          ),
+                    children: [
+                      spaceButton,
+                      CustomButtonWidget(
+                          text: e["label"].toString(),
+                          onTap: () => Get.toNamed(RouterPaths.LIST_CDI_PAGE,
+                                  arguments: {
+                                    "entityId": e["entityId"],
+                                    "label": e["label"],
+                                    "listEndpoint": e["listEndpoint"],
+                                    "editEndpoint": e["editEndpoint"],
+                                    "addEndpoint": e["addEndpoint"],
+                                    "removeEndpoint": e["removeEndpoint"],
+                                    "getByIdEndpoint": e["getByIdEndpoint"],
+                                  }),
+                          padding: defaultPadding),
+                    ],
+                  ))
+              .toList(),
           authItem(
               PermissionLevel.discountsByQuote,
               "Descuentos",
@@ -212,8 +161,7 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  AuthorizationWrapper authItem(
-      String requestAction, String label, void Function() doAction) {
+  authItem(String requestAction, String label, void Function() doAction) {
     return AuthorizationWrapper(
       requestAction: requestAction,
       child: Column(
