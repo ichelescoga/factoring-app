@@ -166,6 +166,11 @@ class _DashboardPageState extends State<DashboardPage> {
               "Alta de cliente",
               () => Get.toNamed(RouterPaths.CUSTOMER_REGISTER_RANGE_PAGE,
                   arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.creditApplicationFrom,
+              "Contabilidad",
+              () => Get.toNamed(RouterPaths.ACCOUNTING_FACTORAGE_PAGE,
+                  arguments: {"isWatchMode": false})),
         ],
       ),
     );

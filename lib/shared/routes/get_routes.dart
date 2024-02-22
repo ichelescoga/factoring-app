@@ -37,6 +37,7 @@ import 'package:developer_company/views/discounts/pages/discount_detail_by_quote
 import 'package:developer_company/views/discounts/pages/discount_detail_by_quote_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_maintenance_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_page.dart';
+import 'package:developer_company/views/factoraje_accounting/pages/accounting_page.dart';
 import 'package:developer_company/views/financial_entity/pages/financial_entity_creation_page.dart';
 import 'package:developer_company/views/home/pages/dashboard_page.dart';
 import 'package:developer_company/views/home/pages/home_page.dart';
@@ -123,10 +124,10 @@ class GetRoutes{
       GetPage(name: RouterPaths.MANAGE_CDI_PAGE, page: () => const CDIManagePage()),
 
       //APPLICATION EVALUATION PAGES
-      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
-      GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => CreditApplicationFormPage()),
-      GetPage(name: RouterPaths.CUSTOMER_REGISTER_RANGE_PAGE, page: () => RegisterCustomerRangePage())
-
+      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => const ApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
+      GetPage(name: RouterPaths.CUSTOMER_REGISTER_RANGE_PAGE, page: () => const RegisterCustomerRangePage()),
+      GetPage(name: RouterPaths.ACCOUNTING_FACTORAGE_PAGE, page: () => const AccountingFactoragePage()),
     ];
   }
 }
