@@ -143,8 +143,84 @@ class _DashboardPageState extends State<DashboardPage> {
                               }),
                       padding: defaultPadding),
                 ],
-              ))
-              .toList(),
+              )),
+          const SizedBox(height: Dimensions.heightSize),
+          AuthorizationWrapper(
+            requestAction: PermissionLevel.dashboardQueryQuoteButton,
+            child: GestureDetector(
+              child: Container(
+                height: 50.0,
+                width: Get.width,
+                decoration: const BoxDecoration(
+                    color: AppColors.mainColor,
+                    borderRadius:
+                        BorderRadius.all(Radius.circular(Dimensions.radius))),
+                child: const Center(
+                  child: Text(
+                    "Consulta de cotizaciones por unidad",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: Dimensions.largeTextSize,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Get.toNamed(RouterPaths.QUOTE_UNIT_STATUS_PAGE);
+              },
+            ),
+          ),
+          AuthorizationWrapper(
+            requestAction: PermissionLevel.adviserCreditsApprovedAndReserved,
+            child: Column(
+              children: [
+                spaceButton,
+                CustomButtonWidget(
+                    text: "Créditos Aprobados",
+                    onTap: () => Get.toNamed(
+                        RouterPaths.ADVISER_CREDITS_RESERVED_APPROVED),
+                    padding: defaultPadding),
+              ],
+            ),
+          ),
+          AuthorizationWrapper(
+            requestAction: PermissionLevel.marketingMaintenance,
+            child: Column(
+              children: [
+                spaceButton,
+                CustomButtonWidget(
+                    text: "Material Audio Visual",
+                    onTap: () => Get.toNamed(
+                        RouterPaths.MARKETING_MAINTENANCE_ALBUMS,
+                        arguments: {"isWatchMode": false}),
+                    padding: defaultPadding),
+              ],
+            ),
+          ),
+          authItem(
+              PermissionLevel.discountsByQuote,
+              "Descuentos",
+              () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
+                  arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.applicationEvaluation,
+              "Solicitudes",
+              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+                  arguments: {"isWatchMode": false})),
+        ],
+      ),
+    );
+  }
+
+  AuthorizationWrapper authItem(
+      String requestAction, String label, void Function() doAction) {
+    return AuthorizationWrapper(
+      requestAction: requestAction,
+      child: Column(
+        children: [
+          spaceButton,
+          CustomButtonWidget(
+              text: label, onTap: doAction, padding: defaultPadding),
         ],
       ),
     );
