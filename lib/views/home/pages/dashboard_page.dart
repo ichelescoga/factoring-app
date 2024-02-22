@@ -3,7 +3,6 @@ import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:developer_company/shared/utils/permission_level.dart';
 // import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/widgets/AuthorizationWrapper.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/layout.dart';
@@ -68,50 +67,32 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Map<String, String?>> cdi = [
     {
-      "entityId": "1",
-      "label": "Empresas",
-      "listEndpoint": "orders/v1/getCompanies",
-      "editEndpoint": "orders/v1/editCompany",
-      "addEndpoint": "orders/v1/addCompany",
-      "removeEndpoint": "orders/v1/getCompanies",
-      "getByIdEndpoint": "orders/v1/getCompanyById",
-    },
-    {
-      "entityId": "2",
-      "label": "Proyectos",
-      "listEndpoint": "orders/v1/getProjectsByCompany",
-      "editEndpoint": "orders/v1/editProyect",
-      "addEndpoint": "orders/v1/addProyect",
-      "removeEndpoint": "orders/v1/deleteProyect",
-      "getByIdEndpoint": "orders/v1/getProjectById",
-    },
-    {
-      "entityId": "7",
-      "label": "Unidades",
-      "listEndpoint": "orders/v1/getTypes",
+      "entityId": "8",
+      "label": "Cliente",
+      "listEndpoint": "entity/v1/getEntities/8",
       "editEndpoint": null,
-      "addEndpoint": "orders/v1/addType",
+      "addEndpoint": "entity/v1/addType",
       "removeEndpoint": null,
       "getByIdEndpoint": null,
     },
-    // {
-    //   "entityId": "4",
-    //   "label": "Unidades",
-    //   "listEndpoint": "orders/v1/getTypesByProyect/4",
-    //   "editEndpoint": null,
-    //   "addEndpoint": "orders/v1/addType",
-    //   "removeEndpoint": null,
-    //   "getByIdEndpoint": null,
-    // },
-    // {
-    //   "entityId": "5",
-    //   "label": "Unidades",
-    //   "listEndpoint": "orders/v1/getTypesByProyect/5",
-    //   "editEndpoint": null,
-    //   "addEndpoint": "orders/v1/addType",
-    //   "removeEndpoint": null,
-    //   "getByIdEndpoint": null,
-    // },
+    {
+      "entityId": "9",
+      "label": "Expediente",
+      "listEndpoint": "entity/v1/getEntities/9",
+      "editEndpoint": null,
+      "addEndpoint": "entity/v1/addType",
+      "removeEndpoint": null,
+      "getByIdEndpoint": null,
+    },
+    {
+      "entityId": "10",
+      "label": "Representa Legal",
+      "listEndpoint": "entity/v1/getEntities/10",
+      "editEndpoint": null,
+      "addEndpoint": "entity/v1/addType",
+      "removeEndpoint": null,
+      "getByIdEndpoint": null,
+    },
   ];
 
   Future askPermission() async {
@@ -144,29 +125,23 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AuthorizationWrapper(
-            requestAction: PermissionLevel.analystCreditByClient,
-            child: Column(
-              children: [
-                const SizedBox(height: Dimensions.heightSize),
-                CustomButtonWidget(
-                    text: "Aprobaciones de crédito",
-                    onTap: () =>
-                        Get.toNamed(RouterPaths.ANALYST_CREDITS_BY_CLIENT_PAGE),
-                    padding: const EdgeInsets.only(left: 0.0, right: 0.0)),
-              ],
-            ),
-          ),
-          AuthorizationWrapper(
-              requestAction: PermissionLevel.dashboardAddQuoteButton,
-              child: Column(
+          ...cdi
+              .map((e) => Column(
                 children: [
                   spaceButton,
                   CustomButtonWidget(
-                    text: "Creación de solicitud de crédito",
-                    onTap: () => Get.toNamed(RouterPaths.UNIT_QUOTE_PAGE),
-                    padding: defaultPadding,
-                  ),
+                      text: e["label"].toString(),
+                      onTap: () => Get.toNamed(RouterPaths.LIST_CDI_PAGE,
+                              arguments: {
+                                "entityId": e["entityId"],
+                                "label": e["label"],
+                                "listEndpoint": e["listEndpoint"],
+                                "editEndpoint": e["editEndpoint"],
+                                "addEndpoint": e["addEndpoint"],
+                                "removeEndpoint": e["removeEndpoint"],
+                                "getByIdEndpoint": e["getByIdEndpoint"],
+                              }),
+                      padding: defaultPadding),
                 ],
               )),
           const SizedBox(height: Dimensions.heightSize),
@@ -232,55 +207,6 @@ class _DashboardPageState extends State<DashboardPage> {
               "Solicitudes",
               () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
                   arguments: {"isWatchMode": false})),
-
-          // AuthorizationWrapper(
-          //   requestAction: PermissionLevel.manageCompany,
-          //   child: Column(
-          //     children: [
-          //       spaceButton,
-          //       CustomButtonWidget(
-          //           text: "Empresas",
-          //           onTap: () => Get.toNamed(RouterPaths.LIST_COMPANIES_PAGE),
-          //           padding: defaultPadding),
-          //     ],
-          //   ),
-          // ),
-          // AuthorizationWrapper(
-          //   requestAction: PermissionLevel.manageCompany,
-          //   child: Column(
-          //     children: [
-          //       spaceButton,
-          //       CustomButtonWidget(
-          //           text: "Proyectos",
-          //           onTap: () =>
-          //               Get.toNamed(RouterPaths.LIST_COMPANY_PROJECTS_PAGE),
-          //           padding: defaultPadding),
-          //     ],
-          //   ),
-          // ),
-          ...cdi
-              .map((e) => AuthorizationWrapper(
-                    requestAction: PermissionLevel.list_cdi,
-                    child: Column(
-                      children: [
-                        spaceButton,
-                        CustomButtonWidget(
-                            text: e["label"].toString(),
-                            onTap: () => Get.toNamed(RouterPaths.LIST_CDI_PAGE,
-                                    arguments: {
-                                      "entityId": e["entityId"],
-                                      "label": e["label"],
-                                      "listEndpoint": e["listEndpoint"],
-                                      "editEndpoint": e["editEndpoint"],
-                                      "addEndpoint": e["addEndpoint"],
-                                      "removeEndpoint": e["removeEndpoint"],
-                                      "getByIdEndpoint": e["getByIdEndpoint"],
-                                    }),
-                            padding: defaultPadding),
-                      ],
-                    ),
-                  ))
-              .toList(),
         ],
       ),
     );
