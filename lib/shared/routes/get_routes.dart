@@ -27,6 +27,7 @@ import 'package:developer_company/views/credit_request/pages/credit_user_applica
 import 'package:developer_company/views/credit_request/pages/credits_reserved_approved.dart';
 import 'package:developer_company/views/credit_request/pages/unit_quote_detail_page.dart';
 import 'package:developer_company/views/credit_request/pages/unit_quote_page.dart';
+import 'package:developer_company/views/customer_registration_range/pages/customer_register_range_page.dart';
 import 'package:developer_company/views/developer_company/pages/list_companies_page.dart';
 import 'package:developer_company/views/developer_company/pages/manage_company_page.dart';
 import 'package:developer_company/views/developer_company_projects/pages/create_assign_project_to_company_page.dart';
@@ -124,6 +125,7 @@ class GetRoutes{
       //APPLICATION EVALUATION PAGES
       GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
       GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => CreditApplicationFormPage()),
+      GetPage(name: RouterPaths.CUSTOMER_REGISTER_RANGE_PAGE, page: () => RegisterCustomerRangePage())
 
     ];
   }
