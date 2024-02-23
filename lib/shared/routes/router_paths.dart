@@ -77,5 +77,6 @@ class RouterPaths{
   static const String CREDIT_APPLICATION_FORM_PAGE = "/creditApplicationFormPage";
   static const String CUSTOMER_REGISTER_RANGE_PAGE = "/customerRegisterRangePage";
   static const String ACCOUNTING_FACTORAGE_PAGE = "/accountingFactoragePage";
+  static const String EMPLOYED_CREDIT_REQUEST_PAGE = "/employedCreditRequestPage";
 }
 

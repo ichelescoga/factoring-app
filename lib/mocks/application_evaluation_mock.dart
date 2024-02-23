@@ -15,7 +15,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "2,553,939.85",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Aprobado"
   },
   {
     "No_Authorization": 2,
@@ -33,7 +33,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "2,356,506.56",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Denegado"
   },
   {
     "No_Authorization": 3,
@@ -51,7 +51,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "2,095,358.47",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Aprobado"
   },
   {
     "No_Authorization": 4,
@@ -69,7 +69,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "1,746,585.26",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Denegado"
   },
   {
     "No_Authorization": 5,
@@ -87,7 +87,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "1,504,685.26",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Aprobado"
   },
   {
     "No_Authorization": 6,
@@ -105,7 +105,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "3/30/2024",
     "available_space": "1,106,735.26",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Aprobado"
   },
   {
     "No_Authorization": 7,
@@ -123,7 +123,7 @@ const APPLICATION_EVAL_DATA = [
     "payment_date": "4/29/2024",
     "available_space": "56,199.80",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": "Aprobado"
   }
 ];
 
@@ -182,7 +182,7 @@ const ACCOUNTING_DATA = [
     "overdue_balance": null,
     "analysis": "Pendiente"
   },
-    {
+  {
     "No_Authorization": 4,
     "client": "EMPRESA45a6",
     "invoice_amount": "Q2,500,000.00",
@@ -200,7 +200,7 @@ const ACCOUNTING_DATA = [
     "overdue_balance": null,
     "analysis": "Pendiente"
   },
-    {
+  {
     "No_Authorization": 5,
     "client": "EMPRESA4s56",
     "invoice_amount": "Q2,500,000.00",
@@ -217,7 +217,8 @@ const ACCOUNTING_DATA = [
     "available_space": "1,043,250.00",
     "overdue_balance": null,
     "analysis": "Pendiente"
-  },  {
+  },
+  {
     "No_Authorization": 6,
     "client": "EMPRESA45a6",
     "invoice_amount": "Q2,500,000.00",

@@ -171,6 +171,11 @@ class _DashboardPageState extends State<DashboardPage> {
               "Contabilidad",
               () => Get.toNamed(RouterPaths.ACCOUNTING_FACTORAGE_PAGE,
                   arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.creditApplicationFrom,
+              "Solicitud Anticipo",
+              () => Get.toNamed(RouterPaths.EMPLOYED_CREDIT_REQUEST_PAGE,
+                  arguments: {"isWatchMode": false})),
         ],
       ),
     );

@@ -37,6 +37,7 @@ import 'package:developer_company/views/discounts/pages/discount_detail_by_quote
 import 'package:developer_company/views/discounts/pages/discount_detail_by_quote_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_maintenance_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_page.dart';
+import 'package:developer_company/views/employed_credit_request/pages/employed_credi_request.dart';
 import 'package:developer_company/views/factoraje_accounting/pages/accounting_page.dart';
 import 'package:developer_company/views/financial_entity/pages/financial_entity_creation_page.dart';
 import 'package:developer_company/views/home/pages/dashboard_page.dart';
@@ -128,6 +129,7 @@ class GetRoutes{
       GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
       GetPage(name: RouterPaths.CUSTOMER_REGISTER_RANGE_PAGE, page: () => const RegisterCustomerRangePage()),
       GetPage(name: RouterPaths.ACCOUNTING_FACTORAGE_PAGE, page: () => const AccountingFactoragePage()),
+      GetPage(name: RouterPaths.EMPLOYED_CREDIT_REQUEST_PAGE, page: () => const EmployedCreditRequestPage()),
     ];
   }
 }
