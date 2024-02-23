@@ -19,6 +19,7 @@ import 'package:developer_company/views/client/pages/client_credit_detail_page.d
 import 'package:developer_company/views/client/pages/client_dashboard_page.dart';
 import 'package:developer_company/views/client/pages/client_documents_page.dart';
 import 'package:developer_company/views/client/pages/client_offer_detail_page.dart';
+import 'package:developer_company/views/credit_application_form/pages/credit_application_form.dart';
 import 'package:developer_company/views/credit_request/pages/credit_application_page.dart';
 import 'package:developer_company/views/credit_request/pages/credit_detail_page.dart';
 import 'package:developer_company/views/credit_request/pages/credit_resolution_detail_page.dart';
@@ -123,7 +124,8 @@ class GetRoutes{
       GetPage(name: RouterPaths.CDI_SECOND_LEVEL, page: () => const CDISecondLevel()),
 
       //APPLICATION EVALUATION PAGES
-      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => const  ApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
 
     ];
   }

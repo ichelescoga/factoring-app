@@ -74,6 +74,8 @@ class RouterPaths{
   static const String CDI_SECOND_LEVEL = "/cdiSecondLevel";
 
   //ApplicationEvaluations
+  static const String CREDIT_APPLICATION_FORM_PAGE = "/creditApplicationFormPage";
   static const String APPLICATION_EVALUATION_PAGE = "/applicationEvaluationPage";
+
 }
 
