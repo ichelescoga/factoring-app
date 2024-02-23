@@ -72,6 +72,7 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                       columnLabel("Cupo disponible"),
                       columnLabel("Saldo en mora"),
                       columnLabel("Análisis"),
+                      columnLabel("Aprobar/Denegar")
                     ],
                     rows:
                         List<DataRow>.generate(controller.data.length, (index) {
@@ -83,11 +84,17 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                                   AppColors.lightColor)
                               : MaterialStateProperty.all<Color>(
                                   AppColors.lightSecondaryColor),
-                          cells: item
-                              .toMap()
-                              .values
-                              .map((e) => cellItem(e))
-                              .toList());
+                          cells: [
+                            ...item
+                                .toMap()
+                                .values
+                                .map((e) => cellItem(e))
+                                .toList(),
+                            DataCell(Center(
+                              child: IconButton(
+                                  onPressed: () {}, icon: Icon(Icons.thumbs_up_down)),
+                            ))
+                          ]);
                     }))),
               ),
             ),
