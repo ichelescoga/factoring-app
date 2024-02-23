@@ -179,11 +179,21 @@ class _DashboardPageState extends State<DashboardPage> {
           //     "Descuentos",
           //     () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
           //         arguments: {"isWatchMode": false})),
-          // authItem(
-          //     PermissionLevel.applicationEvaluation,
-          //     "Solicitudes",
-          //     () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
-          //         arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.applicationEvaluation,
+              "Alta de cliente",
+              () => Get.toNamed(RouterPaths.CUSTOMER_APPLICATION_RANGE,
+                  arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.applicationEvaluation,
+              "Contabilización",
+              () => Get.toNamed(RouterPaths.ADVANCE_CREDIT_ACCOUNTING_PAGE,
+                  arguments: {"isWatchMode": false})),
+          authItem(
+              PermissionLevel.applicationEvaluation,
+              "Solicitud de anticipo",
+              () => Get.toNamed(RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE,
+                  arguments: {"isWatchMode": false})),
         ],
       ),
     );
