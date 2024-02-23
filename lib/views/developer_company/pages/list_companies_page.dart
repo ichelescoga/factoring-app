@@ -28,6 +28,8 @@ class _ListCompaniesState extends State<ListCompanies> {
   @override
   Widget build(BuildContext context) {
     return dynamicTableWidget(
+      father: "",
+        mods: [],
         titlePage: "Empresas",
         editEndpoint: "",
         addEndpoint: "",

@@ -43,6 +43,8 @@ class _CDIListPageState extends State<CDIListPage> {
   @override
   Widget build(BuildContext context) {
     return dynamicTableWidget(
+        father: arguments["father"] == null ? "" : arguments["father"],
+        mods: arguments["mods"] ,
         showAddAction: arguments["addEndpoint"] != null,
         showDeleteAction: arguments["removeEndpoint"] != null,
         showActionIcon: arguments["editEndpoint"] != null,

@@ -3,6 +3,7 @@ import 'package:developer_company/data/providers/CDI/cdi_provider.dart';
 import 'package:developer_company/data/repositories/CDI/cdi_repository.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
+import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/data_table.dart';
 import 'package:developer_company/widgets/delete_company_dialog.dart';
@@ -27,6 +28,8 @@ class dynamicTableWidget extends StatefulWidget {
   final bool showAddAction;
   final IconData navigationIcon;
   final String titlePage;
+  final List<dynamic> mods;
+  final String father;
 
   const dynamicTableWidget(
       {Key? key,
@@ -40,6 +43,8 @@ class dynamicTableWidget extends StatefulWidget {
       required this.filterBoxLabel,
       required this.filterHintLabel,
       required this.titlePage,
+      required this.mods,
+      required this.father,
       this.showActionIcon = true,
       this.showDeleteAction = true,
       this.showAddAction = true,
@@ -97,11 +102,20 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
       "editEndpoint": widget.editEndpoint,
       "addEndpoint": widget.addEndpoint,
       "principalLabel": widget.titlePage,
-      "getByIdEndpoint": widget.getByIdEndpoint
+      "getByIdEndpoint": widget.getByIdEndpoint,
+      "father": widget.father
     });
     if (needUpdateListData) {
       getFormData();
     }
+  }
+
+  handleManageMods(int? id) async {
+    Get.toNamed(RouterPaths.CDI_SECOND_LEVEL, arguments: {
+      "mods": widget.mods,
+      "id": id,
+      "father": id
+    });
   }
 
   @override
@@ -152,6 +166,11 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
                                 DataCell(
                                   Row(
                                     children: [
+                                      if (widget.mods.length > 0)
+                                        IconButton(
+                                            onPressed: () =>
+                                                handleManageMods(element["id"]),
+                                            icon: Icon(Icons.next_week)),
                                       if (widget.showActionIcon)
                                         IconButton(
                                             onPressed: () =>

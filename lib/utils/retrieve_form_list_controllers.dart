@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:developer_company/controllers/cdi_check_button_controller.dart';
 import 'package:developer_company/data/models/image_model.dart';
 import 'package:developer_company/utils/cdi_components.dart';
@@ -57,6 +59,26 @@ Map<String, dynamic> retrieveFormControllersCheckBox(
       if (controller == null)
         throw Exception("Controller doesn't have null. ${id}");
       values[id] = controller.convertValueToInt(controller.isChecked);
+    }
+  });
+
+  return values;
+}
+
+Map<String, dynamic> convertBodyToCdi(
+    String entityId, String father, Map<String, dynamic> bodyKeys) {
+  Map<String, dynamic> values = {
+    "id": entityId,
+    "father": father,
+    "nombre": bodyKeys["nombre"] == null ? "" : bodyKeys["nombre"],
+    "descripcion":
+        bodyKeys["descripcion"] == null ? "" : bodyKeys["descripcion"],
+    "details": []
+  };
+
+  bodyKeys.forEach((key, value) {
+    if (key != "nombre" && key != "descripcion") {
+      values["details"].add({key: value});
     }
   });
 

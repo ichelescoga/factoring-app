@@ -1,3 +1,4 @@
+import 'package:developer_company/views/CDI/cdi_anidate_page.dart';
 import 'package:developer_company/views/CDI/cdi_list_page.dart';
 import 'package:developer_company/views/CDI/cdi_manage_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
@@ -119,6 +120,7 @@ class GetRoutes{
       //CDI
       GetPage(name: RouterPaths.LIST_CDI_PAGE, page: () => const CDIListPage()),
       GetPage(name: RouterPaths.MANAGE_CDI_PAGE, page: () => const CDIManagePage()),
+      GetPage(name: RouterPaths.CDI_SECOND_LEVEL, page: () => const CDISecondLevel()),
 
       //APPLICATION EVALUATION PAGES
       GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),

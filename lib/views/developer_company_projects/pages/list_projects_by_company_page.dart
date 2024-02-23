@@ -35,6 +35,8 @@ class _ListProjectsByCompanyStateState
   @override
   Widget build(BuildContext context) {
     return dynamicTableWidget(
+      father: "",
+      mods: [],
       editEndpoint: "",
       addEndpoint: "",
       removeEndpoint: "",

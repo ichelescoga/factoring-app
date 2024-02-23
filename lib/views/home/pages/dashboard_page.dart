@@ -66,33 +66,48 @@ class _DashboardPageState extends State<DashboardPage> {
   final spaceButton = SizedBox(height: Dimensions.heightSize);
   final defaultPadding = EdgeInsets.only(left: 0, right: 0);
 
-  final List<Map<String, String?>> cdi = [
+  // "value1": "Expediente", //9
+  // "value2": "Representante Legal", // 10
+  //  "value3": "Cuenta Banco", //11
+
+  final List<Map<String, dynamic>> cdi = [
     {
       "entityId": "8",
       "label": "Cliente",
       "listEndpoint": "entity/v1/getEntities/8",
       "editEndpoint": null,
-      "addEndpoint": "entity/v1/addType",
+      "addEndpoint": "entity/v1/addEntity",
       "removeEndpoint": null,
       "getByIdEndpoint": null,
-    },
-    {
-      "entityId": "9",
-      "label": "Expediente",
-      "listEndpoint": "entity/v1/getEntities/9",
-      "editEndpoint": null,
-      "addEndpoint": "entity/v1/addType",
-      "removeEndpoint": null,
-      "getByIdEndpoint": null,
-    },
-    {
-      "entityId": "10",
-      "label": "Representa Legal",
-      "listEndpoint": "entity/v1/getEntities/10",
-      "editEndpoint": null,
-      "addEndpoint": "entity/v1/addType",
-      "removeEndpoint": null,
-      "getByIdEndpoint": null,
+      "mods": [
+        {
+          "entityId": "9",
+          "label": "Expediente",
+          "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/3",
+          "editEndpoint": null,
+          "addEndpoint": "entity/v1/addEntity",
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "entityId": "10",
+          "label": "Representa Legal",
+          "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/4",
+          "editEndpoint": null,
+          "addEndpoint": "entity/v1/addEntity",
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "entityId": "11",
+          "label": "Cuentas de bancos",
+          "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+          "editEndpoint": null,
+          "addEndpoint": "entity/v1/addEntity",
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+      ]
     },
   ];
 
@@ -122,7 +137,7 @@ class _DashboardPageState extends State<DashboardPage> {
         Get.overlayContext?.findRootAncestorStateOfType<NavigatorState>();
       },
       sideBarList: sideBarList,
-      appBar: CustomAppBarSideBar(title: "Aplicación Financiera"),
+      appBar: CustomAppBarSideBar(title: "Aplicación"),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -141,21 +156,22 @@ class _DashboardPageState extends State<DashboardPage> {
                                     "addEndpoint": e["addEndpoint"],
                                     "removeEndpoint": e["removeEndpoint"],
                                     "getByIdEndpoint": e["getByIdEndpoint"],
+                                    "mods": e["mods"]
                                   }),
                           padding: defaultPadding),
                     ],
                   ))
               .toList(),
-          authItem(
-              PermissionLevel.discountsByQuote,
-              "Descuentos",
-              () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
-                  arguments: {"isWatchMode": false})),
-          authItem(
-              PermissionLevel.applicationEvaluation,
-              "Solicitudes",
-              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
-                  arguments: {"isWatchMode": false})),
+          // authItem(
+          //     PermissionLevel.discountsByQuote,
+          //     "Descuentos",
+          //     () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
+          //         arguments: {"isWatchMode": false})),
+          // authItem(
+          //     PermissionLevel.applicationEvaluation,
+          //     "Solicitudes",
+          //     () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+          //         arguments: {"isWatchMode": false})),
         ],
       ),
     );

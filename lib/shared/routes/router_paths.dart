@@ -71,6 +71,7 @@ class RouterPaths{
   // CDI
   static const String LIST_CDI_PAGE = "/listCDIPage";
   static const String MANAGE_CDI_PAGE = "/manageCDIPage";
+  static const String CDI_SECOND_LEVEL = "/cdiSecondLevel";
 
   //ApplicationEvaluations
   static const String APPLICATION_EVALUATION_PAGE = "/applicationEvaluationPage";
