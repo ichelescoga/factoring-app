@@ -6,7 +6,7 @@ class CDIProvider {
   final http = HttpAdapter();
 
   Future<List<dynamic>> fetchDataTable(String entity) async {
-    final endpoint = "entity/v1/getComponents";
+    final endpoint = "entitya/v1/getComponents";
 
     try {
       final response = await http.getApiWithBody(

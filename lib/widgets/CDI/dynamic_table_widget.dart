@@ -114,7 +114,8 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
     Get.toNamed(RouterPaths.CDI_SECOND_LEVEL, arguments: {
       "mods": widget.mods,
       "id": id,
-      "father": id
+      "father": id,
+      "title": widget.titlePage
     });
   }
 

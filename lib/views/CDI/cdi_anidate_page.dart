@@ -20,7 +20,6 @@ class _CDISecondLevelState extends State<CDISecondLevel> {
 
   List<dynamic> mods = [];
 
-
   @override
   void initState() {
     mods = arguments["mods"];
@@ -31,35 +30,62 @@ class _CDISecondLevelState extends State<CDISecondLevel> {
   Widget build(BuildContext context) {
     return Layout(
         sideBarList: [],
-        appBar: CustomAppBarTitle(title: "Clientes"),
+        appBar: CustomAppBarTitle(title: arguments["title"]),
         child: Column(
           children: [
-            ...mods
-                .map(
-                  (e) => Column(
-                    children: [
-                      spaceButton,
-                      CustomButtonWidget(
-                        text: e["label"]!,
-                        onTap: () {
-                          Get.toNamed(RouterPaths.LIST_CDI_PAGE, arguments: {
-                            "entityId": e["entityId"],
-                            "label": e["label"],
-                            "listEndpoint": e["listEndpoint"].toString().replaceAll("CLIENT_ID", arguments["id"].toString()),
-                            "editEndpoint": e["editEndpoint"],
-                            "addEndpoint": e["addEndpoint"],
-                            "removeEndpoint": e["removeEndpoint"],
-                            "getByIdEndpoint": e["getByIdEndpoint"],
-                            "mods": e["mods"] == null ? [] : e["mods"],
-                            "father": arguments["father"].toString()
-                          });
-                        },
-                        padding: defaultPadding,
-                      ),
-                    ],
-                  ),
-                )
-                .toList()
+            ...mods.map((e) {
+              return e["type"] == "CUSTOM_PATH"
+                  ? Column(
+                      children: [
+                        spaceButton,
+                        CustomButtonWidget(
+                          text: e["label"]!,
+                          onTap: () {
+                            Get.toNamed(e["ROUTE"], arguments: {
+                              "entityId": e["entityId"],
+                              "label": e["label"],
+                              "listEndpoint": e["listEndpoint"]
+                                  .toString()
+                                  .replaceAll(
+                                      "CLIENT_ID", arguments["id"].toString()),
+                              "editEndpoint": e["editEndpoint"],
+                              "addEndpoint": e["addEndpoint"],
+                              "removeEndpoint": e["removeEndpoint"],
+                              "getByIdEndpoint": e["getByIdEndpoint"],
+                              "mods": e["mods"] == null ? [] : e["mods"],
+                              "father": arguments["father"].toString()
+                            });
+                          },
+                          padding: defaultPadding,
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        spaceButton,
+                        CustomButtonWidget(
+                          text: e["label"]!,
+                          onTap: () {
+                            Get.toNamed(RouterPaths.LIST_CDI_PAGE, arguments: {
+                              "entityId": e["entityId"],
+                              "label": e["label"],
+                              "listEndpoint": e["listEndpoint"]
+                                  .toString()
+                                  .replaceAll(
+                                      "CLIENT_ID", arguments["id"].toString()),
+                              "editEndpoint": e["editEndpoint"],
+                              "addEndpoint": e["addEndpoint"],
+                              "removeEndpoint": e["removeEndpoint"],
+                              "getByIdEndpoint": e["getByIdEndpoint"],
+                              "mods": e["mods"] == null ? [] : e["mods"],
+                              "father": arguments["father"].toString()
+                            });
+                          },
+                          padding: defaultPadding,
+                        ),
+                      ],
+                    );
+            }).toList()
           ],
         ));
   }
