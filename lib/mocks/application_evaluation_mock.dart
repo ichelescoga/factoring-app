@@ -144,7 +144,9 @@ const ACCOUNTING_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "2,553,939.85",
     "overdue_balance": null,
-    "analysis": null
+    "analysis": null,
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   },
   {
     "No_Authorization": 2,
@@ -162,7 +164,9 @@ const ACCOUNTING_DATA = [
     "payment_date": "3/15/2024",
     "available_space": "1,200,000.00",
     "overdue_balance": null,
-    "analysis": "Aprobado"
+    "analysis": "Aprobado",
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   },
   {
     "No_Authorization": 3,
@@ -180,7 +184,9 @@ const ACCOUNTING_DATA = [
     "payment_date": "4/30/2024",
     "available_space": "1,043,250.00",
     "overdue_balance": null,
-    "analysis": "Pendiente"
+    "analysis": "Pendiente",
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   },
   {
     "No_Authorization": 4,
@@ -198,7 +204,9 @@ const ACCOUNTING_DATA = [
     "payment_date": "4/30/2024",
     "available_space": "1,043,250.00",
     "overdue_balance": null,
-    "analysis": "Pendiente"
+    "analysis": "Pendiente",
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   },
   {
     "No_Authorization": 5,
@@ -216,7 +224,9 @@ const ACCOUNTING_DATA = [
     "payment_date": "4/30/2024",
     "available_space": "1,043,250.00",
     "overdue_balance": null,
-    "analysis": "Pendiente"
+    "analysis": "Pendiente",
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   },
   {
     "No_Authorization": 6,
@@ -234,6 +244,8 @@ const ACCOUNTING_DATA = [
     "payment_date": "4/30/2024",
     "available_space": "1,043,250.00",
     "overdue_balance": null,
-    "analysis": "Pendiente"
+    "analysis": "Pendiente",
+    "approved": "Si",
+    "finalDisbursement": "Q1,405,570.47",
   }
 ];

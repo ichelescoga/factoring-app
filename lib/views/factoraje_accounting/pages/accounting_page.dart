@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/application_evaluation_model.dart';
+import 'package:developer_company/data/models/factoraje_accounting_model.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/views/factoraje_accounting/controller/accounting_controller.dart';
@@ -40,7 +40,7 @@ class _AccountingFactoragePageState extends State<AccountingFactoragePage> {
         children: [
           FilterBox(
               elements: controller.data,
-              handleFilteredData: (List<ApplicationEvalModel> data) {
+              handleFilteredData: (List<AccountingModel> data) {
                 setState(() => controller.dataFiltered.assignAll(data));
               },
               isLoading: false,
@@ -71,6 +71,8 @@ class _AccountingFactoragePageState extends State<AccountingFactoragePage> {
                     columnLabel("Cupo disponible"),
                     columnLabel("Saldo en mora"),
                     columnLabel("Análisis"),
+                    columnLabel("Aprobación"),
+                    columnLabel("Desembolso"),
                   ],
                   rows: List<DataRow>.generate(controller.data.length, (index) {
                     final item = controller.data.elementAt(index);
