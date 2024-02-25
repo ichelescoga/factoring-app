@@ -22,12 +22,17 @@ class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
 
   _handleSubmitForm() {
     print("validate");
-    _formKey.currentState!.validate();
+    if (_formKey.currentState!.validate()){
+      _ctrl.sedCreditRequest();
+    }
   }
 
   @override
   void initState() {
     super.initState();
+    Map<String, dynamic> arg = Get.arguments;
+    print(arg);
+    var father = arg['father'];
     _ctrl = Get.put(CreditApplicationFormController());
   }
 

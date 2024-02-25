@@ -42,7 +42,9 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
             FilterBox(
                 elements: controller.data,
                 handleFilteredData: (List<ApplicationEvalModel> data) {
-                  setState(() => controller.dataFiltered.assignAll(data));
+                  controller.dataFiltered.clear();
+                  controller.dataFiltered.addAll(data);
+                  controller.update();
                 },
                 isLoading: false,
                 hint: "Buscar",
@@ -92,7 +94,9 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                                 .toList(),
                             DataCell(Center(
                               child: IconButton(
-                                  onPressed: () {}, icon: Icon(Icons.thumbs_up_down)),
+                                  onPressed: () =>
+                                      controller.getApplicationRequest(item),
+                                  icon: Icon(Icons.send_and_archive_outlined)),
                             ))
                           ]);
                     }))),

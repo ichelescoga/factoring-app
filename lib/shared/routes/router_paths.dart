@@ -77,6 +77,7 @@ class RouterPaths{
   static const String CREDIT_APPLICATION_FORM_PAGE = "/creditApplicationFormPage";
   static const String APPLICATION_EVALUATION_PAGE = "/applicationEvaluationPage";
   static const String CUSTOMER_ACCOUNTING_PAGE = "/customerAccountingPage";
+  static const String CUSTOMER_ACCEPT_REJECT_REQUEST = "/customerAcceptRejectRequest";
 
 }
 

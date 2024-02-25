@@ -1,15 +1,20 @@
+import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/validations/days_old_validator.dart';
+import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
+import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
 import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/shared/validations/percentage_validator.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
+import 'package:developer_company/widgets/date_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FormCreditApplication extends StatelessWidget {
-  const FormCreditApplication({
+  FormCreditApplication({
     Key? key,
     required CreditApplicationFormController ctrl,
     required this.doAction,
@@ -18,11 +23,27 @@ class FormCreditApplication extends StatelessWidget {
 
   final CreditApplicationFormController _ctrl;
   final VoidCallback doAction;
+  int actualYear = DateTime.now().year;
 
   String? validateNumber(String? value) {
     if (value == null) return "Ingrese un numero valido";
     if (double.tryParse(value) == null) return "Numero no valido";
     return null;
+  }
+
+  String? currencyValidator(String? value) {
+    final incomes = extractNumber(value!);
+
+    final isValidMinMonths = graterThanNumberValidator(incomes, 1);
+    final isValidMaxMonths = lowerThanNumberValidator(incomes, 150000);
+    if (!isValidMinMonths) {
+      return '${Strings.incomesMax} 0.0';
+    }
+
+    if (isValidMaxMonths) {
+      return null;
+    }
+    return '${Strings.incomesMin} 150,000.00';
   }
 
   @override
@@ -51,11 +72,14 @@ class FormCreditApplication extends StatelessWidget {
             prefixIcon: Icons.price_check),
         CustomInputWidget(
             controller: _ctrl.commissionRate,
-            label: "Commission",
-            hintText: "Commission",
+            label: "Tasa de comisión",
+            hintText: "Tasa de comisión",
             keyboardType: TextInputType.number,
             validator: (value) {
-              return validateNumber(value);
+              if (percentageValidator(value)) {
+                return "Porcentaje invalido";
+              }
+              return null;
             },
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
@@ -63,9 +87,7 @@ class FormCreditApplication extends StatelessWidget {
             label: "Cupo asignado",
             hintText: "Cupo asignado",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
+            validator: (value) => currencyValidator(value),
             prefixIcon: Icons.monetization_on),
         //divider
         CustomInputWidget(
@@ -103,27 +125,43 @@ class FormCreditApplication extends StatelessWidget {
             hintText: "Monto solicitado",
             keyboardType: TextInputType.number,
             validator: (value) {
-              return validateNumber(value);
+              return currencyValidator(value);
             },
             prefixIcon: Icons.monetization_on),
-        CustomInputWidget(
-            controller: _ctrl.disbursementDate,
-            label: "Fecha de desembolso",
-            hintText: "Fecha de desembolso",
-            keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
-            prefixIcon: Icons.calendar_month),
-        CustomInputWidget(
-            controller: _ctrl.payPromiseDate,
-            label: "Fecha de pago",
-            hintText: "Fecha de pago",
-            keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
-            prefixIcon: Icons.date_range),
+        CustomDatePicker(
+          controller: _ctrl.disbursementDate,
+          label: "Fecha de desembolso",
+          hintText: "Fecha de desembolso",
+          prefixIcon: Icons.date_range_outlined,
+          validator: (value) {
+            bool isDateValid = daysOldValidator(value.toString(), 2);
+            if (!isDateValid) {
+              return "La fecha debe ser mayor 2 días";
+            }
+            if (value != null) return null;
+            return "VALIDE CAMPOS";
+          },
+          initialDate: DateTime.now(),
+          firstDate: DateTime(actualYear - 60),
+          lastDate: DateTime(actualYear + 1),
+        ),
+        CustomDatePicker(
+          controller: _ctrl.payPromiseDate,
+          label: "Fecha de pago",
+          hintText: "Fecha de pago",
+          prefixIcon: Icons.date_range_outlined,
+          validator: (value) {
+            bool isDateValid = daysOldValidator(value.toString(), 2);
+            if (!isDateValid) {
+              return "La fecha debe ser mayor 2 días";
+            }
+            if (value != null) return null;
+            return "VALIDE CAMPOS";
+          },
+          initialDate: DateTime.now(),
+          firstDate: DateTime(actualYear - 60),
+          lastDate: DateTime(actualYear + 1),
+        ),
         CustomInputWidget(
             controller: _ctrl.daysOfCredit,
             label: "Dias de crédito",
@@ -154,7 +192,7 @@ class FormCreditApplication extends StatelessWidget {
             hintText: "Monto a desembolsar",
             keyboardType: TextInputType.number,
             validator: (value) {
-              return validateNumber(value);
+              return currencyValidator(value);
             },
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(

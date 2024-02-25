@@ -107,6 +107,17 @@ class _DashboardPageState extends State<DashboardPage> {
           "removeEndpoint": null,
           "getByIdEndpoint": null,
         },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
+          "entityId": "8",//Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Solicitudes",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
       ]
     },
   ];

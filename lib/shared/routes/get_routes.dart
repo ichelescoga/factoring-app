@@ -1,6 +1,7 @@
 import 'package:developer_company/views/CDI/cdi_anidate_page.dart';
 import 'package:developer_company/views/CDI/cdi_list_page.dart';
 import 'package:developer_company/views/CDI/cdi_manage_page.dart';
+import 'package:developer_company/views/accept_reject_request/pages/accept_reject_request.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
@@ -128,6 +129,7 @@ class GetRoutes{
       GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => const  ApplicationEvaluationPage()),
       GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
       GetPage(name: RouterPaths.CUSTOMER_ACCOUNTING_PAGE, page: () => const AccountingFactoragePage()),
+      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const AcceptRejectRequestPage()),
     ];
   }
 }
