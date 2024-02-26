@@ -1,6 +1,7 @@
 import 'package:developer_company/data/providers/factorin_provider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class CreditApplicationFormController extends GetxController {
   late String _fatherId;
@@ -30,6 +31,15 @@ class CreditApplicationFormController extends GetxController {
 
   void setFatherId (String id) => _fatherId = id;
 
+
+  String formatDate(String fechaDesembolsoString) {
+  DateTime fechaDesembolso = DateTime.parse(fechaDesembolsoString);
+
+  String fechaFormateada = DateFormat('dd/MM/yy').format(fechaDesembolso);
+
+  return fechaFormateada;
+}
+
   Future<void> sedCreditRequest(Function callback) async {
     var date = DateTime.now();
     Map<String, dynamic> body = {
@@ -40,10 +50,10 @@ class CreditApplicationFormController extends GetxController {
     "no_factura": billNumber.text ,
     "serie_factura": billSerie.text,
     "monto_factura": billAmount.text,
-    "fecha_factura": billDate.text,
+    "fecha_factura": formatDate(billDate.text.toString()),
     "monto_solicitado": applicationAmount.text,
-    "fecha_desembolso": disbursementDate.text,
-    "fecha_pago": payPromiseDate.text,
+    "fecha_desembolso": formatDate(disbursementDate.text.toString()),
+    "fecha_pago": formatDate(payPromiseDate.text.toString()),
     "dias_credito": daysOfCredit.text ,
     "comision": commission.text,
     "intereses": interestAmount.text,
@@ -51,10 +61,10 @@ class CreditApplicationFormController extends GetxController {
     "factura": "imagenfactura.jpg",
     "carta_representante": "imagen_carta.jpg",
     "id_entidad": _fatherId,
-    "createdby": date.toString()
+    "createdby": "1"
     };
+    print(body);
     var response = await provider.postApplicationRequest(body);
-    print(response);
 
     callback();
   }

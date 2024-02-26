@@ -103,6 +103,23 @@ class FormCreditApplication extends StatelessWidget {
             hintText: "Serie factura",
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.abc),
+        CustomDatePicker(
+          controller: _ctrl.billDate,
+          label: "Fecha de factura",
+          hintText: "Fecha de factura",
+          prefixIcon: Icons.date_range_outlined,
+          validator: (value) {
+            // bool isDateValid = daysOldValidator(value.toString(), 2);
+            // if (!isDateValid) {
+            //   return "La fecha debe ser mayor 2 días";
+            // }
+            if (value != null) return null;
+            return "VALIDE CAMPOS";
+          },
+          initialDate: DateTime.now(),
+          firstDate: DateTime(actualYear - 60),
+          lastDate: DateTime(actualYear + 1),
+        ),
         //divider
         CustomInputWidget(
             controller: TextEditingController(
