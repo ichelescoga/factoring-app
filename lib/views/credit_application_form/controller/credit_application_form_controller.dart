@@ -50,7 +50,7 @@ class CreditApplicationFormController extends GetxController {
     "monto_desembolsar" : amountToDisbursed.text,
     "factura": "imagenfactura.jpg",
     "carta_representante": "imagen_carta.jpg",
-    "id_entidad": 47,
+    "id_entidad": _fatherId,
     "createdby": date.toString()
     };
     var response = await provider.postApplicationRequest(body);
