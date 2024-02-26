@@ -24,8 +24,10 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
   @override
   void initState() {
     super.initState();
+    Map<String, dynamic> args = Get.arguments;
+    var fatherId = args['father'];
     controller = Get.put(ApplicationEvaluationController());
-    controller.fetchData();
+    controller.fetchData(fatherId);
   }
 
   @override
@@ -34,7 +36,7 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
     return Layout(
         sideBarList: <SideBarItem>[],
         appBar: CustomAppBarSideBar(
-          title: "Evolución de solicitud",
+          title: "Evaluación de solicitud",
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,8 +79,8 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                       columnLabel("Aprobar/Denegar")
                     ],
                     rows:
-                        List<DataRow>.generate(controller.data.length, (index) {
-                      final item = controller.data.elementAt(index);
+                        List<DataRow>.generate(controller.dataFiltered.length, (index) {
+                      final item = controller.dataFiltered.elementAt(index);
                       print(index);
                       return DataRow(
                           color: index % 2 == 0

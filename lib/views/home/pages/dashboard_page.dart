@@ -109,9 +109,31 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
-          "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
-          "entityId": "8",//Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+          "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
           "label": "Solicitudes",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
+          "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Solicitud de crédito",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
+          "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Contabilidad",
           "listEndpoint": null,
           "editEndpoint": null,
           "addEndpoint": null,
@@ -178,21 +200,6 @@ class _DashboardPageState extends State<DashboardPage> {
           //     "Descuentos",
           //     () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
           //         arguments: {"isWatchMode": false})),
-          authItem(
-              PermissionLevel.applicationEvaluation,
-              "Solicitudes",
-              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
-                  arguments: {"isWatchMode": false})),
-          authItem(
-              PermissionLevel.applicationEvaluation,
-              "Solicitud de crédito",
-              () => Get.toNamed(RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
-                  arguments: {"isWatchMode": false})),
-          authItem(
-              PermissionLevel.applicationEvaluation,
-              "Contabilidad",
-              () => Get.toNamed(RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
-                  arguments: {"isWatchMode": false})),
         ],
       ),
     );

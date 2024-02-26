@@ -5,9 +5,9 @@ import 'package:developer_company/shared/utils/http_adapter.dart';
 class FactoringProvider {
   final HttpAdapter _httpAdapter = HttpAdapter();
 
-  Future<List<ApplicationEvalModel>> getApplicationRequest() async {
+  Future<List<ApplicationEvalModel>> getApplicationRequest(String id) async {
     final response =
-        await _httpAdapter.getApi("solicitud/v1/getSolicitudesByEstado/", {});
+        await _httpAdapter.getApi("solicitud/v1/getSolicitudesByEstado/1/$id", {});
     if (response.statusCode == 200) {
       Iterable result = json.decode(response.body);
       var data = result.map((e) => ApplicationEvalModel.fromJson(e)).toList();

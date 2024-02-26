@@ -1,6 +1,5 @@
 import 'package:developer_company/data/models/application_evaluation_model.dart';
 import 'package:developer_company/data/providers/factorin_provider.dart';
-import 'package:developer_company/mocks/application_evaluation_mock.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:get/get.dart';
 
@@ -11,14 +10,12 @@ class ApplicationEvaluationController extends GetxController {
   RxString footerLabel =
       "\nRevision de Empresa Actualización de Info. Garantías…".obs;
 
-  Future<void> fetchData() async {
+  Future<void> fetchData(String fatherId) async {
     data.clear();
-    var list = APPLICATION_EVAL_DATA
-        .map((e) => ApplicationEvalModel.fromJson(e))
-        .toList();
-    data.addAll(list);
-    dataFiltered.addAll(list);
-    print(data.length);
+    dataFiltered.clear();
+    var tempData = await provider.getApplicationRequest(fatherId);
+    data.addAll(tempData);
+    dataFiltered.addAll(tempData);
     update();
   }
 
