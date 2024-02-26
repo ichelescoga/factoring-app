@@ -54,47 +54,35 @@ class FormCreditApplication extends StatelessWidget {
             controller: _ctrl.client,
             label: "Cliente",
             hintText: "Cliente",
-            validator: (value) {
-              return notEmptyFieldValidator(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.person),
         CustomInputWidget(
             controller: _ctrl.interestPercent,
             label: "Tasa de interés",
             hintText: "Tasa de interés",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              if (percentageValidator(value)) {
-                return "Porcentaje invalido";
-              }
-              return null;
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.price_check),
         CustomInputWidget(
             controller: _ctrl.commissionRate,
             label: "Tasa de comisión",
             hintText: "Tasa de comisión",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              if (percentageValidator(value)) {
-                return "Porcentaje invalido";
-              }
-              return null;
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.amountAssignment,
             label: "Cupo asignado",
             hintText: "Cupo asignado",
             keyboardType: TextInputType.number,
-            validator: (value) => currencyValidator(value),
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         //divider
         CustomInputWidget(
             controller: _ctrl.billNit,
             label: "Nit",
             hintText: "Nit",
-            validator: (value) => nitValidation(value),
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.perm_identity),
         CustomInputWidget(
             controller: _ctrl.billCompany,
@@ -107,9 +95,7 @@ class FormCreditApplication extends StatelessWidget {
             label: "No. Factura",
             hintText: "No. Factura",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.numbers),
         CustomInputWidget(
             controller: _ctrl.billSerie,
@@ -124,9 +110,7 @@ class FormCreditApplication extends StatelessWidget {
             label: "Monto solicitado",
             hintText: "Monto solicitado",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return currencyValidator(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomDatePicker(
           controller: _ctrl.disbursementDate,
@@ -134,10 +118,10 @@ class FormCreditApplication extends StatelessWidget {
           hintText: "Fecha de desembolso",
           prefixIcon: Icons.date_range_outlined,
           validator: (value) {
-            bool isDateValid = daysOldValidator(value.toString(), 2);
-            if (!isDateValid) {
-              return "La fecha debe ser mayor 2 días";
-            }
+            // bool isDateValid = daysOldValidator(value.toString(), 2);
+            // if (!isDateValid) {
+            //   return "La fecha debe ser mayor 2 días";
+            // }
             if (value != null) return null;
             return "VALIDE CAMPOS";
           },
@@ -151,10 +135,10 @@ class FormCreditApplication extends StatelessWidget {
           hintText: "Fecha de pago",
           prefixIcon: Icons.date_range_outlined,
           validator: (value) {
-            bool isDateValid = daysOldValidator(value.toString(), 2);
-            if (!isDateValid) {
-              return "La fecha debe ser mayor 2 días";
-            }
+            // bool isDateValid = daysOldValidator(value.toString(), 2);
+            // if (!isDateValid) {
+            //   return "La fecha debe ser mayor 2 días";
+            // }
             if (value != null) return null;
             return "VALIDE CAMPOS";
           },
@@ -167,38 +151,33 @@ class FormCreditApplication extends StatelessWidget {
             label: "Dias de crédito",
             hintText: "Dias de crédito",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.abc),
         CustomInputWidget(
             controller: _ctrl.commission,
             label: "Commission",
             hintText: "Commission",
-            validator: (value) => validateNumber(value),
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.interestAmount,
             label: "Intereses",
             hintText: "Intereses",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return validateNumber(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.amountToDisbursed,
             label: "Monto a desembolsar",
             hintText: "Monto a desembolsar",
             keyboardType: TextInputType.number,
-            validator: (value) {
-              return currencyValidator(value);
-            },
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.filename,
             label: "Subir archivo",
             hintText: "Subir archivo",
+            validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.file_copy),
         CustomButtonWidget(text: "Enviar solicitud", onTap: doAction),
       ],

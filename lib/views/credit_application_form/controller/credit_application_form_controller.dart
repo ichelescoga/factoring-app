@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CreditApplicationFormController extends GetxController {
+  late String _fatherId;
+
   final FactoringProvider provider = FactoringProvider();
 
   final TextEditingController client = TextEditingController();
@@ -26,7 +28,10 @@ class CreditApplicationFormController extends GetxController {
   final TextEditingController amountToDisbursed = TextEditingController();
   final TextEditingController filename = TextEditingController();
 
-  Future<void> sedCreditRequest() async {
+  void setFatherId (String id) => _fatherId = id;
+
+  Future<void> sedCreditRequest(Function callback) async {
+    var date = DateTime.now();
     Map<String, dynamic> body = {
     "empresa": client.text,
     "tasa_interes": interestPercent.text,
@@ -45,10 +50,13 @@ class CreditApplicationFormController extends GetxController {
     "monto_desembolsar" : amountToDisbursed.text,
     "factura": "imagenfactura.jpg",
     "carta_representante": "imagen_carta.jpg",
-    "id_entidad": "47",
-    "createdby": "1"
+    "id_entidad": 47,
+    "createdby": date.toString()
     };
-    await provider.postApplicationRequest(body);
+    var response = await provider.postApplicationRequest(body);
+    print(response);
+
+    callback();
   }
 
 }

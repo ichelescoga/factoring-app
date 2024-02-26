@@ -1,3 +1,4 @@
+import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
 import 'package:developer_company/views/credit_application_form/forms/form_credit_application.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
@@ -6,6 +7,7 @@ import 'package:developer_company/widgets/sidebar_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class CreditApplicationFormPage extends StatefulWidget {
@@ -21,19 +23,24 @@ class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
   final _formKey = GlobalKey<FormState>();
 
   _handleSubmitForm() {
-    print("validate");
-    if (_formKey.currentState!.validate()){
-      _ctrl.sedCreditRequest();
+    if (_formKey.currentState!.validate()) {
+      EasyLoading.show(status: Strings.loading);
+      _ctrl.sedCreditRequest(getBack);
     }
+  }
+
+  void getBack() {
+    EasyLoading.dismiss();
+    Navigator.pop(context);
   }
 
   @override
   void initState() {
     super.initState();
-    Map<String, dynamic> arg = Get.arguments;
-    print(arg);
-    var father = arg['father'];
+    Map<String, dynamic> args = Get.arguments;
+    var fatherId = args['father'];
     _ctrl = Get.put(CreditApplicationFormController());
+    _ctrl.setFatherId(fatherId);
   }
 
   @override
