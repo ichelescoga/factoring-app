@@ -24,8 +24,10 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
   @override
   void initState() {
     super.initState();
+    Map<String, dynamic> args = Get.arguments;
+    var fatherId = args['father'];
     controller = Get.put(ApplicationEvaluationController());
-    controller.fetchData();
+    controller.fetchData(fatherId);
   }
 
   @override
@@ -34,7 +36,7 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
     return Layout(
         sideBarList: <SideBarItem>[],
         appBar: CustomAppBarSideBar(
-          title: "Evolución de solicitud",
+          title: "Evaluación de solicitud",
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +44,9 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
             FilterBox(
                 elements: controller.data,
                 handleFilteredData: (List<ApplicationEvalModel> data) {
-                  setState(() => controller.dataFiltered.assignAll(data));
+                  controller.dataFiltered.clear();
+                  controller.dataFiltered.addAll(data);
+                  controller.update();
                 },
                 isLoading: false,
                 hint: "Buscar",
@@ -72,10 +76,11 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                       columnLabel("Cupo disponible"),
                       columnLabel("Saldo en mora"),
                       columnLabel("Análisis"),
+                      columnLabel("Aprobar/Denegar")
                     ],
                     rows:
-                        List<DataRow>.generate(controller.data.length, (index) {
-                      final item = controller.data.elementAt(index);
+                        List<DataRow>.generate(controller.dataFiltered.length, (index) {
+                      final item = controller.dataFiltered.elementAt(index);
                       print(index);
                       return DataRow(
                           color: index % 2 == 0
@@ -83,11 +88,19 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                                   AppColors.lightColor)
                               : MaterialStateProperty.all<Color>(
                                   AppColors.lightSecondaryColor),
-                          cells: item
-                              .toMap()
-                              .values
-                              .map((e) => cellItem(e))
-                              .toList());
+                          cells: [
+                            ...item
+                                .toMap()
+                                .values
+                                .map((e) => cellItem(e))
+                                .toList(),
+                            DataCell(Center(
+                              child: IconButton(
+                                  onPressed: () =>
+                                      controller.getApplicationRequest(item),
+                                  icon: Icon(Icons.send_and_archive_outlined)),
+                            ))
+                          ]);
                     }))),
               ),
             ),

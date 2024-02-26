@@ -1,6 +1,7 @@
 import 'package:developer_company/views/CDI/cdi_anidate_page.dart';
 import 'package:developer_company/views/CDI/cdi_list_page.dart';
 import 'package:developer_company/views/CDI/cdi_manage_page.dart';
+import 'package:developer_company/views/accept_reject_request/pages/accept_reject_request.dart';
 import 'package:developer_company/views/accounting/pages/accounting_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
@@ -126,10 +127,11 @@ class GetRoutes{
       GetPage(name: RouterPaths.CDI_SECOND_LEVEL, page: () => const CDISecondLevel()),
 
       //APPLICATION EVALUATION PAGES
-      // GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
       GetPage(name: RouterPaths.CUSTOMER_APPLICATION_RANGE, page: () => const RegisterCustomerRangePage()),
       GetPage(name: RouterPaths.ADVANCE_CREDIT_ACCOUNTING_PAGE, page: () => const AccountingAdvancePage()),
       GetPage(name: RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE, page: () => const EmployedCreditRequestPage()),
+      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const AcceptRejectRequestPage()),
 
     ];
   }
