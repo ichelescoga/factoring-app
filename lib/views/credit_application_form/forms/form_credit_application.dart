@@ -1,19 +1,18 @@
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
-import 'package:developer_company/shared/validations/days_old_validator.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
-import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
-import 'package:developer_company/shared/validations/percentage_validator.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/widgets/date_picker.dart';
+import 'package:developer_company/widgets/upload_button_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FormCreditApplication extends StatelessWidget {
+
   FormCreditApplication({
     Key? key,
     required CreditApplicationFormController ctrl,
@@ -190,12 +189,19 @@ class FormCreditApplication extends StatelessWidget {
             keyboardType: TextInputType.number,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
-        CustomInputWidget(
-            controller: _ctrl.filename,
-            label: "Subir archivo",
-            hintText: "Subir archivo",
-            validator: (value) => notEmptyFieldValidator(value),
-            prefixIcon: Icons.file_copy),
+        LogoUploadWidget(
+            icon: Icon(
+              Icons.camera,
+              color: Colors.white,
+            ),
+            enabled: true,
+            uploadImageController:_ctrl.filename,
+            text: "Subir archivo",
+            validator: (value) {
+              if (value == null) return "Seleccione una imagen";
+              return null;
+            }),
+
         CustomButtonWidget(text: "Enviar solicitud", onTap: doAction),
       ],
     );

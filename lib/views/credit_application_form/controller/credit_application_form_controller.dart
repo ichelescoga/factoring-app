@@ -1,4 +1,6 @@
+import 'package:developer_company/data/models/image_model.dart';
 import 'package:developer_company/data/providers/factorin_provider.dart';
+import 'package:developer_company/utils/handle_upload_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -27,7 +29,13 @@ class CreditApplicationFormController extends GetxController {
   final TextEditingController commission= TextEditingController();
   final TextEditingController interestAmount = TextEditingController();
   final TextEditingController amountToDisbursed = TextEditingController();
-  final TextEditingController filename = TextEditingController();
+  // final TextEditingController filename = TextEditingController();
+
+  ImageToUpload filename = ImageToUpload(
+    base64: null,
+    needUpdate: true,
+    link: "",
+  );
 
   void setFatherId (String id) => _fatherId = id;
 
@@ -41,7 +49,8 @@ class CreditApplicationFormController extends GetxController {
 }
 
   Future<void> sedCreditRequest(Function callback) async {
-    var date = DateTime.now();
+    String imageToSave = await saveImage(filename);
+
     Map<String, dynamic> body = {
     "empresa": client.text,
     "tasa_interes": interestPercent.text,
@@ -58,7 +67,7 @@ class CreditApplicationFormController extends GetxController {
     "comision": commission.text,
     "intereses": interestAmount.text,
     "monto_desembolsar" : amountToDisbursed.text,
-    "factura": "imagenfactura.jpg",
+    "factura": imageToSave,
     "carta_representante": "imagen_carta.jpg",
     "id_entidad": _fatherId,
     "createdby": "1"
