@@ -122,7 +122,7 @@ class _DashboardPageState extends State<DashboardPage> {
           "type": "CUSTOM_PATH",
           "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
           "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
-          "label": "Solicitud de crédito",
+          "label": "Nueva solicitud de crédito",
           "listEndpoint": null,
           "editEndpoint": null,
           "addEndpoint": null,

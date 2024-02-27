@@ -21,9 +21,9 @@ class ApplicationEvaluationController extends GetxController {
 
   void getApplicationRequest(ApplicationEvalModel model) {
     Map<String, String> parameters = {
-      "idRequest": "0 ",
+      "idRequest": "0",
       "authorization": model.noAuthorization.toString(),
-      "client": model.client,
+      "client": model.invoiceSerie,
       "disbursement": model.disbursement
     };
     Get.toNamed(RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,

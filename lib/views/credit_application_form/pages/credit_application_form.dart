@@ -19,13 +19,13 @@ class CreditApplicationFormPage extends StatefulWidget {
 }
 
 class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
-  late CreditApplicationFormController _ctrl;
+  late CreditApplicationFormController _controller;
   final _formKey = GlobalKey<FormState>();
 
   _handleSubmitForm() {
     if (_formKey.currentState!.validate()) {
       EasyLoading.show(status: Strings.loading);
-      _ctrl.sedCreditRequest(getBack);
+      _controller.sedCreditRequest(getBack);
     }
   }
 
@@ -39,8 +39,8 @@ class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
     super.initState();
     Map<String, dynamic> args = Get.arguments;
     var fatherId = args['father'];
-    _ctrl = Get.put(CreditApplicationFormController());
-    _ctrl.setFatherId(fatherId);
+    _controller = Get.put(CreditApplicationFormController());
+    _controller.setFatherId(fatherId);
   }
 
   @override
@@ -55,7 +55,7 @@ class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
         child: Form(
             key: _formKey,
             child: FormCreditApplication(
-              ctrl: _ctrl,
+              ctrl: _controller,
               doAction: _handleSubmitForm,
             )),
       )),

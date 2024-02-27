@@ -1,11 +1,12 @@
 class ApplicationEvalModel {
   int noAuthorization;
-  String client;
+  String invoiceSerie;
   String invoiceAmount;
   String utilizationPercentage;
   String usageAmount;
   int daysOfUse;
   String interestAmount;
+
   String commissions;
   String iva;
   String totalDiscount;
@@ -19,48 +20,49 @@ class ApplicationEvalModel {
 
   ApplicationEvalModel({
     required this.noAuthorization,
-    required this.client,
+    required this.invoiceSerie,
     required this.invoiceAmount,
     required this.utilizationPercentage,
     required this.usageAmount,
     required this.daysOfUse,
     required this.interestAmount,
-    required this.commissions,
-    required this.iva,
-    required this.totalDiscount,
-    required this.disbursement,
-    required this.dateDisbursement,
-    required this.paymentDate,
-    required this.availableSpace,
-    required this.overdueBalance,
-    required this.analysis,
+
+    this.commissions = "",
+    this.iva = "",
+    this.totalDiscount = "",
+    this.disbursement = "",
+    this.dateDisbursement = "",
+    this.paymentDate = "",
+    this.availableSpace = "",
+    this.overdueBalance = "",
+    this.analysis = "",
   });
 
   factory ApplicationEvalModel.fromJson(Map<String, dynamic> json) {
     return ApplicationEvalModel(
-      noAuthorization: json['No_Authorization'],
-      client: json['client'],
-      invoiceAmount: json['invoice_amount'],
-      utilizationPercentage: json['utilization_percentage'],
-      usageAmount: json['usage_amount'],
-      daysOfUse: json['days_of_use'],
-      interestAmount: json['interest_amount'],
-      commissions: json['commissions'],
-      iva: json['IVA'],
-      totalDiscount: json['total_discount'],
-      disbursement: json['disbursement'],
-      dateDisbursement: json['date_disbursement'],
-      paymentDate: json['payment_date'],
-      availableSpace: json['available_space'],
-      overdueBalance: json['overdue_balance'] ?? '0',
-      analysis: json['analysis'] ?? '',
+      noAuthorization: json['No_Factura'] == null ?  0 : int.tryParse(json['No_Factura'])!,
+      invoiceSerie: json['Serie_Factura'] == null ? "" : json['Serie_Factura'],
+      invoiceAmount: json['Monto_desembolsar'] == null ? "": json['Monto_desembolsar'].toString(),
+      utilizationPercentage: json['Tasa_interes'] == null ? "": json['Tasa_interes'].toString(),
+      usageAmount: json['Comision'] == null ? "": json['Comision'].toString(),
+      daysOfUse: json['Dias_credito'] == null ? 0: json['Dias_credito'],
+      interestAmount: json['Intereses'] == null ? "": json['Intereses'].toString(),
+      // commissions: json['commissions'],
+      // iva: json['IVA'],
+      // totalDiscount: json['total_discount'],
+      // disbursement: json['disbursement'],
+      // dateDisbursement: json['date_disbursement'],
+      // paymentDate: json['payment_date'],
+      // availableSpace: json['available_space'],
+      // overdueBalance: json['overdue_balance'] ?? '0',
+      // analysis: json['analysis'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'No_Authorization': noAuthorization,
-      'client': client,
+      'client': invoiceSerie,
       'invoice_amount': invoiceAmount,
       'utilization_percentage': utilizationPercentage,
       'usage_amount': usageAmount,
@@ -80,7 +82,7 @@ class ApplicationEvalModel {
     Map<String, String> toMap() {
     return {
       'No_Authorization': noAuthorization.toString(),
-      'client': client,
+      'client': invoiceSerie,
       'invoice_amount': invoiceAmount,
       'utilization_percentage': utilizationPercentage,
       'usage_amount': usageAmount,
