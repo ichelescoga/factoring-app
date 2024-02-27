@@ -1,19 +1,23 @@
-import 'package:developer_company/data/models/accept_reject_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AcceptRejectRequestController extends GetxController {
   TextEditingController authorization = TextEditingController();
-  TextEditingController client = TextEditingController();
-  TextEditingController disbursement = TextEditingController();
+  TextEditingController invoiceSerie = TextEditingController();
+  TextEditingController invoiceAmount = TextEditingController();
 
-  Rx<AcceptRejectRequestModel> model = AcceptRejectRequestModel.emptyInit().obs;
+  // Rx<AcceptRejectRequestModel> model = AcceptRejectRequestModel.emptyInit().obs;
 
   void fillInputs(Map<String, dynamic> data) {
-    model.value = AcceptRejectRequestModel.fromJson(data);
-    authorization.text = model.value.authorization;
-    client.text = model.value.client;
-    disbursement.text = model.value.disbursement;
-    update();
+    authorization.text = data["authorization"];
+    invoiceSerie.text = data["invoiceSerie"];
+    invoiceAmount.text = data["invoiceAmount"];
   }
+
+  void clearInputs(){
+    authorization.clear();
+    invoiceSerie.clear();
+    invoiceAmount.clear();
+  }
+
 }

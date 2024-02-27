@@ -1,4 +1,5 @@
 class ApplicationEvalModel {
+  String requestId;
   int noAuthorization;
   String invoiceSerie;
   String invoiceAmount;
@@ -19,6 +20,7 @@ class ApplicationEvalModel {
 
 
   ApplicationEvalModel({
+    this.requestId = "",
     required this.noAuthorization,
     required this.invoiceSerie,
     required this.invoiceAmount,
@@ -40,6 +42,7 @@ class ApplicationEvalModel {
 
   factory ApplicationEvalModel.fromJson(Map<String, dynamic> json) {
     return ApplicationEvalModel(
+      requestId: json["Id"].toString(),
       noAuthorization: json['No_Factura'] == null ?  0 : int.tryParse(json['No_Factura'])!,
       invoiceSerie: json['Serie_Factura'] == null ? "" : json['Serie_Factura'],
       invoiceAmount: json['Monto_desembolsar'] == null ? "": json['Monto_desembolsar'].toString(),

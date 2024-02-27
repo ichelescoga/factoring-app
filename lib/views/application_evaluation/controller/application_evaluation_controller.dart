@@ -10,23 +10,29 @@ class ApplicationEvaluationController extends GetxController {
   RxString footerLabel =
       "\nRevision de Empresa Actualización de Info. Garantías…".obs;
 
-  Future<void> fetchData(String fatherId) async {
+  Future<void> fetchData(String fatherId, String state) async {
     data.clear();
     dataFiltered.clear();
-    var tempData = await provider.getApplicationRequest(fatherId);
+    var tempData = await provider.getApplicationRequest(fatherId, state);
     data.addAll(tempData);
     dataFiltered.addAll(tempData);
     update();
   }
 
-  void getApplicationRequest(ApplicationEvalModel model) {
+  void getApplicationRequest(ApplicationEvalModel model) async {
     Map<String, String> parameters = {
       "idRequest": "0",
       "authorization": model.noAuthorization.toString(),
-      "client": model.invoiceSerie,
-      "disbursement": model.disbursement
+      "invoiceSerie": model.invoiceSerie,
+      "invoiceAmount": model.invoiceAmount,
+      "requestId": model.requestId
     };
-    Get.toNamed(RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
+    final isQuoteUpdate = await Get.toNamed(
+        RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
         parameters: parameters);
+
+    if (isQuoteUpdate) {  
+      
+    }
   }
 }
