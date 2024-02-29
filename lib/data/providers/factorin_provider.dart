@@ -5,9 +5,10 @@ import 'package:developer_company/shared/utils/http_adapter.dart';
 class FactoringProvider {
   final HttpAdapter _httpAdapter = HttpAdapter();
 
-  Future<List<ApplicationEvalModel>> getApplicationRequest(String id, String state) async {
-    final response =
-        await _httpAdapter.getApi("solicitud/v1/getSolicitudesByEstado/${state}/$id", {});
+  Future<List<ApplicationEvalModel>> getApplicationRequest(
+      String id, String state) async {
+    final response = await _httpAdapter
+        .getApi("solicitud/v1/getSolicitudesByEstado/${state}/$id", {});
     if (response.statusCode == 200) {
       Iterable result = json.decode(response.body);
       var data = result.map((e) => ApplicationEvalModel.fromJson(e)).toList();
@@ -26,5 +27,15 @@ class FactoringProvider {
     }
 
     return false;
+  }
+
+  Future<Map> getEntityById(int id) async {
+    final response = await _httpAdapter.getApi("entity/v1/getEntityById/${id}", {});
+
+    if (response.statusCode == 200) {
+      Map body = jsonDecode(response.body);
+      return {"data": body, "success": true};
+    }
+    return {"data": null, "success:": false};
   }
 }

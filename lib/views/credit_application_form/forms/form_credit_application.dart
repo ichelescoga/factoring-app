@@ -1,3 +1,4 @@
+import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FormCreditApplication extends StatelessWidget {
-
   FormCreditApplication({
     Key? key,
     required CreditApplicationFormController ctrl,
@@ -53,30 +53,37 @@ class FormCreditApplication extends StatelessWidget {
             controller: _ctrl.client,
             label: "Cliente",
             hintText: "Cliente",
+            enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.person),
         CustomInputWidget(
             controller: _ctrl.interestPercent,
             label: "Tasa de interés",
             hintText: "Tasa de interés",
-            keyboardType: TextInputType.number,
+            enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.price_check),
         CustomInputWidget(
             controller: _ctrl.commissionRate,
             label: "Tasa de comisión",
             hintText: "Tasa de comisión",
-            keyboardType: TextInputType.number,
+            enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.amountAssignment,
             label: "Cupo asignado",
             hintText: "Cupo asignado",
-            keyboardType: TextInputType.number,
+            enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
-        //divider
+        Text("Factura"),
+        Divider(
+          height: 20,
+          thickness: 5,
+          endIndent: 0,
+          color: AppColors.secondaryMainColor,
+        ),
         CustomInputWidget(
             controller: _ctrl.billNit,
             label: "Nit",
@@ -119,7 +126,13 @@ class FormCreditApplication extends StatelessWidget {
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
         ),
-        //divider
+        Text("Monto solicitado"),
+        Divider(
+          height: 20,
+          thickness: 5,
+          endIndent: 0,
+          color: AppColors.secondaryMainColor,
+        ),
         CustomInputWidget(
             controller: TextEditingController(
                 text: quetzalesCurrency(_ctrl.applicationAmount.text)),
@@ -195,13 +208,12 @@ class FormCreditApplication extends StatelessWidget {
               color: Colors.white,
             ),
             enabled: true,
-            uploadImageController:_ctrl.filename,
+            uploadImageController: _ctrl.filename,
             text: "Subir archivo",
             validator: (value) {
               if (value == null) return "Seleccione una imagen";
               return null;
             }),
-
         CustomButtonWidget(text: "Enviar solicitud", onTap: doAction),
       ],
     );

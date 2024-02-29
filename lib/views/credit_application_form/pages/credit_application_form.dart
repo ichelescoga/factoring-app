@@ -41,6 +41,7 @@ class _CreditApplicationFormPageState extends State<CreditApplicationFormPage> {
     var fatherId = args['father'];
     _controller = Get.put(CreditApplicationFormController());
     _controller.setFatherId(fatherId);
+    _controller.getEntityById();
   }
 
   @override
