@@ -36,3 +36,18 @@ String? extractNumber(String input) {
 
   return null;
 }
+
+double extractDouble(String input) {
+  RegExp regex = RegExp(r'[\d,.]+');
+  String numberString = regex.firstMatch(input)?.group(0) ?? '0';
+  numberString = numberString.replaceAll(',', '');
+
+  return double.tryParse(numberString) ?? 0.0;
+}
+
+String simpleNumberCurrency(String input) {
+  RegExp regex = RegExp(r'Q\s*([\d,.]+)');
+  String numberString = regex.firstMatch(input)?.group(1) ?? '0';
+
+  return numberString;
+}

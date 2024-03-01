@@ -1,8 +1,10 @@
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/validations/days_old_validator.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
+import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
@@ -88,7 +90,7 @@ class FormCreditApplication extends StatelessWidget {
             controller: _ctrl.billNit,
             label: "Nit",
             hintText: "Nit",
-            validator: (value) => notEmptyFieldValidator(value),
+            validator: (value) => nitValidation(value),
             prefixIcon: Icons.perm_identity),
         CustomInputWidget(
             controller: _ctrl.billCompany,
@@ -115,16 +117,25 @@ class FormCreditApplication extends StatelessWidget {
           hintText: "Fecha de factura",
           prefixIcon: Icons.date_range_outlined,
           validator: (value) {
-            // bool isDateValid = daysOldValidator(value.toString(), 2);
-            // if (!isDateValid) {
-            //   return "La fecha debe ser mayor 2 días";
-            // }
             if (value != null) return null;
             return "VALIDE CAMPOS";
           },
           initialDate: DateTime.now(),
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
+        ),
+        CustomInputWidget(
+          controller: _ctrl.billAmount,
+          label: "Monto de factura",
+          hintText: "Monto de factura",
+          prefixIcon: Icons.monetization_on,
+          keyboardType: TextInputType.number,
+          onFocusChangeInput: (hasFocus) {
+            if (!hasFocus) {
+              _ctrl.billAmount.text = quetzalesCurrency(_ctrl.billAmount.text);
+            }
+          },
+          validator: _ctrl.validateBillAmount,
         ),
         Text("Monto solicitado"),
         Divider(
@@ -133,24 +144,16 @@ class FormCreditApplication extends StatelessWidget {
           endIndent: 0,
           color: AppColors.secondaryMainColor,
         ),
-        CustomInputWidget(
-            controller: TextEditingController(
-                text: quetzalesCurrency(_ctrl.applicationAmount.text)),
-            label: "Monto solicitado",
-            hintText: "Monto solicitado",
-            keyboardType: TextInputType.number,
-            validator: (value) => notEmptyFieldValidator(value),
-            prefixIcon: Icons.monetization_on),
         CustomDatePicker(
           controller: _ctrl.disbursementDate,
           label: "Fecha de desembolso",
           hintText: "Fecha de desembolso",
           prefixIcon: Icons.date_range_outlined,
           validator: (value) {
-            // bool isDateValid = daysOldValidator(value.toString(), 2);
-            // if (!isDateValid) {
-            //   return "La fecha debe ser mayor 2 días";
-            // }
+            bool isDateValid = daysOldValidator(value.toString(), 0);
+            if (!isDateValid) {
+              return "La fecha debe ser mayor 1 días";
+            }
             if (value != null) return null;
             return "VALIDE CAMPOS";
           },
@@ -164,43 +167,69 @@ class FormCreditApplication extends StatelessWidget {
           hintText: "Fecha de pago",
           prefixIcon: Icons.date_range_outlined,
           validator: (value) {
-            // bool isDateValid = daysOldValidator(value.toString(), 2);
-            // if (!isDateValid) {
-            //   return "La fecha debe ser mayor 2 días";
-            // }
+            bool isDateValid = daysOldValidator(value.toString(), 2);
+            if (!isDateValid) {
+              return "La fecha debe ser mayor 2 días";
+            }
             if (value != null) return null;
             return "VALIDE CAMPOS";
           },
           initialDate: DateTime.now(),
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
+          onChange: _ctrl.updateDaysOfCredit,
         ),
         CustomInputWidget(
             controller: _ctrl.daysOfCredit,
             label: "Dias de crédito",
             hintText: "Dias de crédito",
-            keyboardType: TextInputType.number,
-            validator: (value) => notEmptyFieldValidator(value),
+            enabled: false,
+            validator: (value) {
+              if (int.tryParse(value!)! < 1) {
+                return "Fecha de pago es invalida";
+              }
+              return null;
+            },
             prefixIcon: Icons.abc),
         CustomInputWidget(
+          controller: _ctrl.finalApplicationAmount,
+          label: "Monto solicitado",
+          hintText: "Monto solicitado",
+          keyboardType: TextInputType.number,
+          prefixIcon: Icons.monetization_on,
+          onFocusChangeInput: (hasFocus) {
+            if (!hasFocus) {
+              _ctrl.finalApplicationAmount.text =
+                  quetzalesCurrency(_ctrl.finalApplicationAmount.text);
+              _ctrl.updateInterestAndCommissions();
+            }
+          },
+          validator: _ctrl.validateApplicationAmount,
+        ),
+        Text("Detalle de desembolso"),
+        Divider(
+          height: 20,
+          thickness: 5,
+          endIndent: 0,
+          color: AppColors.secondaryMainColor,
+        ),
+        CustomInputWidget(
             controller: _ctrl.commission,
-            label: "Commission",
-            hintText: "Commission",
-            validator: (value) => notEmptyFieldValidator(value),
+            label: "Comisión",
+            hintText: "Comisión",
+            enabled: false,
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.interestAmount,
             label: "Intereses",
             hintText: "Intereses",
-            keyboardType: TextInputType.number,
-            validator: (value) => notEmptyFieldValidator(value),
+            enabled: false,
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.amountToDisbursed,
             label: "Monto a desembolsar",
             hintText: "Monto a desembolsar",
-            keyboardType: TextInputType.number,
-            validator: (value) => notEmptyFieldValidator(value),
+            enabled: false,
             prefixIcon: Icons.monetization_on),
         LogoUploadWidget(
             icon: Icon(
