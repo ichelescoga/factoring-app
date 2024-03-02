@@ -25,6 +25,7 @@ class CreditApplicationFormController extends GetxController {
   final TextEditingController billAmount = TextEditingController();
 
   final TextEditingController applicationAmount = TextEditingController();
+  final TextEditingController applicationPercent = TextEditingController();
   final TextEditingController finalApplicationAmount = TextEditingController();
   final TextEditingController disbursementDate = TextEditingController();
   final TextEditingController payPromiseDate = TextEditingController();
@@ -79,7 +80,7 @@ class CreditApplicationFormController extends GetxController {
       "serie_factura": billSerie.text,
       "monto_factura": simpleNumberCurrency(billAmount.text),
       "fecha_factura": formatDate(billDate.text.toString()),
-      "monto_solicitado": simpleNumberCurrency(applicationAmount.text),
+      "monto_solicitado": simpleNumberCurrency(finalApplicationAmount.text),
       "fecha_desembolso": formatDate(disbursementDate.text.toString()),
       "fecha_pago": formatDate(payPromiseDate.text.toString()),
       "dias_credito": daysOfCredit.text,
@@ -91,8 +92,7 @@ class CreditApplicationFormController extends GetxController {
       "id_entidad": _fatherId,
       "createdby": "1"
     };
-    print(body);
-    var response = await provider.postApplicationRequest(body);
+    await provider.postApplicationRequest(body);
 
     callback();
   }
@@ -160,7 +160,91 @@ class CreditApplicationFormController extends GetxController {
       return "Verifique que el valor sea correcto";
     }
     final validAmount = graterThanNumberValidator(amount, 1);
-    if (validAmount) return 'El monto debe ser mayor 0';
+    if (!validAmount) return 'El monto debe ser mayor 0';
+    return null;
+  }
+
+  String? validatePayPromiseData(Object? value) {
+    DateTime currentDate = DateTime.now();
+    DateTime testDate = DateTime.parse(value.toString());
+
+    bool isDateValid = currentDate.compareTo(testDate) < 0;
+    if (!isDateValid) {
+      return "La fecha debe ser mayor a la fecha actual";
+    }
+    if (value != null) return null;
+    return "VALIDE CAMPOS";
+  }
+
+  String? validateBillDate(Object? value) {
+    if (value == null) {
+      return "El valor no puede ser nulo";
+    }
+
+    DateTime currentDate = DateTime.now();
+    DateTime testDate;
+
+    try {
+      testDate = DateTime.parse(value.toString());
+    } catch (e) {
+      return "Formato de fecha no válido";
+    }
+
+    Duration difference = testDate.difference(currentDate);
+    bool isDateValid = difference.inDays >= -60 && difference.inDays <= 60;
+
+    if (!isDateValid) {
+      return "La fecha debe estar dentro de los 60 días";
+    }
+
+    return null;
+  }
+
+  String? validateApplicationPercent(String? value) {
+    double number = extractDouble(value ?? "0");
+    if (number <= 0) {
+      return "Porcentaje debe ser mayor que 0";
+    }
+    if (number > 100) {
+      return "Monto debe ser menor a 100 %";
+    }
+    return null;
+  }
+
+  void handleChangeApplicationPercent(bool hasFocus) {
+    if (!hasFocus) {
+      double _percent = extractDouble(applicationPercent.text);
+      double _amount = extractDouble(billAmount.text);
+      _amount = (_amount * _percent) / 100;
+
+      applicationPercent.text = "$_percent %";
+      finalApplicationAmount.text = quetzalesCurrency(_amount.toString());
+
+      updateInterestAndCommissions();
+    }
+  }
+
+  String? validateDisbursementDate(Object? value) {
+    if (value == null) {
+      return "El valor no puede ser nulo";
+    }
+
+    DateTime currentDate = DateTime.now();
+    DateTime testDate;
+
+    try {
+      testDate = DateTime.parse(value.toString());
+    } catch (e) {
+      return "Formato de fecha no válido";
+    }
+
+    Duration difference = testDate.difference(currentDate);
+    bool isDateValid = difference.inDays > 2;
+
+    if (!isDateValid) {
+      return "La fecha debe ser mayor a dos días";
+    }
+
     return null;
   }
 }

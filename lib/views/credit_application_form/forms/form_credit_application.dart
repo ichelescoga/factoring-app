@@ -1,18 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:developer_company/widgets/date_picker.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
+import 'package:developer_company/widgets/custom_input_widget.dart';
+import 'package:developer_company/shared/validations/not_empty.dart';
+import 'package:developer_company/widgets/custom_button_widget.dart';
+import 'package:developer_company/widgets/upload_button_widget.dart';
+import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
-import 'package:developer_company/shared/validations/days_old_validator.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
-import 'package:developer_company/shared/validations/nit_validation.dart';
-import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
-import 'package:developer_company/widgets/custom_button_widget.dart';
-import 'package:developer_company/widgets/custom_input_widget.dart';
-import 'package:developer_company/widgets/date_picker.dart';
-import 'package:developer_company/widgets/upload_button_widget.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 class FormCreditApplication extends StatelessWidget {
   FormCreditApplication({
@@ -116,10 +115,7 @@ class FormCreditApplication extends StatelessWidget {
           label: "Fecha de factura",
           hintText: "Fecha de factura",
           prefixIcon: Icons.date_range_outlined,
-          validator: (value) {
-            if (value != null) return null;
-            return "VALIDE CAMPOS";
-          },
+          validator: _ctrl.validateBillDate,
           initialDate: DateTime.now(),
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
@@ -149,14 +145,7 @@ class FormCreditApplication extends StatelessWidget {
           label: "Fecha de desembolso",
           hintText: "Fecha de desembolso",
           prefixIcon: Icons.date_range_outlined,
-          validator: (value) {
-            bool isDateValid = daysOldValidator(value.toString(), 0);
-            if (!isDateValid) {
-              return "La fecha debe ser mayor 1 días";
-            }
-            if (value != null) return null;
-            return "VALIDE CAMPOS";
-          },
+          validator: _ctrl.validateDisbursementDate,
           initialDate: DateTime.now(),
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
@@ -166,14 +155,7 @@ class FormCreditApplication extends StatelessWidget {
           label: "Fecha de pago",
           hintText: "Fecha de pago",
           prefixIcon: Icons.date_range_outlined,
-          validator: (value) {
-            bool isDateValid = daysOldValidator(value.toString(), 2);
-            if (!isDateValid) {
-              return "La fecha debe ser mayor 2 días";
-            }
-            if (value != null) return null;
-            return "VALIDE CAMPOS";
-          },
+          validator: _ctrl.validatePayPromiseData,
           initialDate: DateTime.now(),
           firstDate: DateTime(actualYear - 60),
           lastDate: DateTime(actualYear + 1),
@@ -192,6 +174,15 @@ class FormCreditApplication extends StatelessWidget {
             },
             prefixIcon: Icons.abc),
         CustomInputWidget(
+          controller: _ctrl.applicationPercent,
+          label: "Porcentaje de monto solicitado",
+          hintText: "Monto solicitado",
+          keyboardType: TextInputType.number,
+          prefixIcon: Icons.monetization_on,
+          onFocusChangeInput: _ctrl.handleChangeApplicationPercent,
+          validator: _ctrl.validateApplicationPercent,
+        ),
+        CustomInputWidget(
           controller: _ctrl.finalApplicationAmount,
           label: "Monto solicitado",
           hintText: "Monto solicitado",
@@ -205,6 +196,7 @@ class FormCreditApplication extends StatelessWidget {
             }
           },
           validator: _ctrl.validateApplicationAmount,
+          enabled: false,
         ),
         Text("Detalle de desembolso"),
         Divider(
