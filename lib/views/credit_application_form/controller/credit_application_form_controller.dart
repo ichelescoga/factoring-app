@@ -114,6 +114,7 @@ class CreditApplicationFormController extends GetxController {
 
   void updateInterestAndCommissions() {
     try {
+      double _daysOfCredit = double.parse(daysOfCredit.text);
       double _requestedAmount = extractDouble(finalApplicationAmount.text);
 
       double _commissionRate = extractDouble(commissionRate.text);
@@ -122,7 +123,7 @@ class CreditApplicationFormController extends GetxController {
       commission.text = quetzalesCurrency(_commission.toString());
 
       double _interestRate = extractDouble(interestPercent.text);
-      double _interestAmount = (_requestedAmount * _interestRate) / 100;
+      double _interestAmount = ((_requestedAmount * _interestRate) / 100) * _daysOfCredit;
 
       interestAmount.text = quetzalesCurrency(_interestAmount.toString());
 
