@@ -1,3 +1,5 @@
+import 'package:developer_company/shared/utils/responsive.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:developer_company/widgets/date_picker.dart';
@@ -12,6 +14,7 @@ import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
+import 'package:flutter/widgets.dart';
 
 class FormCreditApplication extends StatelessWidget {
   FormCreditApplication({
@@ -20,6 +23,8 @@ class FormCreditApplication extends StatelessWidget {
     required this.doAction,
   })  : _ctrl = ctrl,
         super(key: key);
+
+  late Responsive responsive;
 
   final CreditApplicationFormController _ctrl;
   final VoidCallback doAction;
@@ -48,6 +53,7 @@ class FormCreditApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    responsive = Responsive.of(context);
     return Column(
       children: [
         CustomInputWidget(
@@ -57,20 +63,36 @@ class FormCreditApplication extends StatelessWidget {
             enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.person),
-        CustomInputWidget(
-            controller: _ctrl.interestPercent,
-            label: "Tasa de interés",
-            hintText: "Tasa de interés",
-            enabled: false,
-            validator: (value) => notEmptyFieldValidator(value),
-            prefixIcon: Icons.price_check),
-        CustomInputWidget(
-            controller: _ctrl.commissionRate,
-            label: "Tasa de comisión",
-            hintText: "Tasa de comisión",
-            enabled: false,
-            validator: (value) => notEmptyFieldValidator(value),
-            prefixIcon: Icons.monetization_on),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: CustomInputWidget(
+                  controller: _ctrl.interestPercent,
+                  label: "Tasa de interés",
+                  hintText: "Tasa de interés",
+                  enabled: false,
+                  validator: (value) => notEmptyFieldValidator(value),
+                  prefixIcon: Icons.price_check),
+            ),
+            VerticalDivider(
+              width: 5,
+              thickness: 5,
+              endIndent: 0,
+              color: AppColors.secondaryMainColor,
+            ),
+            Expanded(
+              child: CustomInputWidget(
+                  controller: _ctrl.commissionRate,
+                  label: "Tasa de comisión",
+                  hintText: "Tasa de comisión",
+                  enabled: false,
+                  validator: (value) => notEmptyFieldValidator(value),
+                  prefixIcon: Icons.monetization_on),
+            ),
+          ],
+        ),
         CustomInputWidget(
             controller: _ctrl.amountAssignment,
             label: "Cupo asignado",
