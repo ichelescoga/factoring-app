@@ -1,5 +1,5 @@
 import 'package:developer_company/data/models/application_evaluation_model.dart';
-import 'package:developer_company/data/providers/factorin_provider.dart';
+import 'package:developer_company/data/providers/factoring_provider.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:get/get.dart';
 
@@ -31,8 +31,8 @@ class ApplicationEvaluationController extends GetxController {
         RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
         parameters: parameters);
 
-    if (isQuoteUpdate) {  
-      
+    if (isQuoteUpdate) {
+
     }
   }
 }

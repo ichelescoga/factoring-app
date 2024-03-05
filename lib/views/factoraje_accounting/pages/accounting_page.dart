@@ -23,7 +23,10 @@ class _AccountingFactoragePageState extends State<AccountingFactoragePage> {
   @override
   void initState() {
     super.initState();
+    var args = Get.arguments;
+    var id = args['father'];
     controller = Get.put(AccountingFactorageController());
+    controller.setFatherId(id);
     controller.fetchData();
   }
 

@@ -1,5 +1,5 @@
 import 'package:developer_company/data/models/image_model.dart';
-import 'package:developer_company/data/providers/factorin_provider.dart';
+import 'package:developer_company/data/providers/factoring_provider.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/utils/handle_upload_image.dart';
@@ -123,7 +123,10 @@ class CreditApplicationFormController extends GetxController {
       commission.text = quetzalesCurrency(_commission.toString());
 
       double _interestRate = extractDouble(interestPercent.text);
-      double _interestAmount = ((_requestedAmount * _interestRate) / 100) * _daysOfCredit;
+
+      double _interesesPerDay = (_interestRate * 12) / 365;
+      double _newInterestRate = (_interesesPerDay * _daysOfCredit) / 100;
+      double _interestAmount = _requestedAmount * _newInterestRate;
 
       interestAmount.text = quetzalesCurrency(_interestAmount.toString());
 
