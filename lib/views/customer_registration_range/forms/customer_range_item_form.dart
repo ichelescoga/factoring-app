@@ -55,8 +55,8 @@ class CustomerRangeItemForm extends StatelessWidget {
           ),
           CustomInputWidget(
             controller: controller.employedClass,
-            label: "Empleado",
-            hintText: "Empleado",
+            label: "Tipo empleado", // TODO: DEFINIDO POR TIPIFICACION
+            hintText: "Tipo empleado", //TODO: CLASIFICACION DE EMPLEADO 
             prefixIcon: Icons.person,
             keyboardType: TextInputType.number,
           ),
