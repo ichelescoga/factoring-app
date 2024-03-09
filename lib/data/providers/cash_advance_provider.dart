@@ -6,8 +6,8 @@ class CashAdvanceProvider {
   final HttpAdapter _httpAdapter = HttpAdapter();
 
   Future<List<ApplicationEvalModel>> getApplicationRequest(String id) async {
-    final response =
-        await _httpAdapter.getApi("solicitud/v1/getSolicitudesByEstado/1/$id", {});
+    final response = await _httpAdapter
+        .getApi("solicituda/v1/getSolicitudesByEstado/1/$id", {});
     if (response.statusCode == 200) {
       Iterable result = json.decode(response.body);
       var data = result.map((e) => ApplicationEvalModel.fromJson(e)).toList();
@@ -19,12 +19,22 @@ class CashAdvanceProvider {
 
   Future<bool> postApplicationRequest(Map body) async {
     final response =
-        await _httpAdapter.postApi("solicitud/v1/addSolicitud", body, {});
+        await _httpAdapter.postApi("solicituda/v1/addSolicitud", body, {});
     print(response);
     if (response.statusCode == 200) {
       return true;
     }
 
     return false;
+  }
+
+  Future<Map> getUserInformation(String idFather) async {
+    final response =
+        await _httpAdapter.getApi("/entitya/v1/getEntityById/$idFather", {});
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return {"data": data, "success": true};
+    }
+    return {"success": false};
   }
 }
