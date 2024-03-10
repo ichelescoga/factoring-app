@@ -196,15 +196,6 @@ class FormCreditApplication extends StatelessWidget {
             },
             prefixIcon: Icons.abc),
         CustomInputWidget(
-          controller: _ctrl.applicationPercent,
-          label: "Porcentaje de monto solicitado",
-          hintText: "Monto solicitado",
-          keyboardType: TextInputType.number,
-          prefixIcon: Icons.monetization_on,
-          onFocusChangeInput: _ctrl.handleChangeApplicationPercent,
-          validator: _ctrl.validateApplicationPercent,
-        ),
-        CustomInputWidget(
           controller: _ctrl.finalApplicationAmount,
           label: "Monto solicitado",
           hintText: "Monto solicitado",
@@ -218,7 +209,16 @@ class FormCreditApplication extends StatelessWidget {
             }
           },
           validator: _ctrl.validateApplicationAmount,
-          enabled: false,
+        ),
+        CustomInputWidget(
+          controller: _ctrl.applicationPercent,
+          label: "Porcentaje de monto solicitado",
+          hintText: "Monto solicitado",
+          keyboardType: TextInputType.number,
+          prefixIcon: Icons.monetization_on,
+          // onFocusChangeInput: _ctrl.handleChangeApplicationPercent,
+          validator: _ctrl.validateApplicationPercent,
+          readOnly: true,
         ),
         Text("Detalle de desembolso"),
         Divider(

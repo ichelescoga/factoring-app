@@ -117,6 +117,13 @@ class CreditApplicationFormController extends GetxController {
       double _daysOfCredit = double.parse(daysOfCredit.text);
       double _requestedAmount = extractDouble(finalApplicationAmount.text);
 
+      //TODO disable if the calc of the requested amount is by percentage
+      double _limitOfCredit = extractDouble(billAmount.text);
+      double _percentOfCredit = (_requestedAmount / _limitOfCredit) * 100;
+
+      applicationPercent.text = "$_percentOfCredit %";
+      //end
+
       double _commissionRate = extractDouble(commissionRate.text);
       double _commission = (_requestedAmount * _commissionRate) / 100;
 
