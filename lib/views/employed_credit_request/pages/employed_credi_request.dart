@@ -72,6 +72,15 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
                 readOnly: true,
                 prefixIcon: Icons.person),
             CustomInputWidget(
+                controller: _ctrl.clientTypeRange,
+                label: "Rango",
+                hintText: "Rango",
+                validator: (value) {
+                  return notEmptyFieldValidator(value);
+                },
+                readOnly: true,
+                prefixIcon: Icons.group),
+            CustomInputWidget(
                 controller: _ctrl.commissionRate,
                 label: "Tasa de commission",
                 hintText: "Tasa de commission",
@@ -97,7 +106,7 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
                   return notEmptyFieldValidator(value);
                 },
                 readOnly: true,
-                prefixIcon: Icons.person),
+                prefixIcon: Icons.perm_identity),
             CustomDatePicker(
               controller: _ctrl.date,
               label: "Fecha App",
@@ -176,7 +185,8 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
                 },
                 readOnly: true,
                 prefixIcon: Icons.monetization_on),
-            CustomButtonWidget(text: "Enviar solicitud", onTap: _handleSubmitForm)
+            CustomButtonWidget(
+                text: "Enviar solicitud", onTap: _handleSubmitForm)
           ],
         ),
       ),

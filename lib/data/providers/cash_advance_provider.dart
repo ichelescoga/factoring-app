@@ -30,10 +30,20 @@ class CashAdvanceProvider {
 
   Future<Map> getUserInformation(String idFather) async {
     final response =
-        await _httpAdapter.getApi("/entitya/v1/getEntityById/$idFather", {});
+        await _httpAdapter.getApi("entitya/v1/getEntityById/$idFather", {});
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       return {"data": data, "success": true};
+    }
+    return {"success": false};
+  }
+
+  Future<Map> getUserRango(String idFather) async {
+    final response =
+        await _httpAdapter.getApi("solicituda/v1/getRangosByEntity/$idFather", {});
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return {"data": data[0], "success": true};
     }
     return {"success": false};
   }

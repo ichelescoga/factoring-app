@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:developer_company/data/providers/cash_advance_provider.dart';
 import 'package:developer_company/shared/helpers/extractNumber.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -10,8 +11,12 @@ class EmployedCreditRequestController extends GetxController {
   CashAdvanceProvider provider = CashAdvanceProvider();
   late String _fatherId;
   int _daysOfCredit = 0;
+  int _rangeId = 0;
 
   TextEditingController client = TextEditingController();
+  TextEditingController clientTypeRange = TextEditingController();
+  TextEditingController maxTimeOfCredit = TextEditingController();
+  TextEditingController minTimeOfCredit = TextEditingController();
   TextEditingController commissionRate = TextEditingController();
   TextEditingController amountAssignment = TextEditingController();
   TextEditingController employedCode = TextEditingController();
@@ -25,14 +30,19 @@ class EmployedCreditRequestController extends GetxController {
   void setFatherId(String value) => _fatherId = value;
 
   Future<void> start() async {
-    var data = await provider.getUserInformation(_fatherId);
-    if (data['success'] && data['data']['message'] == null) {
-      print(data['data']);
-    } else {
-      client.text = "Alfredo Perez";
-      commissionRate.text = "1.50 %";
-      amountAssignment.text = "90,000.00";
-      employedCode.text = "Abd11234";
+    var resultUser = await provider.getUserInformation(_fatherId);
+    var resultRange = await provider.getUserRango(_fatherId);
+    if (resultUser['success'] && resultRange['success']) {
+      var values = resultUser['data'];
+      var _range = resultRange['data'];
+      client.text = values['nombre'];
+
+      _rangeId = _range['Id'];
+      amountAssignment.text = quetzalesCurrency(_range['Maximo'].toString());
+      commissionRate.text = "${_range['Tasa_comision']} %";
+      clientTypeRange.text = _range['Empleado'];
+      maxTimeOfCredit.text = _range['Tiempo_maximo'].toString();
+      minTimeOfCredit.text = _range['Tiempo_minimo'].toString();
     }
   }
 
