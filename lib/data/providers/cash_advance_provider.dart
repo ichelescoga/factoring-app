@@ -17,7 +17,8 @@ class CashAdvanceProvider {
     }
   }
 
-  Future<bool> postApplicationRequest(Map body) async {
+  Future<bool> postApplicationRequest(Map<String, dynamic> data) async {
+    var body = jsonEncode(data);
     final response =
         await _httpAdapter.postApi("solicituda/v1/addSolicitud", body, {});
     print(response);
@@ -30,20 +31,27 @@ class CashAdvanceProvider {
 
   Future<Map> getUserInformation(String idFather) async {
     final response =
-        await _httpAdapter.getApi("entitya/v1/getEntityById/$idFather", {});
+        // await _httpAdapter.getApi("entitya/v1/getEntityById/$idFather", {});
+        await _httpAdapter
+            .getApi("solicituda/v1/getEmpleadoById/$idFather", {});
     if (response.statusCode == 200) {
-      var data = json.decode(response.body);
+      var result = json.decode(response.body);
+      Map<String, dynamic> data = {
+        "empleado_nombre": result[0]['Nombre'],
+        "empleado_codigo": result[1]['Valor'],
+        "empleado_rangoId": result[2]['Valor'],
+      };
       return {"data": data, "success": true};
     }
     return {"success": false};
   }
 
-  Future<Map> getUserRango(String idFather) async {
+  Future<Map> getUserRango(int idRange) async {
     final response =
-        await _httpAdapter.getApi("solicituda/v1/getRangosByEntity/$idFather", {});
+        await _httpAdapter.getApi("solicituda/v1/getRangoById/$idRange", {});
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      return {"data": data[0], "success": true};
+      return {"data": data, "success": true};
     }
     return {"success": false};
   }

@@ -120,6 +120,28 @@ class _DashboardPageState extends State<DashboardPage> {
           ]
         },
         {
+          "entityId": "12",
+          "label": "Empleado Solicitud",
+          "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/14",
+          "editEndpoint": null,
+          "addEndpoint": "entitya/v1/addEntity",
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+          "mods": [
+            {
+              "type": "CUSTOM_PATH",
+              "ROUTE": RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE,
+              "entityId": "11",
+              "label": "Solicitud de anticipos",
+              "listEndpoint": null,
+              "editEndpoint": null,
+              "addEndpoint": null,
+              "removeEndpoint": null,
+              "getByIdEndpoint": null,
+            },
+          ]
+        },
+        {
           "type": "CUSTOM_PATH",
           "ROUTE": RouterPaths.CUSTOMER_APPLICATION_RANGE,
           "entityId": "8",

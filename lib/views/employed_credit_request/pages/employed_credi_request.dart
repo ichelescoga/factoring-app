@@ -4,6 +4,7 @@ import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/views/employed_credit_request/controller/employed_credit_request_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
+import 'package:developer_company/widgets/custom_dropdown_widget.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/widgets/date_picker.dart';
 import 'package:developer_company/widgets/layout.dart';
@@ -40,15 +41,17 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
     Navigator.pop(context);
   }
 
+
+
   @override
   void initState() {
     super.initState();
     var args = Get.arguments;
     var id = args['father'];
-
+    EasyLoading.show(status: Strings.loading);
     _ctrl = Get.put(EmployedCreditRequestController());
     _ctrl.setFatherId(id);
-    _ctrl.start();
+    _ctrl.start(() => EasyLoading.dismiss());
   }
 
   @override
@@ -64,8 +67,8 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
           children: [
             CustomInputWidget(
                 controller: _ctrl.client,
-                label: "Cliente",
-                hintText: "Cliente",
+                label: "Colaborador",
+                hintText: "Colaborador",
                 validator: (value) {
                   return notEmptyFieldValidator(value);
                 },
@@ -130,7 +133,8 @@ class _EmployedCreditRequestPageState extends State<EmployedCreditRequestPage> {
                 label: "Monto",
                 hintText: "Monto",
                 validator: _ctrl.validateApplicationAmount,
-                onChange: (_) => _ctrl.updateCommissions(),
+                // onChange: () => _ctrl.updateCommissions(),
+                onFocusChangeInput: _ctrl.updateCommissions,
                 prefixIcon: Icons.monetization_on),
             Text("Desembolso"),
             Divider(
