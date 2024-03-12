@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:developer_company/shared/resources/colors.dart';
+import 'package:developer_company/shared/utils/http_adapter.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/views/accept_reject_request/controller/accept_reject_request_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
@@ -22,6 +25,39 @@ class AcceptRejectRequestPage extends StatefulWidget {
 class _AcceptRejectRequestPageState extends State<AcceptRejectRequestPage> {
   late AcceptRejectRequestController controller;
   late Responsive responsive;
+
+  String requestId = "";
+  String REQUEST_APPROVED = "3";
+  String REQUEST_DENIED = "4";
+  bool requestHasChange = false;
+
+  _approveRequest() async {
+    HttpAdapter http = HttpAdapter();
+
+    final response = await http.postApi(
+        "solicituda/v1/updateEstadoSolicitud",
+        json.encode({"id": requestId, "estado": REQUEST_APPROVED}),
+        {'Content-Type': 'application/json'});
+    if (response.statusCode == 202) {
+      requestHasChange = true;
+      Navigator.of(context).pop();
+      setState(() {});
+    }
+  }
+
+  _deniedRequest() async {
+    HttpAdapter http = HttpAdapter();
+
+    final response = await http.postApi(
+        "solicituda/v1/updateEstadoSolicitud",
+        json.encode({"id": requestId, "estado": REQUEST_DENIED}),
+        {'Content-Type': 'application/json'});
+    if (response.statusCode == 202) {
+      requestHasChange = true;
+      Navigator.of(context).pop();
+      setState(() {});
+    }
+  }
 
   @override
   void initState() {
@@ -71,12 +107,14 @@ class _AcceptRejectRequestPageState extends State<AcceptRejectRequestPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomButtonResizableWidget(
-                  width: responsive.wp(35), text: "Aprobar", onTap: () {}),
+                  width: responsive.wp(35),
+                  text: "Aprobar",
+                  onTap: _approveRequest),
               CustomButtonResizableWidget(
                   width: responsive.wp(35),
                   color: AppColors.redColor,
                   text: "Denegar",
-                  onTap: () {})
+                  onTap: _deniedRequest)
             ],
           )
         ],
