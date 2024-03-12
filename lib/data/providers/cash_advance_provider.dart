@@ -1,16 +1,16 @@
 import 'dart:convert';
-import 'package:developer_company/data/models/application_evaluation_model.dart';
+import 'package:developer_company/data/models/EmployedCreditRequest.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 
 class CashAdvanceProvider {
   final HttpAdapter _httpAdapter = HttpAdapter();
 
-  Future<List<ApplicationEvalModel>> getApplicationRequest(String id) async {
+  Future<List<EmployedCreditRequest>> getApplicationRequest(int status, int  id) async {
     final response = await _httpAdapter
-        .getApi("solicituda/v1/getSolicitudesByEstado/1/$id", {});
+        .getApi("solicituda/v1/getSolicitudesByEstado/$status/$id", {});
     if (response.statusCode == 200) {
       Iterable result = json.decode(response.body);
-      var data = result.map((e) => ApplicationEvalModel.fromJson(e)).toList();
+      var data = result.map((e) => EmployedCreditRequest.fromJson(e)).toList();
       return data;
     } else {
       throw Exception("Failed to get status of application requests");
@@ -18,12 +18,21 @@ class CashAdvanceProvider {
   }
 
   Future<bool> postApplicationRequest(Map<String, dynamic> data) async {
-    var body = jsonEncode(data);
-    final response =
-        await _httpAdapter.postApi("solicituda/v1/addSolicitud", body, {});
-    print(response);
-    if (response.statusCode == 200) {
-      return true;
+    try {
+      final body = jsonEncode(data);
+      final response = await _httpAdapter.postApi(
+        "solicituda/v1/addSolicitud",
+        body,
+        {'Content-Type': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        print('Error en la solicitud: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error POST solicitud: $e');
     }
 
     return false;

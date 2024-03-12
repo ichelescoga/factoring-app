@@ -87,7 +87,7 @@ class EmployedCreditRequestController extends GetxController {
 
   Future<void> sendCashAdvanceRequest(Function callBack) async {
     final Map<String, dynamic> body = {
-      "tasa_comision": extractDouble(commission.text),
+      "tasa_comision": extractDouble(commissionRate.text).toString(),
       "codigo_empleado": employedCode.text,
       "monto": simpleNumberCurrency(amount.text),
       "fecha": formatDateGt(date.text),
@@ -96,7 +96,7 @@ class EmployedCreditRequestController extends GetxController {
       "comision": simpleNumberCurrency(commission.text),
       "monto_a_descontar": simpleNumberCurrency(discountAmount.text),
       "id_entidad": _fatherId,
-      "createdby": '1'//TODO REPLACE FOR LOGGED USER ID
+      "createdby": '1' //TODO REPLACE FOR LOGGED USER ID
     };
     var result = await provider.postApplicationRequest(body);
     if (result) {
@@ -153,7 +153,7 @@ class EmployedCreditRequestController extends GetxController {
         double _requestedAmount = extractDouble(amount.text);
 
         double _commissionRate = extractDouble(commissionRate.text);
-        double _commission = (_requestedAmount * _commissionRate) / 100;
+        double _commission = (_requestedAmount * _commissionRate); // /100;
 
         amount.text = quetzalesCurrency(_requestedAmount.toString());
 

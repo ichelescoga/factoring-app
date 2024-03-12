@@ -139,6 +139,17 @@ class _DashboardPageState extends State<DashboardPage> {
               "removeEndpoint": null,
               "getByIdEndpoint": null,
             },
+            {
+              "type": "CUSTOM_PATH",
+              "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+              "entityId": "11",
+              "label": "Solicitudes",
+              "listEndpoint": null,
+              "editEndpoint": null,
+              "addEndpoint": null,
+              "removeEndpoint": null,
+              "getByIdEndpoint": null,
+            },
           ]
         },
         {
