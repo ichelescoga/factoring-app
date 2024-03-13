@@ -133,6 +133,18 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+          "entityId":
+              "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Fabrica de créditos",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
           "ROUTE": RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
           "entityId":
               "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
