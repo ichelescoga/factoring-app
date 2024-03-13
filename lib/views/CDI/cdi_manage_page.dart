@@ -50,10 +50,10 @@ class _CDIManagePageState extends State<CDIManagePage> {
 
   _getImportantDataToCDI() async {
     entityId = arguments["entityId"].toString();
-    editEndpoint = arguments["editEndpoint"];
+    editEndpoint = arguments["editEndpoint"].toString();
     addEndpoint = arguments["addEndpoint"];
     principalLabel = arguments["principalLabel"];
-    getByIdEndpoint = arguments["getByIdEndpoint"];
+    getByIdEndpoint = arguments["getByIdEndpoint"].toString();
     father = arguments["father"];
   }
 
