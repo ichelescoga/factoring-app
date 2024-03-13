@@ -57,7 +57,10 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     setState(() {
       _selectedDate = newDate;
     });
-    widget.controller.text = formatDate(_selectedDate);
+    String date = formatDate(_selectedDate);
+    widget.controller.text = date;
+    widget.onChange!(date);
+
   }
 
   @override

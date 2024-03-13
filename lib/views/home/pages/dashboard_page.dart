@@ -196,6 +196,63 @@ class _DashboardPageState extends State<DashboardPage> {
             },
           ]
         },
+        {
+          "entityId": "11",
+          "label": "Cuentas de bancos",
+          "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+          "editEndpoint": null,
+          "addEndpoint": "entity/v1/addEntity",
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
+          "entityId":
+              "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Nueva solicitud de crédito",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+          "entityId":
+              "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Fabrica de créditos",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+          "entityId":
+              "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Fabrica de créditos",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
+        {
+          "type": "CUSTOM_PATH",
+          "ROUTE": RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
+          "entityId":
+              "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+          "label": "Contabilidad",
+          "listEndpoint": null,
+          "editEndpoint": null,
+          "addEndpoint": null,
+          "removeEndpoint": null,
+          "getByIdEndpoint": null,
+        },
 
         // COPY
         // {
