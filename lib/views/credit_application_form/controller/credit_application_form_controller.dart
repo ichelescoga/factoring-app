@@ -1,5 +1,6 @@
 import 'package:developer_company/data/models/image_model.dart';
 import 'package:developer_company/data/providers/factoring_provider.dart';
+import 'package:developer_company/shared/constants/components_body_keys.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/utils/handle_upload_image.dart';
@@ -60,11 +61,11 @@ class CreditApplicationFormController extends GetxController {
       var data = response["data"];
       client.text = data['nombre'];
       interestPercent.text =
-          "${double.parse(data['38'].toString())} %"; //TODO verify if this field is interest pecercent or only intereset per month
+          "${double.parse(data[ComponentBodyKey.interestRate].toString())} %"; //TODO verify if this field is interest pecercent or only intereset per month
       commissionRate.text =
-          "${double.parse(data['39'].toString())} %"; //TODO verify if this field is comission pecercent or only comission per month
+          "${double.parse(data[ComponentBodyKey.commissionRate].toString())} %"; //TODO verify if this field is comission pecercent or only comission per month
       amountAssignment.text =
-          "${quetzalesCurrency(data['42'].toString())}"; // data['43'].toString();
+          "${quetzalesCurrency(data[ComponentBodyKey.amountAssignment].toString())}"; // data['43'].toString();
     }
   }
 
