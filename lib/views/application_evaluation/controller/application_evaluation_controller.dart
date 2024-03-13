@@ -35,4 +35,13 @@ class ApplicationEvaluationController extends GetxController {
 
     }
   }
+
+    Future<void> fetchAll(String state) async {
+    data.clear();
+    dataFiltered.clear();
+    var tempData = await provider.getApplicationRequestByState(state);
+    data.addAll(tempData);
+    dataFiltered.addAll(tempData);
+    update();
+  }
 }

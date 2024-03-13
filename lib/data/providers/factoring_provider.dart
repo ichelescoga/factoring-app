@@ -49,7 +49,24 @@ class FactoringProvider {
       var data = result.map((e) => AccountingModel.fromJsonV2(e)).toList();
       return data;
     } else {
-       throw Exception("Failed to get status of application requests");
+      throw Exception("Failed to get status of application requests");
+    }
+  }
+
+  Future<List<ApplicationEvalModel>> getApplicationRequestByState(
+      String state) async {
+    final response = await _httpAdapter
+        .getApi("solicitud/v1/getSolicitudesByEstado/${state}", {});
+    if (response.statusCode == 200) {
+      List<ApplicationEvalModel> data = [];
+      var result = json.decode(response.body);
+      if (result['success']) {
+        Iterable list = result['data'];
+        data = list.map((e) => ApplicationEvalModel.fromJson(e)).toList();
+      }
+      return data;
+    } else {
+      throw Exception("Failed to get status of application requests");
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/application_evaluation/controller/application_evaluation_controller.dart';
 import 'package:developer_company/views/application_evaluation/screens/request_approveds.dart';
 import 'package:developer_company/views/application_evaluation/screens/request_denieds.dart';
 import 'package:developer_company/views/application_evaluation/screens/request_entereds.dart';
@@ -21,11 +20,10 @@ class ApplicationEvaluationPage extends StatefulWidget {
 
 class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
   late Responsive responsive;
-  late ApplicationEvaluationController controller;
-  // AppColors appColors = AppColors();
 
+  bool loadAllData = false;
 
-    List<Item> options = [
+  List<Item> options = [
     Item(
         id: "entered",
         icon: Icons.plus_one,
@@ -48,6 +46,11 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
   void initState() {
     super.initState();
     // fetchRequestedDiscounts();
+    var args = Get.arguments;
+    var condition = args['loadAll'];
+    if (condition != null && condition) {
+      loadAllData = true;
+    }
     itemSelected = options.first;
   }
 
@@ -70,9 +73,9 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                   });
                 }),
             SizedBox(height: 10),
-            if (itemSelected.id == "entered") RequestEntered(),
-            if (itemSelected.id == "approved") RequestApproved(),
-            if (itemSelected.id == "rejected") RequestDenied(),
+            if (itemSelected.id == "entered")  RequestEntered(loadAll: loadAllData),
+            if (itemSelected.id == "approved") RequestApproved(loadAll: loadAllData,),
+            if (itemSelected.id == "rejected") RequestDenied(loadAll: loadAllData,),
           ],
         ));
   }
