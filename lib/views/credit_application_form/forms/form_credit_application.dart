@@ -1,8 +1,11 @@
-import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: must_be_immutable
+import 'package:developer_company/widgets/custom_horizontal_divider.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:developer_company/widgets/date_picker.dart';
+import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
@@ -14,13 +17,13 @@ import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
 import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
-import 'package:flutter/widgets.dart';
 
 class FormCreditApplication extends StatelessWidget {
   FormCreditApplication({
     Key? key,
     required CreditApplicationFormController ctrl,
     required this.doAction,
+    this.readOnly = false,
   })  : _ctrl = ctrl,
         super(key: key);
 
@@ -28,6 +31,7 @@ class FormCreditApplication extends StatelessWidget {
 
   final CreditApplicationFormController _ctrl;
   final VoidCallback doAction;
+  final bool readOnly;
   int actualYear = DateTime.now().year;
 
   String? validateNumber(String? value) {
@@ -100,12 +104,8 @@ class FormCreditApplication extends StatelessWidget {
             enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
             prefixIcon: Icons.monetization_on),
-        Text("Factura"),
-        Divider(
-          height: 20,
-          thickness: 5,
-          endIndent: 0,
-          color: AppColors.secondaryMainColor,
+        CustomHorizontalDivider(
+          label: "Factura",
         ),
         CustomInputWidget(
             controller: _ctrl.billNit,
@@ -155,13 +155,7 @@ class FormCreditApplication extends StatelessWidget {
           },
           validator: _ctrl.validateBillAmount,
         ),
-        Text("Monto solicitado"),
-        Divider(
-          height: 20,
-          thickness: 5,
-          endIndent: 0,
-          color: AppColors.secondaryMainColor,
-        ),
+        CustomHorizontalDivider(label: "Monto solicitado"),
         CustomDatePicker(
           controller: _ctrl.disbursementDate,
           label: "Fecha de desembolso",
@@ -220,13 +214,7 @@ class FormCreditApplication extends StatelessWidget {
           validator: _ctrl.validateApplicationPercent,
           readOnly: true,
         ),
-        Text("Detalle de desembolso"),
-        Divider(
-          height: 20,
-          thickness: 5,
-          endIndent: 0,
-          color: AppColors.secondaryMainColor,
-        ),
+        CustomHorizontalDivider(label: "Detalle de desembolso"),
         CustomInputWidget(
             controller: _ctrl.commission,
             label: "Comisión",
