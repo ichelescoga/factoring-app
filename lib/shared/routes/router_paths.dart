@@ -79,5 +79,7 @@ class RouterPaths{
   static const String CUSTOMER_ACCOUNTING_PAGE = "/customerAccountingPage";
   static const String CUSTOMER_ACCEPT_REJECT_REQUEST = "/customerAcceptRejectRequest";
 
+  //Analyst Process pages
+  static const String ANALYST_RECOMMENDING_PAGE = "/analystRecommendingPage";
 }
 
