@@ -374,9 +374,22 @@ class _DashboardPageState extends State<DashboardPage> {
               .toList(),
           authItem(
               PermissionLevel.discountsByQuote,
-              "Solicitudes",
+              "Solicitudes análisis",
               () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
-                  arguments: {"isWatchMode": false, "loadAll": true})),
+                      arguments: {
+                        "isWatchMode": false,
+                        "loadAll": true,
+                        "mode": 1
+                      })),
+          authItem(
+              PermissionLevel.discountsByQuote,
+              "Solicitudes aprobación",
+              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+                      arguments: {
+                        "isWatchMode": false,
+                        "loadAll": true,
+                        "mode": 2
+                      })),
           authItem(
               PermissionLevel.discountsByQuote,
               "Análisis de créditos",

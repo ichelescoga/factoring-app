@@ -1,61 +1,57 @@
 import 'package:developer_company/controllers/analyst_text_form_controller.dart';
 import 'package:developer_company/shared/abstract/analyst_form_abs_controller.dart';
+import 'package:developer_company/shared/validations/not_empty.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RecommendingAnalystFormController extends GetxController
     implements AnalystAbsFormController {
   @override
   AnalystTextFormController inputController = AnalystTextFormController();
+  TextEditingController authorization = TextEditingController();
+  TextEditingController invoiceSerie = TextEditingController();
+  TextEditingController invoiceAmount = TextEditingController();
 
   @override
   void updateDaysOfCredit(String _) {
-    // TODO: implement updateDaysOfCredit
+    return notEmptyFieldValidator(_);
   }
 
   @override
-  void updateInterestAndCommissions() {
-    // TODO: implement updateInterestAndCommissions
-  }
+  void updateInterestAndCommissions() {}
 
   @override
   String? validateApplicationAmount(String? value) {
-    // TODO: implement validateApplicationAmount
-    throw UnimplementedError();
+    return notEmptyFieldValidator(value);
   }
 
   @override
   String? validateApplicationPercent(String? value) {
-    // TODO: implement validateApplicationPercent
-    throw UnimplementedError();
+    return notEmptyFieldValidator(value);
   }
 
   @override
   String? validateBillAmount(String? value) {
-    // TODO: implement validateBillAmount
-    throw UnimplementedError();
+    return notEmptyFieldValidator(value);
   }
 
   @override
   String? validateBillDate(Object? value) {
-    // TODO: implement validateBillDate
-    throw UnimplementedError();
+    return null;
   }
 
   @override
   String? validateDaysOfCredit(String? value) {
-    // TODO: implement validateDaysOfCredit
-    throw UnimplementedError();
+    return notEmptyFieldValidator(value);
   }
 
   @override
   String? validateDisbursementDate(Object? value) {
-    // TODO: implement validateDisbursementDate
-    throw UnimplementedError();
+    return null;
   }
 
   @override
   String? validatePayPromiseData(Object? value) {
-    // TODO: implement validatePayPromiseData
-    throw UnimplementedError();
+    return null;
   }
 }

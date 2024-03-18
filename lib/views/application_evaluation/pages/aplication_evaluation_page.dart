@@ -22,6 +22,8 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
   late Responsive responsive;
 
   bool loadAllData = false;
+  int mode = 0;
+  String title = "Evaluación de solicitud";
 
   List<Item> options = [
     Item(
@@ -50,6 +52,19 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
     var condition = args['loadAll'];
     if (condition != null && condition) {
       loadAllData = true;
+      mode = args['mode'];
+      switch (mode) {
+        case 1:
+          {
+            title = "Recomendar créditos";
+            break;
+          }
+        case 2:
+          {
+            title = "Aprobar créditos";
+            break;
+          }
+      }
     }
     itemSelected = options.first;
   }
@@ -60,7 +75,7 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
     return Layout(
         sideBarList: <SideBarItem>[],
         appBar: CustomAppBarSideBar(
-          title: "Evaluación de solicitud",
+          title: title,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,9 +88,9 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                   });
                 }),
             SizedBox(height: 10),
-            if (itemSelected.id == "entered")  RequestEntered(loadAll: loadAllData),
-            if (itemSelected.id == "approved") RequestApproved(loadAll: loadAllData,),
-            if (itemSelected.id == "rejected") RequestDenied(loadAll: loadAllData,),
+            if (itemSelected.id == "entered")  RequestEntered(loadAll: loadAllData, mode: mode,),
+            if (itemSelected.id == "approved") RequestApproved(loadAll: loadAllData, mode: mode,),
+            if (itemSelected.id == "rejected") RequestDenied(loadAll: loadAllData, mode: mode,),
           ],
         ));
   }

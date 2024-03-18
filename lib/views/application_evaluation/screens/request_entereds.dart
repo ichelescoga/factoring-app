@@ -11,9 +11,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class RequestEntered extends StatefulWidget {
-  RequestEntered({Key? key, required this.loadAll}) : super(key: key);
+  RequestEntered({Key? key, required this.loadAll, required this.mode}) : super(key: key);
 
   final bool loadAll;
+  final int mode;
   @override
   _RequestEnteredState createState() => _RequestEnteredState();
 }

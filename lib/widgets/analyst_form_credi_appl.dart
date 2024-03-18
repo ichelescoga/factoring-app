@@ -1,6 +1,4 @@
 // ignore_for_file: must_be_immutable
-import 'package:developer_company/shared/abstract/analyst_form_abs_controller.dart';
-import 'package:developer_company/widgets/custom_horizontal_divider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,11 +7,13 @@ import 'package:developer_company/widgets/date_picker.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
+import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
-import 'package:developer_company/widgets/upload_button_widget.dart';
 import 'package:developer_company/shared/validations/nit_validation.dart';
+import 'package:developer_company/widgets/custom_horizontal_divider.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/abstract/analyst_form_abs_controller.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
 
@@ -28,6 +28,7 @@ class AnalystFormCreditApplication<T extends AnalystAbsFormController>
         super(key: key);
 
   late Responsive responsive;
+
 
   final T _ctrl;
   final VoidCallback doAction;
@@ -212,7 +213,6 @@ class AnalystFormCreditApplication<T extends AnalystAbsFormController>
           hintText: "Monto solicitado",
           keyboardType: TextInputType.number,
           prefixIcon: Icons.monetization_on,
-          // onFocusChangeInput: _ctrl.handleChangeApplicationPercent,
           validator: _ctrl.validateApplicationPercent,
           readOnly: true,
         ),
@@ -235,18 +235,7 @@ class AnalystFormCreditApplication<T extends AnalystAbsFormController>
             hintText: "Monto a desembolsar",
             enabled: false,
             prefixIcon: Icons.monetization_on),
-        LogoUploadWidget(
-            icon: Icon(
-              Icons.camera,
-              color: Colors.white,
-            ),
-            enabled: true,
-            uploadImageController: _ctrl.inputController.filename,
-            text: "Subir archivo",
-            validator: (value) {
-              if (value == null) return "Seleccione una imagen";
-              return null;
-            }),
+        const SizedBox(height: Dimensions.heightSize),
       ],
     );
   }

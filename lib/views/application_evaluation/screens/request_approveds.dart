@@ -10,8 +10,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class RequestApproved extends StatefulWidget {
-  RequestApproved({Key? key, required this.loadAll}) : super(key: key);
+  RequestApproved({Key? key, required this.loadAll, required this.mode}) : super(key: key);
   final bool loadAll;
+  final int mode;
   @override
   _RequestApprovedState createState() => _RequestApprovedState();
 }
