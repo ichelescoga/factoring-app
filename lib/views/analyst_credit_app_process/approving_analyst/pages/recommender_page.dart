@@ -1,3 +1,5 @@
+import 'package:developer_company/shared/resources/strings.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +28,10 @@ class RecommendingAnalystPage extends StatefulWidget {
 
 class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
   late RecommendingAnalystFormController controller;
-
   late Responsive responsive;
+
+  final _formKey = GlobalKey<FormState>();
+
   String requestId = "";
   String REQUEST_APPROVED = "3";
   String REQUEST_DENIED = "4";
@@ -38,7 +42,11 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
 
   approveRequest() async {}
 
-  deniedRequest() async {}
+  deniedRequest() async {
+    if (_formKey.currentState!.validate()) {
+      EasyLoading.show(status: Strings.loading);
+    }
+  }
 
   void handleFormOpen(bool action) {
     isFormOpen = true;
@@ -100,33 +108,46 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
                     controller: controller, doAction: _handleSubmitForm)),
             IgnorePointer(
               ignoring: !isFormOpen,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: Column(
                 children: [
-                  if (!requestHasChange)
-                    CustomButtonResizableWidget(
-                        width: responsive.wp(35),
-                        color: isFormOpen
-                            ? AppColors.mainColor
-                            : AppColors.mainColor.withOpacity(0.5),
-                        text: "Aprobar",
-                        onTap: () =>
-                            _showModalApprove(context, REQUEST_APPROVED)),
-                  if (!requestHasChange)
-                    CustomButtonResizableWidget(
-                        width: responsive.wp(35),
-                        color: isFormOpen
-                            ? AppColors.redColor
-                            : AppColors.redColor.withOpacity(0.5),
-                        text: "Denegar",
-                        onTap: () =>
-                            _showModalApprove(context, REQUEST_DENIED)),
-                  if (requestHasChange)
-                    Expanded(
-                        child: CustomButtonWidget(
-                            text: "Regresar",
-                            onTap: () => Navigator.of(context).pop())),
+                  Form(
+                    key: _formKey,
+                    child: CustomInputWidget(
+                        controller: controller.comments,
+                        label: "Comentario",
+                        hintText: "Comentario",
+                        validator: controller.commentsValidation,
+                        prefixIcon: Icons.abc),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      if (!requestHasChange)
+                        CustomButtonResizableWidget(
+                            width: responsive.wp(35),
+                            color: isFormOpen
+                                ? AppColors.mainColor
+                                : AppColors.mainColor.withOpacity(0.5),
+                            text: "Aprobar",
+                            onTap: () =>
+                                _showModalApprove(context, REQUEST_APPROVED)),
+                      if (!requestHasChange)
+                        CustomButtonResizableWidget(
+                            width: responsive.wp(35),
+                            color: isFormOpen
+                                ? AppColors.redColor
+                                : AppColors.redColor.withOpacity(0.5),
+                            text: "Denegar",
+                            onTap: () =>
+                                _showModalApprove(context, REQUEST_DENIED)),
+                      if (requestHasChange)
+                        Expanded(
+                            child: CustomButtonWidget(
+                                text: "Regresar",
+                                onTap: () => Navigator.of(context).pop())),
+                    ],
+                  ),
                 ],
               ),
             )

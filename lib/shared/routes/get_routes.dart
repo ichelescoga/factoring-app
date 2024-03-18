@@ -131,7 +131,9 @@ class GetRoutes{
       GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
       GetPage(name: RouterPaths.CUSTOMER_ACCOUNTING_PAGE, page: () => const AccountingFactoragePage()),
       GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const AcceptRejectRequestPage()),
-      GetPage(name: RouterPaths.ANALYST_RECOMMENDING_PAGE, page: () => const RecommendingAnalystPage())
+
+      //ANALYST PROCESS
+      GetPage(name: RouterPaths.ANALYST_RECOMMENDING_PAGE, page: () => const RecommendingAnalystPage()),
     ];
   }
 }

@@ -11,6 +11,7 @@ class RecommendingAnalystFormController extends GetxController
   TextEditingController authorization = TextEditingController();
   TextEditingController invoiceSerie = TextEditingController();
   TextEditingController invoiceAmount = TextEditingController();
+  TextEditingController comments = TextEditingController();
 
   @override
   void updateDaysOfCredit(String _) {
@@ -53,5 +54,9 @@ class RecommendingAnalystFormController extends GetxController
   @override
   String? validatePayPromiseData(Object? value) {
     return null;
+  }
+
+  String? commentsValidation(String? value) {
+    return notEmptyFieldValidator(value);
   }
 }

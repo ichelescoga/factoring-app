@@ -390,11 +390,6 @@ class _DashboardPageState extends State<DashboardPage> {
                         "loadAll": true,
                         "mode": 2
                       })),
-          authItem(
-              PermissionLevel.discountsByQuote,
-              "Análisis de créditos",
-              () => Get.toNamed(RouterPaths.ANALYST_RECOMMENDING_PAGE,
-                  arguments: {"isWatchMode": false})),
         ],
       ),
     );

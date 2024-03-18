@@ -11,7 +11,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class RequestEntered extends StatefulWidget {
-  RequestEntered({Key? key, required this.loadAll, required this.mode}) : super(key: key);
+  RequestEntered({Key? key, required this.loadAll, required this.mode})
+      : super(key: key);
 
   final bool loadAll;
   final int mode;
@@ -41,15 +42,19 @@ class _RequestEnteredState extends State<RequestEntered> {
     setState(() {});
   }
 
-  @override
-  void initState() {
-    super.initState();
-    controller = Get.put(ApplicationEvaluationController());
+  fetch() {
     if (widget.loadAll) {
       fetchAllData();
     } else {
       fetchData();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.put(ApplicationEvaluationController());
+    fetch();
   }
 
   @override
@@ -141,14 +146,15 @@ class _RequestEnteredState extends State<RequestEntered> {
                                     element.noAuthorization.toString(),
                                 "invoiceSerie": element.invoiceSerie,
                                 "invoiceAmount": element.invoiceAmount,
-                                "requestId": element.requestId
+                                "requestId": element.requestId,
+                                "mode": widget.mode.toString(),
                               };
                               final isQuoteUpdate = await Get.toNamed(
-                                  RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
+                                  RouterPaths.ANALYST_RECOMMENDING_PAGE,
                                   parameters: parameters);
 
                               if (isQuoteUpdate) {
-                                fetchData();
+                                fetch();
                               }
                             },
                           ))

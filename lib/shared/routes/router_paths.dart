@@ -81,5 +81,6 @@ class RouterPaths{
 
   //Analyst Process pages
   static const String ANALYST_RECOMMENDING_PAGE = "/analystRecommendingPage";
+  static const String ANALYST_RECOMMENDING_APPROVED = "/analystRecommendingApprove";
 }
 
