@@ -94,11 +94,12 @@ class _DashboardPageState extends State<DashboardPage> {
             {
               "entityId": "9",
               "label": "Representante legal",
-              "listEndpoint": null,
+              "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/9",
               "editEndpoint": null,
               "addEndpoint": "entity/v1/addEntity",
               "removeEndpoint": null,
-              "getByIdEndpoint": null,
+              "getByIdEndpoint": "entity/v1/getEntityById",
+              "viewModeData": true,
             },
             {
               "entityId": "10",

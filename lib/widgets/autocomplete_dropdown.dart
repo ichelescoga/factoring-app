@@ -21,6 +21,7 @@ class AutocompleteDropdownWidget extends StatefulWidget {
   final OnTextChangeCallback onTextChange;
   final TextEditingController? textController;
   final bool clean;
+  final bool disabled;
 
   const AutocompleteDropdownWidget({
     Key? key,
@@ -33,6 +34,7 @@ class AutocompleteDropdownWidget extends StatefulWidget {
     required this.onTextChange,
     this.textController,
     this.clean = true,
+    this.disabled = false, // Valor por defecto para la propiedad deshabilitar
   }) : super(key: key);
 
   @override
@@ -56,6 +58,15 @@ class _AutocompleteDropdownWidgetState
 
   @override
   Widget build(BuildContext context) {
+    return widget.disabled // Comprueba si el widget está deshabilitado
+        ? IgnorePointer(
+            ignoring: true,
+            child: _buildAutocomplete(),
+          )
+        : _buildAutocomplete();
+  }
+
+  Widget _buildAutocomplete() {
     return Autocomplete<DropDownOption>(
       optionsBuilder: (TextEditingValue textEditingValue) {
         return widget.onTextChange(textEditingValue.text);

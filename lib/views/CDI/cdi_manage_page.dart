@@ -40,6 +40,7 @@ class _CDIManagePageState extends State<CDIManagePage> {
   String? dataId;
   int activeStep = 0;
   double circleRadius = 20;
+  bool viewModeData = false;
 
   _getFormCDI() async {
     final result = await cdiRepository.fetchDataTable(entityId);
@@ -54,6 +55,8 @@ class _CDIManagePageState extends State<CDIManagePage> {
     addEndpoint = arguments["addEndpoint"];
     principalLabel = arguments["principalLabel"];
     getByIdEndpoint = arguments["getByIdEndpoint"].toString();
+    viewModeData =
+        arguments["viewModeData"] != null ? arguments["viewModeData"] : false;
     father = arguments["father"];
   }
 
@@ -114,7 +117,7 @@ class _CDIManagePageState extends State<CDIManagePage> {
                     imageControllers: imageControllers,
                     checkControllers: checkControllers,
                     controllers: formControllers,
-                    enable: true,
+                    isEnable: !viewModeData,
                     id: dataId,
                     formCustomWidgets: formWidgets),
               const SizedBox(

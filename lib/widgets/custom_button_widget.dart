@@ -33,12 +33,11 @@ class CustomButtonWidget extends StatelessWidget {
           child: Center(
             child: isLoading
                 ? SizedBox(
-                  height: Dimensions.largeTextSize,
-                  width: Dimensions.largeTextSize,
-                  child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: AppColors.officialWhite),
-                )
+                    height: Dimensions.largeTextSize,
+                    width: Dimensions.largeTextSize,
+                    child: CircularProgressIndicator(
+                        strokeWidth: 2, color: AppColors.officialWhite),
+                  )
                 : Text(
                     text,
                     style: const TextStyle(

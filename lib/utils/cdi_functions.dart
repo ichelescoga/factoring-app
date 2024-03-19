@@ -17,9 +17,12 @@ Future<List<Map<String, dynamic>>> fetchDataFormByID(
     data = companyResult;
     customInputs.forEach((element) {
       // IF THE RESPONSE HAS NOT GOOD PROPERLY FAILS.
-      if(element["Type"] == CDIConstants.checkButton){
-        element["defaultValue"] = data[element["bodyKey"]] == 1 ? true : false;
-      }else {
+      if (element["Type"] == CDIConstants.checkButton) {
+        element["defaultValue"] =
+            data[element["bodyKey"]] == 1 || data[element["bodyKey"]] == true
+                ? true
+                : false;
+      } else {
         element["defaultValue"] = data[element["bodyKey"]].toString();
       }
     });
@@ -41,7 +44,7 @@ Future processDataForm(
       element["dropdownValues"] = options;
     }
     if (element["Type"] == CDIConstants.twoCascadeDropdown &&
-        element["listKeys"].toString().contains("father")) {    
+        element["listKeys"].toString().contains("father")) {
       List<DropDownOption> options =
           await getDropdownOptions(element["url"], element["listKeys"]);
       element["dropdownValues"] = options;

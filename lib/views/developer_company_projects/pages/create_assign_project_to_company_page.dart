@@ -42,7 +42,6 @@ class _createAssignProjectToCompanyPageState
   Map<String, ImageToUpload> imageControllers = {};
   Map<String, CDICheckController> checkControllers = {};
 
-
   CDIRepository cdiRepository = CDIRepositoryImpl(CDIProvider());
 
   List<dynamic> formWidgets = [];
@@ -107,12 +106,12 @@ class _createAssignProjectToCompanyPageState
             children: [
               if (!formWidgets.length.isEqual(0))
                 DynamicDatabaseForm(
-                    callBackById: (p0) => projectProvider
-                        .getProjectById(projectId.toString()),
+                    callBackById: (p0) =>
+                        projectProvider.getProjectById(projectId.toString()),
                     imageControllers: imageControllers,
                     checkControllers: checkControllers,
                     controllers: formControllers,
-                    enable: true,
+                    isEnable: true,
                     id: projectId.toString(),
                     formCustomWidgets: formWidgets),
               const SizedBox(

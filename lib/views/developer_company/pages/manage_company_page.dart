@@ -35,7 +35,7 @@ class _CreateCompanyPageState extends State<CreateCompanyPage> {
 
   final CompanyRepository companyProvider =
       CompanyRepositoryImpl(CompanyProvider());
-      
+
   final Map<String, dynamic> arguments = Get.arguments;
 
   Map<String, TextEditingController> formControllers = {};
@@ -81,13 +81,13 @@ class _CreateCompanyPageState extends State<CreateCompanyPage> {
       result = await cdiRepository.postData("orders/v1/editCompany",
           {"id": companyId, ...inputValues, ...imagesResponse});
     } else {
-      result = await cdiRepository
-          .postData("orders/v1/addCompany", {...inputValues, ...imagesResponse});
+      result = await cdiRepository.postData(
+          "orders/v1/addCompany", {...inputValues, ...imagesResponse});
     }
     if (result) {
       Get.back(closeOverlays: true, result: result);
     }
-  
+
     EasyLoading.dismiss();
   }
 
@@ -104,11 +104,12 @@ class _CreateCompanyPageState extends State<CreateCompanyPage> {
             children: [
               if (!formWidgets.length.isEqual(0))
                 DynamicDatabaseForm(
-                    callBackById: (p0) => companyProvider.getCompanyById(companyId!),
+                    callBackById: (p0) =>
+                        companyProvider.getCompanyById(companyId!),
                     imageControllers: imageControllers,
                     checkControllers: checkControllers,
                     controllers: formControllers,
-                    enable: true,
+                    isEnable: true,
                     id: companyId.toString(),
                     formCustomWidgets: formWidgets),
               const SizedBox(

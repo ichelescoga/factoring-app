@@ -24,6 +24,7 @@ class dynamicTableWidget extends StatefulWidget {
   final String filterBoxLabel;
   final String filterHintLabel;
   final bool showActionIcon;
+  final bool showViewIcon;
   final bool showDeleteAction;
   final bool showAddAction;
   final IconData navigationIcon;
@@ -46,6 +47,7 @@ class dynamicTableWidget extends StatefulWidget {
       required this.mods,
       required this.father,
       this.showActionIcon = true,
+      this.showViewIcon = true,
       this.showDeleteAction = true,
       this.showAddAction = true,
       this.navigationIcon = Icons.edit_square})
@@ -103,7 +105,8 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
       "addEndpoint": widget.addEndpoint,
       "principalLabel": widget.titlePage,
       "getByIdEndpoint": widget.getByIdEndpoint,
-      "father": widget.father
+      "father": widget.father,
+      "viewModeData": widget.showViewIcon
     });
     if (needUpdateListData) {
       getFormData();
@@ -172,6 +175,12 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
                                             onPressed: () =>
                                                 handleManageMods(element["id"]),
                                             icon: Icon(Icons.next_week)),
+                                      if (widget.showViewIcon)
+                                        IconButton(
+                                            onPressed: () =>
+                                                handleManageData(element["id"]),
+                                            icon: Icon(
+                                                Icons.remove_red_eye_outlined)),
                                       if (widget.showActionIcon)
                                         IconButton(
                                             onPressed: () =>

@@ -10,7 +10,7 @@ import "package:flutter/material.dart";
 import "package:get/get.dart";
 
 class DynamicDatabaseForm extends StatefulWidget {
-  final bool enable;
+  final bool isEnable;
   final String? id;
   final Map<String, TextEditingController> controllers;
   final Map<String, ImageToUpload> imageControllers;
@@ -20,7 +20,7 @@ class DynamicDatabaseForm extends StatefulWidget {
 
   const DynamicDatabaseForm({
     Key? key,
-    required this.enable,
+    required this.isEnable,
     required this.controllers,
     required this.formCustomWidgets,
     required this.imageControllers,
@@ -34,7 +34,7 @@ class DynamicDatabaseForm extends StatefulWidget {
 }
 
 class _DynamicDatabaseFormState extends State<DynamicDatabaseForm> {
-  bool enable = false;
+  bool isEnable = false;
   CreateCompanyPageController createCompanyPageController =
       Get.put(CreateCompanyPageController());
 
@@ -58,7 +58,7 @@ class _DynamicDatabaseFormState extends State<DynamicDatabaseForm> {
   @override
   void initState() {
     super.initState();
-    enable = widget.enable;
+    isEnable = widget.isEnable;
     _processCompanyForm();
   }
 
@@ -68,12 +68,13 @@ class _DynamicDatabaseFormState extends State<DynamicDatabaseForm> {
       children: formWidgets.map((widgetEP) {
         String id = widgetEP["bodyKey"];
 
-        if (widgetEP["show"] == false || widgetEP["show"] == 0){
+        if (widgetEP["show"] == false || widgetEP["show"] == 0) {
           return buildNoShowWidget(widgetEP, id, widget.controllers);
         }
 
         if (widgetEP["Type"] == CDIConstants.dropdown) {
-          return buildDropdownWidget(widgetEP, id, widget.controllers);
+          return buildDropdownWidget(
+              widgetEP, id, widget.controllers, isEnable);
         }
         if (widgetEP["Type"] == CDIConstants.image) {
           return buildImageWidget(widgetEP, id, widget.imageControllers);
@@ -81,13 +82,14 @@ class _DynamicDatabaseFormState extends State<DynamicDatabaseForm> {
         if (widgetEP["Type"] == CDIConstants.input) {
           return buildInputWidget(widgetEP, id, widget.controllers);
         }
-        if(widgetEP["Type"] == CDIConstants.twoCascadeDropdown && widgetEP["listKeys"].toString().contains("father")) {
-          return buildTwoDropDownCascade(widgetEP, id, widget.controllers, formWidgets);
+        if (widgetEP["Type"] == CDIConstants.twoCascadeDropdown &&
+            widgetEP["listKeys"].toString().contains("father")) {
+          return buildTwoDropDownCascade(
+              widgetEP, id, widget.controllers, formWidgets);
         }
-        if(widgetEP["Type"] == CDIConstants.checkButton) {
+        if (widgetEP["Type"] == CDIConstants.checkButton) {
           return buildCheckBox(widgetEP, id, widget.checkControllers);
         }
-
 
         return Container();
       }).toList(),

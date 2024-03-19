@@ -13,7 +13,7 @@ import 'package:developer_company/utils/get_keyboard_type_from_string.dart';
 import 'package:developer_company/data/models/image_model.dart';
 
 Widget buildDropdownWidget(Map<String, dynamic> widgetEP, String id,
-    Map<String, TextEditingController> controllers) {
+    Map<String, TextEditingController> controllers, bool isEnable) {
   TextEditingController controller = TextEditingController(
       text: widgetEP["defaultValue"] != null ? widgetEP["defaultValue"] : "");
   controllers[id] = controller;
@@ -31,6 +31,7 @@ Widget buildDropdownWidget(Map<String, dynamic> widgetEP, String id,
     label: widgetEP["Place_holder"]!,
     hintText: widgetEP["Place_holder"]!,
     onFocusChange: ((p0) {}),
+    disabled: !isEnable,
     onTextChange: (p0) async {
       List<DropDownOption> options =
           widgetEP["dropdownValues"] as List<DropDownOption>;
@@ -94,8 +95,10 @@ Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
   String fatherId =
       json.decode(widgetEP["listKeys"].toString())["id"].toString();
   // search for set childrenController
-  dynamic childrenWidgetEP = formWidgets.firstWhere(
-      (element) => element["Type"] == CDIConstants.twoCascadeDropdown && json.decode(element["listKeys"])["id"] == fatherId && json.decode(element["listKeys"])!["level"] == "children");
+  dynamic childrenWidgetEP = formWidgets.firstWhere((element) =>
+      element["Type"] == CDIConstants.twoCascadeDropdown &&
+      json.decode(element["listKeys"])["id"] == fatherId &&
+      json.decode(element["listKeys"])!["level"] == "children");
 
   if (childrenWidgetEP == null)
     throw Exception(
@@ -108,7 +111,7 @@ Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
   controllers[childrenWidgetEP["bodyKey"]] = childrenController;
 
   return TwoDropdownCascade(
-    childrenWidgetEP:childrenWidgetEP,
+    childrenWidgetEP: childrenWidgetEP,
     fatherWidgetEP: widgetEP,
     childrenDropdownKeys: childrenWidgetEP["listKeys"],
     fatherOptions: widgetEP["dropdownValues"] as List<DropDownOption>,
@@ -134,8 +137,12 @@ Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
 
 Widget buildCheckBox(Map<String, dynamic> widgetEP, String id,
     Map<String, CDICheckController> controllers) {
-    CDICheckController controller = CDICheckController();
-    controllers[id] = controller;
+  CDICheckController controller = CDICheckController();
+  controllers[id] = controller;
 
-    return CDICheckButton(text: widgetEP["Place_holder"]!, controller: controller);
+  controller.isChecked =
+      widgetEP["defaultValue"] != null ? widgetEP["defaultValue"] : false;
+
+  return CDICheckButton(
+      text: widgetEP["Place_holder"]!, controller: controller);
 }

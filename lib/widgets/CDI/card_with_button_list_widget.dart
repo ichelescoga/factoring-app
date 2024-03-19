@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class CardWithButtonList extends StatefulWidget {
   final String title;
   final String subtitle;
-  final List<dynamic> buttonList;
+  final List<Map<String, dynamic>> buttonList;
   final Map<String, dynamic> routeParams;
 
   CardWithButtonList(
@@ -76,8 +76,24 @@ class _CardWithButtonListState extends State<CardWithButtonList>
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () {
-                                print("values ${element}");
-                                handleManageData(element);
+                                if (element["listEndpoint"] != null) {
+                                  Get.toNamed(RouterPaths.LIST_CDI_PAGE,
+                                      arguments: ({
+                                        ...element,
+                                        "id": widget.routeParams["id"],
+                                        "father": widget.routeParams["father"],
+                                        "listEndpoint": element["listEndpoint"]
+                                            .toString()
+                                            .replaceAll(
+                                              "CLIENT_ID",
+                                              widget.routeParams["father"]
+                                                  .toString(),
+                                            )
+                                      }));
+                                } else {
+                                  print("values ${element}");
+                                  handleManageData(element);
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.softMainColor,

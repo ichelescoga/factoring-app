@@ -44,10 +44,11 @@ class _CDIListPageState extends State<CDIListPage> {
   Widget build(BuildContext context) {
     return dynamicTableWidget(
         father: arguments["father"] == null ? "" : arguments["father"],
-        mods: arguments["mods"] ,
+        mods: arguments["mods"] == null ? [] : arguments["mods"],
         showAddAction: arguments["addEndpoint"] != null,
         showDeleteAction: arguments["removeEndpoint"] != null,
         showActionIcon: arguments["editEndpoint"] != null,
+        showViewIcon: arguments["viewModeData"] != null,
         titlePage: pageTitle,
         getByIdEndpoint: getByIdEndpoint,
         route: RouterPaths.MANAGE_CDI_PAGE,
