@@ -14,15 +14,15 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class AcceptRejectRequestPage extends StatefulWidget {
-  const AcceptRejectRequestPage({Key? key}) : super(key: key);
+class CashAdvanceAcceptRejectRequestPage extends StatefulWidget {
+  const CashAdvanceAcceptRejectRequestPage({Key? key}) : super(key: key);
 
   @override
-  State<AcceptRejectRequestPage> createState() =>
-      _AcceptRejectRequestPageState();
+  State<CashAdvanceAcceptRejectRequestPage> createState() =>
+      _CashAdvanceAcceptRejectRequestPageState();
 }
 
-class _AcceptRejectRequestPageState extends State<AcceptRejectRequestPage> {
+class _CashAdvanceAcceptRejectRequestPageState extends State<CashAdvanceAcceptRejectRequestPage> {
   late AcceptRejectRequestController controller;
   late Responsive responsive;
 

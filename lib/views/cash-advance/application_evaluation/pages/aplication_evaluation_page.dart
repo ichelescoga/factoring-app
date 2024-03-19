@@ -9,15 +9,15 @@ import 'package:developer_company/widgets/sidebar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ApplicationEvaluationPage extends StatefulWidget {
-  const ApplicationEvaluationPage({Key? key}) : super(key: key);
+class CashAdvanceApplicationEvaluationPage extends StatefulWidget {
+  const CashAdvanceApplicationEvaluationPage({Key? key}) : super(key: key);
 
   @override
-  State<ApplicationEvaluationPage> createState() =>
-      _ApplicationEvaluationPageState();
+  State<CashAdvanceApplicationEvaluationPage> createState() =>
+      _CashAdvanceApplicationEvaluationPageState();
 }
 
-class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
+class _CashAdvanceApplicationEvaluationPageState extends State<CashAdvanceApplicationEvaluationPage> {
   late Responsive responsive;
   late ApplicationEvaluationController controller;
 

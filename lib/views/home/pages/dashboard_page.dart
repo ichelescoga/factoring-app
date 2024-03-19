@@ -130,7 +130,7 @@ class _DashboardPageState extends State<DashboardPage> {
           "mods": [
             {
               "type": "CUSTOM_PATH",
-              "ROUTE": RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE,
+              "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE,
               "entityId": "11",
               "label": "Solicitud de anticipos",
               "listEndpoint": null,
@@ -141,7 +141,7 @@ class _DashboardPageState extends State<DashboardPage> {
             },
             {
               "type": "CUSTOM_PATH",
-              "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+              "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE,
               "entityId": "11",
               "label": "Solicitudes",
               "listEndpoint": null,
@@ -154,7 +154,7 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
-          "ROUTE": RouterPaths.CUSTOMER_APPLICATION_RANGE,
+          "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE,
           "entityId": "8",
           "label": "Alta de cliente",
           "listEndpoint": null,
@@ -165,7 +165,7 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
-          "ROUTE": RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE,
+          "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE,
           "entityId": "8",
           "label": "Solicitud de anticipo",
           "listEndpoint": null,
@@ -176,7 +176,7 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
-          "ROUTE": RouterPaths.ADVANCE_CREDIT_ACCOUNTING_PAGE,
+          "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE,
           "entityId": "8",
           "label": "Contabilización",
           "listEndpoint": null,
@@ -187,7 +187,7 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         {
           "type": "CUSTOM_PATH",
-          "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+          "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE,
           "entityId": "8",
           "label": "Solicitudes",
           "listEndpoint": null,

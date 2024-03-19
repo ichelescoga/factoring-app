@@ -73,11 +73,11 @@ class RouterPaths{
   static const String MANAGE_CDI_PAGE = "/manageCDIPage";
   static const String CDI_SECOND_LEVEL = "/cdiSecondLevel";
 
-  //ApplicationEvaluations
-  static const String APPLICATION_EVALUATION_PAGE = "/applicationEvaluationPage";
-  static const String CUSTOMER_APPLICATION_RANGE = "/customerApplicationRange";
-  static const String ADVANCE_CREDIT_ACCOUNTING_PAGE = "/advanceCreditAccountingPage";
-  static const String ADVANCE_CREDIT_APPLICATION_PAGE = "/advanceCreditApplicationPage";
-  static const String CUSTOMER_ACCEPT_REJECT_REQUEST = "/acceptRejectRequest";
+  //ApplicationEvaluations CASH_ADVANCE
+  static const String  CASH_ADVANCE_APPLICATION_EVALUATION_PAGE = "/cashAdvanceApplicationEvaluationPage";
+  static const String CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE = "/cashAdvanceCustomerApplicationRange";
+  static const String CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE = "/cashAdvanceCreditAccountingPage";
+  static const String CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE = "/cashAdvanceCreditApplicationPage";
+  static const String CUSTOMER_ACCEPT_REJECT_REQUEST = "/cashAdvanceAcceptRejectRequest";
 }
 

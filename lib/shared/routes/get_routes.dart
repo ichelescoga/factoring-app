@@ -127,11 +127,11 @@ class GetRoutes{
       GetPage(name: RouterPaths.CDI_SECOND_LEVEL, page: () => const CDISecondLevel()),
 
       //APPLICATION EVALUATION PAGES
-      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => ApplicationEvaluationPage()),
-      GetPage(name: RouterPaths.CUSTOMER_APPLICATION_RANGE, page: () => const RegisterCustomerRangePage()),
-      GetPage(name: RouterPaths.ADVANCE_CREDIT_ACCOUNTING_PAGE, page: () => const AccountingAdvancePage()),
-      GetPage(name: RouterPaths.ADVANCE_CREDIT_APPLICATION_PAGE, page: () => const EmployedCreditRequestPage()),
-      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const AcceptRejectRequestPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE, page: () => CashAdvanceApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE, page: () => const RegisterCustomerRangePage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE, page: () => const AccountingAdvancePage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE, page: () => const EmployedCreditRequestPage()),
+      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const CashAdvanceAcceptRejectRequestPage()),
 
     ];
   }
