@@ -253,7 +253,7 @@ class CreditApplicationFormController extends GetxController {
     }
 
     Duration difference = testDate.difference(currentDate);
-    bool isDateValid = difference.inDays > 2;
+    bool isDateValid = difference.inDays >= 2;
 
     if (!isDateValid) {
       return "La fecha debe ser mayor a dos días";

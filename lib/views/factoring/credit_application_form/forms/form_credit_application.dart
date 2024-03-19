@@ -33,6 +33,7 @@ class FormCreditApplication extends StatelessWidget {
   final CreditApplicationFormController _ctrl;
   final VoidCallback doAction;
   final bool readOnly;
+  final double opacity = 0.2;
   int actualYear = DateTime.now().year;
 
   String? validateNumber(String? value) {
@@ -67,6 +68,7 @@ class FormCreditApplication extends StatelessWidget {
             hintText: "Cliente",
             enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.person),
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -79,6 +81,7 @@ class FormCreditApplication extends StatelessWidget {
                   hintText: "Tasa de interés",
                   enabled: false,
                   validator: (value) => notEmptyFieldValidator(value),
+                  fillColor: AppColors.greenColor.withOpacity(opacity),
                   prefixIcon: Icons.price_check),
             ),
             VerticalDivider(
@@ -94,6 +97,7 @@ class FormCreditApplication extends StatelessWidget {
                   hintText: "Tasa de comisión",
                   enabled: false,
                   validator: (value) => notEmptyFieldValidator(value),
+                  fillColor: AppColors.greenColor.withOpacity(opacity),
                   prefixIcon: Icons.monetization_on),
             ),
           ],
@@ -104,6 +108,7 @@ class FormCreditApplication extends StatelessWidget {
             hintText: "Cupo asignado",
             enabled: false,
             validator: (value) => notEmptyFieldValidator(value),
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.monetization_on),
         CustomHorizontalDivider(
           label: "Factura",
@@ -189,6 +194,7 @@ class FormCreditApplication extends StatelessWidget {
               }
               return null;
             },
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.abc),
         CustomInputWidget(
           controller: _ctrl.finalApplicationAmount,
@@ -214,6 +220,7 @@ class FormCreditApplication extends StatelessWidget {
           // onFocusChangeInput: _ctrl.handleChangeApplicationPercent,
           validator: _ctrl.validateApplicationPercent,
           readOnly: true,
+          fillColor: AppColors.greenColor.withOpacity(opacity),
         ),
         CustomHorizontalDivider(label: "Detalle de desembolso"),
         CustomInputWidget(
@@ -221,18 +228,21 @@ class FormCreditApplication extends StatelessWidget {
             label: "Comisión",
             hintText: "Comisión",
             enabled: false,
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.interestAmount,
             label: "Intereses",
             hintText: "Intereses",
             enabled: false,
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.monetization_on),
         CustomInputWidget(
             controller: _ctrl.amountToDisbursed,
             label: "Monto a desembolsar",
             hintText: "Monto a desembolsar",
             enabled: false,
+            fillColor: AppColors.greenColor.withOpacity(opacity),
             prefixIcon: Icons.monetization_on),
         LogoUploadWidget(
             icon: Icon(
