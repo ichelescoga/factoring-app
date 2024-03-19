@@ -44,7 +44,7 @@ Widget buildDropdownWidget(Map<String, dynamic> widgetEP, String id,
 }
 
 Widget buildImageWidget(Map<String, dynamic> widgetEP, String id,
-    Map<String, ImageToUpload> imageControllers) {
+    Map<String, ImageToUpload> imageControllers, bool isEnable) {
   ImageToUpload imageController = ImageToUpload(
     base64: null,
     needUpdate: true,
@@ -57,6 +57,7 @@ Widget buildImageWidget(Map<String, dynamic> widgetEP, String id,
 
   imageControllers[id] = imageController;
   return LogoUploadWidget(
+      enabled: isEnable,
       uploadImageController: imageController,
       text: widgetEP["Place_holder"]!,
       icon: selectedIconForImage(widgetEP["Icon"]),
@@ -64,11 +65,12 @@ Widget buildImageWidget(Map<String, dynamic> widgetEP, String id,
 }
 
 Widget buildInputWidget(Map<String, dynamic> widgetEP, String id,
-    Map<String, TextEditingController> controllers) {
+    Map<String, TextEditingController> controllers, bool isEnable) {
   TextEditingController controller = TextEditingController(
       text: widgetEP["defaultValue"] != null ? widgetEP["defaultValue"] : "");
   controllers[id] = controller;
   return CustomInputWidget(
+    enabled: isEnable,
     controller: controller,
     label: widgetEP["Place_holder"]!,
     hintText: widgetEP["Place_holder"]!,
@@ -85,8 +87,12 @@ Widget buildNoShowWidget(Map<String, dynamic> widgetEP, String id,
   return Container();
 }
 
-Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
-    Map<String, TextEditingController> controllers, List<dynamic> formWidgets) {
+Widget buildTwoDropDownCascade(
+    Map<String, dynamic> widgetEP,
+    String id,
+    Map<String, TextEditingController> controllers,
+    List<dynamic> formWidgets,
+    bool isEnable) {
   TextEditingController fatherController = TextEditingController(
       text: widgetEP["defaultValue"] != null ? widgetEP["defaultValue"] : "");
   controllers[id] = fatherController;
@@ -111,6 +117,7 @@ Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
   controllers[childrenWidgetEP["bodyKey"]] = childrenController;
 
   return TwoDropdownCascade(
+    disabled: !isEnable,
     childrenWidgetEP: childrenWidgetEP,
     fatherWidgetEP: widgetEP,
     childrenDropdownKeys: childrenWidgetEP["listKeys"],
@@ -136,7 +143,7 @@ Widget buildTwoDropDownCascade(Map<String, dynamic> widgetEP, String id,
 }
 
 Widget buildCheckBox(Map<String, dynamic> widgetEP, String id,
-    Map<String, CDICheckController> controllers) {
+    Map<String, CDICheckController> controllers, bool isEnable) {
   CDICheckController controller = CDICheckController();
   controllers[id] = controller;
 
@@ -144,5 +151,7 @@ Widget buildCheckBox(Map<String, dynamic> widgetEP, String id,
       widgetEP["defaultValue"] != null ? widgetEP["defaultValue"] : false;
 
   return CDICheckButton(
-      text: widgetEP["Place_holder"]!, controller: controller);
+      text: widgetEP["Place_holder"]!,
+      controller: controller,
+      isEnable: isEnable);
 }

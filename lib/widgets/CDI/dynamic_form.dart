@@ -77,18 +77,19 @@ class _DynamicDatabaseFormState extends State<DynamicDatabaseForm> {
               widgetEP, id, widget.controllers, isEnable);
         }
         if (widgetEP["Type"] == CDIConstants.image) {
-          return buildImageWidget(widgetEP, id, widget.imageControllers);
+          return buildImageWidget(
+              widgetEP, id, widget.imageControllers, isEnable);
         }
         if (widgetEP["Type"] == CDIConstants.input) {
-          return buildInputWidget(widgetEP, id, widget.controllers);
+          return buildInputWidget(widgetEP, id, widget.controllers, isEnable);
         }
         if (widgetEP["Type"] == CDIConstants.twoCascadeDropdown &&
             widgetEP["listKeys"].toString().contains("father")) {
           return buildTwoDropDownCascade(
-              widgetEP, id, widget.controllers, formWidgets);
+              widgetEP, id, widget.controllers, formWidgets, isEnable);
         }
         if (widgetEP["Type"] == CDIConstants.checkButton) {
-          return buildCheckBox(widgetEP, id, widget.checkControllers);
+          return buildCheckBox(widgetEP, id, widget.checkControllers, isEnable);
         }
 
         return Container();

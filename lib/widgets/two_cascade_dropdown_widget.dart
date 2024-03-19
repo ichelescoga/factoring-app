@@ -18,19 +18,21 @@ class TwoDropdownCascade extends StatefulWidget {
   final TextEditingController childrenController;
   final dynamic childrenWidgetEP;
   final dynamic fatherWidgetEP;
+  final bool disabled;
 
-  const TwoDropdownCascade(
-      {required this.fatherOptions,
-      required this.onSelectedFather,
-      required this.onFatherSelectedId,
-      required this.onChildrenSelected,
-      required this.childrenDropdownEndpoint,
-      required this.childrenDropdownKeys,
-      required this.defaultSelectedFather,
-      required this.childrenController,
-      required this.childrenWidgetEP,
-      required this.fatherWidgetEP,
-      });
+  const TwoDropdownCascade({
+    required this.fatherOptions,
+    required this.onSelectedFather,
+    required this.onFatherSelectedId,
+    required this.onChildrenSelected,
+    required this.childrenDropdownEndpoint,
+    required this.childrenDropdownKeys,
+    required this.defaultSelectedFather,
+    required this.childrenController,
+    required this.childrenWidgetEP,
+    required this.fatherWidgetEP,
+    required this.disabled,
+  });
 
   @override
   _TwoDropdownCascadeState createState() => _TwoDropdownCascadeState();
@@ -81,6 +83,7 @@ class _TwoDropdownCascadeState extends State<TwoDropdownCascade> {
       children: [
         // First Dropdown for Father Dropdown
         AutocompleteDropdownWidget(
+          disabled: widget.disabled,
           key: Key("fatherDropdown"),
           listItems: widget.fatherOptions,
           onSelected: (selected) async {
@@ -111,6 +114,7 @@ class _TwoDropdownCascadeState extends State<TwoDropdownCascade> {
         // Second Dropdown for Sub-Departments
         if (!isLoadingChildren)
           AutocompleteDropdownWithController(
+            disabled: widget.disabled,
             key: Key("childrenDropdown"),
             textEditingController: widget.childrenController,
             listItems: childrenOptions,
