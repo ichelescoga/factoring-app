@@ -197,15 +197,15 @@ class _DashboardPageState extends State<DashboardPage> {
             },
           ]
         },
-        {
-          "entityId": "11",
-          "label": "Cuentas de bancos",
-          "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
-          "editEndpoint": null,
-          "addEndpoint": "entity/v1/addEntity",
-          "removeEndpoint": null,
-          "getByIdEndpoint": null,
-        },
+        // {
+        //   "entityId": "11",
+        //   "label": "Cuentas de bancos",
+        //   "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+        //   "editEndpoint": null,
+        //   "addEndpoint": "entity/v1/addEntity",
+        //   "removeEndpoint": null,
+        //   "getByIdEndpoint": null,
+        // },
         {
           "type": "CUSTOM_PATH",
           "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,

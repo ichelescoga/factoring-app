@@ -97,7 +97,7 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
     EasyLoading.dismiss();
   }
 
-  handleManageData(int? id) async {
+  handleManageData(int? id, bool isCreated) async {
     final needUpdateListData = await Get.toNamed(widget.route, arguments: {
       "dataId": id,
       "entityId": widget.entity,
@@ -106,7 +106,7 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
       "principalLabel": widget.titlePage,
       "getByIdEndpoint": widget.getByIdEndpoint,
       "father": widget.father,
-      "viewModeData": widget.showViewIcon
+      "viewModeData": isCreated ? false : widget.showViewIcon
     });
     if (needUpdateListData) {
       getFormData();
@@ -136,7 +136,7 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
                   color: AppColors.softMainColor,
                   size: Dimensions.topIconSizeH,
                 ),
-                onPressed: () => handleManageData(null))
+                onPressed: () => handleManageData(null, true))
         ],
       ),
       child: Column(
@@ -177,14 +177,14 @@ class _dynamicTableWidgetState extends State<dynamicTableWidget> {
                                             icon: Icon(Icons.next_week)),
                                       if (widget.showViewIcon)
                                         IconButton(
-                                            onPressed: () =>
-                                                handleManageData(element["id"]),
+                                            onPressed: () => handleManageData(
+                                                element["id"], false),
                                             icon: Icon(
                                                 Icons.remove_red_eye_outlined)),
                                       if (widget.showActionIcon)
                                         IconButton(
-                                            onPressed: () =>
-                                                handleManageData(element["id"]),
+                                            onPressed: () => handleManageData(
+                                                element["id"], false),
                                             icon: Icon(widget.navigationIcon)),
                                       if (widget.showDeleteAction)
                                         IconButton(
