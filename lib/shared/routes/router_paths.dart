@@ -78,6 +78,6 @@ class RouterPaths{
   static const String CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE = "/cashAdvanceCustomerApplicationRange";
   static const String CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE = "/cashAdvanceCreditAccountingPage";
   static const String CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE = "/cashAdvanceCreditApplicationPage";
-  static const String CUSTOMER_ACCEPT_REJECT_REQUEST = "/cashAdvanceAcceptRejectRequest";
+  static const String CASH_ADVANCE_CUSTOMER_ACCEPT_REJECT_REQUEST = "/cashAdvanceAcceptRejectRequest";
 }
 

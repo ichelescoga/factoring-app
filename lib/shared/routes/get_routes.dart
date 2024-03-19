@@ -131,7 +131,7 @@ class GetRoutes{
       GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE, page: () => const RegisterCustomerRangePage()),
       GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE, page: () => const AccountingAdvancePage()),
       GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE, page: () => const EmployedCreditRequestPage()),
-      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const CashAdvanceAcceptRejectRequestPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const CashAdvanceAcceptRejectRequestPage()),
 
     ];
   }

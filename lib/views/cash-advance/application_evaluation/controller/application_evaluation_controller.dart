@@ -27,7 +27,7 @@ class ApplicationEvaluationController extends GetxController {
       "client": model.employedCode.toString(),
       "disbursement": model.amount.toString()
     };
-    Get.toNamed(RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
+    Get.toNamed(RouterPaths.CASH_ADVANCE_CUSTOMER_ACCEPT_REJECT_REQUEST,
         parameters: parameters);
   }
 }
