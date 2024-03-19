@@ -2,7 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:developer_company/shared/constants/globalVariables.dart';
+import 'package:developer_company/shared/constants/common/globalVariables.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 
 class CustomHorizontalDivider extends StatelessWidget {
@@ -19,11 +19,11 @@ class CustomHorizontalDivider extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(label,
-        style: TextStyle(
-          color: AppColors.alternativeBlack,
-          fontWeight: FontWeight.w500
-        ),),
+        Text(
+          label,
+          style: TextStyle(
+              color: AppColors.alternativeBlack, fontWeight: FontWeight.w500),
+        ),
         Divider(
           height: HrDividerVariables.height,
           thickness: HrDividerVariables.thickness,
