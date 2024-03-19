@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/data/providers/upload_image.provider.dart';
 import 'package:developer_company/data/repositories/upload_image_repository.dart';
 

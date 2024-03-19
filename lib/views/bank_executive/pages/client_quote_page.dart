@@ -1,6 +1,6 @@
 import 'package:developer_company/data/implementations/loan_application_repository_impl.dart';
 import 'package:developer_company/data/implementations/upload_image_impl.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/data/models/loan_application_model.dart';
 import 'package:developer_company/data/providers/loan_application_provider.dart';
 import 'package:developer_company/data/providers/upload_image.provider.dart';
@@ -222,5 +222,4 @@ class _ClientQuotePageState extends State<ClientQuotePage> {
       ),
     );
   }
-
 }

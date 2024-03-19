@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:developer_company/shared/utils/http_adapter.dart';
-import 'package:developer_company/data/models/user_model.dart';
+import 'package:developer_company/data/models/common/user_model.dart';
 
 class UserProvider {
   final httpAdapter = HttpAdapter();

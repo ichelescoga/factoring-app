@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 
 class UploadImageProvider {

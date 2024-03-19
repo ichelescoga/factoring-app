@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:developer_company/shared/utils/http_adapter.dart';
-import 'package:developer_company/utils/cdi_components.dart';
+import 'package:developer_company/shared/constants/cdi/cdi_constants_components.dart';
 import 'package:developer_company/widgets/autocomplete_dropdown.dart';
 
 Future<List<Map<String, dynamic>>> fetchDataFormByID(

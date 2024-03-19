@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/shared/controllers/base_controller.dart';
 
 class AnalystTextFormController extends BaseController {

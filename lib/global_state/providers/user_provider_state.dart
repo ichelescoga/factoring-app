@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/user_model.dart';
+import 'package:developer_company/data/models/common/user_model.dart';
 import 'package:developer_company/global_state/notifiers/user_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

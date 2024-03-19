@@ -1,7 +1,7 @@
 import 'package:developer_company/controllers/cdi_check_button_controller.dart';
 import 'package:developer_company/data/implementations/CDI/cdi_repository_impl.dart';
 import 'package:developer_company/data/implementations/project__repository_impl.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/data/providers/CDI/cdi_provider.dart';
 import 'package:developer_company/data/providers/project_provider.dart';
 import 'package:developer_company/data/repositories/CDI/cdi_repository.dart';
@@ -9,7 +9,7 @@ import 'package:developer_company/data/repositories/project_repository.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
 // import 'package:developer_company/utils/handle_upload_image.dart';
-import 'package:developer_company/utils/retrieve_form_list_controllers.dart';
+import 'package:developer_company/utils/common/retrieve_form_list_controllers.dart';
 import 'package:developer_company/widgets/CDI/dynamic_form.dart';
 import 'package:developer_company/widgets/app_bar_title.dart';
 // import 'package:developer_company/widgets/autocomplete_dropdown.dart';

@@ -1,5 +1,5 @@
 import 'package:developer_company/shared/resources/colors.dart';
-import 'package:developer_company/utils/ask_permission.dart';
+import 'package:developer_company/utils/common/ask_permission.dart';
 import 'package:developer_company/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

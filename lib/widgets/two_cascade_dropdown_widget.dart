@@ -1,7 +1,7 @@
 import 'package:developer_company/data/implementations/CDI/cdi_repository_impl.dart';
 import 'package:developer_company/data/providers/CDI/cdi_provider.dart';
 import 'package:developer_company/data/repositories/CDI/cdi_repository.dart';
-import 'package:developer_company/utils/cdi_functions.dart';
+import 'package:developer_company/utils/common/cdi_functions.dart';
 import 'package:developer_company/widgets/CDI/autoComplete_with_controller.dart';
 import 'package:flutter/material.dart';
 // import 'package:developer_company/utils/cdi_components.dart';

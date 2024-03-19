@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:developer_company/data/models/application_evaluation_model.dart';
-import 'package:developer_company/data/models/factoraje_accounting_model.dart';
+import 'package:developer_company/data/models/factoring/application_evaluation_model.dart';
+import 'package:developer_company/data/models/factoring/factoraje_accounting_model.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 
 class FactoringProvider {

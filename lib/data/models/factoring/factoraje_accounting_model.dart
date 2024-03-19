@@ -1,4 +1,4 @@
-import 'package:developer_company/utils/application_statuses.dart';
+import 'package:developer_company/utils/factoring/application_statuses.dart';
 
 class AccountingModel {
   int noAuthorization;
@@ -65,24 +65,35 @@ class AccountingModel {
 
   factory AccountingModel.fromJsonV2(Map<String, dynamic> json) {
     return AccountingModel(
-      noAuthorization: json['No_Factura'] == null ?  0 : int.tryParse(json['No_Factura'])!,
+      noAuthorization:
+          json['No_Factura'] == null ? 0 : int.tryParse(json['No_Factura'])!,
       client: json['Empresa'] ?? "",
-      invoiceAmount: json['Monto_factura'] == null ? "0" : json['Monto_factura'].toString(),
-      utilizationPercentage: json['Intereses'] == null ? "0"  : json['Intereses'].toString(),
-      usageAmount: json['Monto_desembolsar'] == null ? "0" : json['Monto_desembolsar'].toString(),
+      invoiceAmount: json['Monto_factura'] == null
+          ? "0"
+          : json['Monto_factura'].toString(),
+      utilizationPercentage:
+          json['Intereses'] == null ? "0" : json['Intereses'].toString(),
+      usageAmount: json['Monto_desembolsar'] == null
+          ? "0"
+          : json['Monto_desembolsar'].toString(),
       daysOfUse: json['Dias_credito'] == null ? 0 : json['Dias_credito'],
-      interestAmount: json['Intereses'] == null ? "0" : json['Intereses'].toString(),
+      interestAmount:
+          json['Intereses'] == null ? "0" : json['Intereses'].toString(),
       commissions: json['Comision'] == null ? "0" : json['Comision'].toString(),
-      iva: '0',//TODO PENDING OF SERVICE
+      iva: '0', //TODO PENDING OF SERVICE
       totalDiscount: '0', //TODO PENDING OF SERVICE
-      disbursement: json['Monto_solicitado'] == null ? "0" : json['Monto_solicitado'].toString(),
+      disbursement: json['Monto_solicitado'] == null
+          ? "0"
+          : json['Monto_solicitado'].toString(),
       dateDisbursement: json['Fecha_desembolso'] ?? "",
       paymentDate: json['Fecha_pago'] ?? "",
       availableSpace: '0', //TODO PENDING OF SERVICE
-      overdueBalance: '0',//TODO PENDING OF SERVICE
-      analysis: '',//TODO PENDING OF SERVICE
+      overdueBalance: '0', //TODO PENDING OF SERVICE
+      analysis: '', //TODO PENDING OF SERVICE
       approved: applicationStatuses(json['Estado']),
-      finalDisbursement: json['Monto_desembolsar'] == null ? "": json['Monto_desembolsar'].toString(),
+      finalDisbursement: json['Monto_desembolsar'] == null
+          ? ""
+          : json['Monto_desembolsar'].toString(),
     );
   }
 

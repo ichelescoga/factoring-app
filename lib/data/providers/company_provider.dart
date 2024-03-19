@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:developer_company/data/models/company_model.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
-import 'package:developer_company/utils/convertArrayToObject.dart';
+import 'package:developer_company/utils/common/convertArrayToObject.dart';
 
 class CompanyProvider {
   final httpAdapter = HttpAdapter();
@@ -11,7 +11,7 @@ class CompanyProvider {
 
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = jsonDecode(response.body);
-// TODO: now response with plain objects 
+// TODO: now response with plain objects
 /*
 
 {
@@ -78,14 +78,20 @@ class CompanyProvider {
   }
 
   Future<dynamic> getCompanyById(int companyId) async {
-    final response = await httpAdapter.getApi("orders/v1/getCompanyById/$companyId", {});
+    final response =
+        await httpAdapter.getApi("orders/v1/getCompanyById/$companyId", {});
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
 
-      final companyDetails = convertArrayToObject(jsonResponse["company"]['details']);
+      final companyDetails =
+          convertArrayToObject(jsonResponse["company"]['details']);
 
-      final companyData = {...jsonResponse["company"]["company"], ...companyDetails};
-      final transformedData = transformKeysToLowercaseAndRemoveSpaces(companyData);
+      final companyData = {
+        ...jsonResponse["company"]["company"],
+        ...companyDetails
+      };
+      final transformedData =
+          transformKeysToLowercaseAndRemoveSpaces(companyData);
       return transformedData;
     } else {
       throw Exception("Failed to get company");
@@ -93,10 +99,10 @@ class CompanyProvider {
   }
 }
 
-
-Map<String, dynamic> transformKeysToLowercaseAndRemoveSpaces(Map<dynamic, dynamic> data) {
+Map<String, dynamic> transformKeysToLowercaseAndRemoveSpaces(
+    Map<dynamic, dynamic> data) {
   final transformedData = <String, dynamic>{};
-  
+
   data.forEach((key, value) {
     final transformedKey = key.toLowerCase().replaceAll(' ', '');
     transformedData[transformedKey] = value;

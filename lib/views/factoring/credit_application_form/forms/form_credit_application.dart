@@ -16,7 +16,7 @@ import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
-import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
+import 'package:developer_company/views/factoring/credit_application_form/controller/credit_application_form_controller.dart';
 
 class FormCreditApplication extends StatelessWidget {
   FormCreditApplication({

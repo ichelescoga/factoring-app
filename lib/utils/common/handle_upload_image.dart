@@ -1,11 +1,10 @@
 import 'package:developer_company/data/implementations/upload_image_impl.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/data/providers/upload_image.provider.dart';
 import 'package:developer_company/data/repositories/upload_image_repository.dart';
 import 'package:uuid/uuid.dart';
 
-Future<String> saveImage(
-    ImageToUpload imageController) async {
+Future<String> saveImage(ImageToUpload imageController) async {
   var uuid = Uuid();
   final uid = uuid.v1();
 

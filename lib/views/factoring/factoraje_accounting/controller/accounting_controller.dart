@@ -1,5 +1,5 @@
-import 'package:developer_company/data/models/factoraje_accounting_model.dart';
-import 'package:developer_company/data/providers/factoring_provider.dart';
+import 'package:developer_company/data/models/factoring/factoraje_accounting_model.dart';
+import 'package:developer_company/data/providers/factoring/factoring_provider.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 

@@ -1,5 +1,5 @@
 import 'package:developer_company/data/models/company_model.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/shared/controllers/base_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class CreateCompanyPageController extends BaseController {
     developerCompanyDeveloper.text = company.developer;
     developerCompanyNit.text = company.nit;
     developerCompanyAddress.text = company.address;
-    developerCompanyContactPhone.text = company.contactPhone; 
+    developerCompanyContactPhone.text = company.contactPhone;
     developerCompanyContactName.text = company.contact;
     developerCompanySellManager.text = company.salesManager;
     developerCompanySellManagerPhone.text = company.managerPhone;

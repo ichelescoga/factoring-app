@@ -1,6 +1,6 @@
 import 'package:developer_company/shared/resources/strings.dart';
-import 'package:developer_company/views/credit_application_form/controller/credit_application_form_controller.dart';
-import 'package:developer_company/views/credit_application_form/forms/form_credit_application.dart';
+import 'package:developer_company/views/factoring/credit_application_form/controller/credit_application_form_controller.dart';
+import 'package:developer_company/views/factoring/credit_application_form/forms/form_credit_application.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/layout.dart';
 import 'package:developer_company/widgets/sidebar_widget.dart';

@@ -1,7 +1,7 @@
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/application_evaluation/screens/request_approveds.dart';
-import 'package:developer_company/views/application_evaluation/screens/request_denieds.dart';
-import 'package:developer_company/views/application_evaluation/screens/request_entereds.dart';
+import 'package:developer_company/views/factoring/application_evaluation/screens/request_approveds.dart';
+import 'package:developer_company/views/factoring/application_evaluation/screens/request_denieds.dart';
+import 'package:developer_company/views/factoring/application_evaluation/screens/request_entereds.dart';
 import 'package:developer_company/views/quotes/pages/quote_unit_status_page.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/layout.dart';
@@ -88,9 +88,21 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                   });
                 }),
             SizedBox(height: 10),
-            if (itemSelected.id == "entered")  RequestEntered(loadAll: loadAllData, mode: mode,),
-            if (itemSelected.id == "approved") RequestApproved(loadAll: loadAllData, mode: mode,),
-            if (itemSelected.id == "rejected") RequestDenied(loadAll: loadAllData, mode: mode,),
+            if (itemSelected.id == "entered")
+              RequestEntered(
+                loadAll: loadAllData,
+                mode: mode,
+              ),
+            if (itemSelected.id == "approved")
+              RequestApproved(
+                loadAll: loadAllData,
+                mode: mode,
+              ),
+            if (itemSelected.id == "rejected")
+              RequestDenied(
+                loadAll: loadAllData,
+                mode: mode,
+              ),
           ],
         ));
   }

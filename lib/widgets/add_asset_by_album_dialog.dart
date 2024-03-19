@@ -2,7 +2,7 @@ import "package:developer_company/controllers/add_asset_by_album_dialog_controll
 import "package:developer_company/data/implementations/Album_repository_impl.dart";
 import "package:developer_company/data/implementations/upload_image_impl.dart";
 import "package:developer_company/data/models/album_model.dart";
-import "package:developer_company/data/models/image_model.dart";
+import 'package:developer_company/data/models/common/image_model.dart';
 import "package:developer_company/data/providers/album_provider.dart";
 import "package:developer_company/data/providers/upload_image.provider.dart";
 import "package:developer_company/data/repositories/album_repository.dart";
@@ -172,8 +172,7 @@ class _AddAssetByAlbumDialogState extends State<AddAssetByAlbumDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.officialWhite,
-      title:
-          Text(widget.asset != null ? "Editar Recurso" : "Agregar Recurso"),
+      title: Text(widget.asset != null ? "Editar Recurso" : "Agregar Recurso"),
       content: SingleChildScrollView(
         child: SizedBox(
           width: Get.width,

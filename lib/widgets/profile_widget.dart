@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/user_model.dart';
+import 'package:developer_company/data/models/common/user_model.dart';
 import 'package:developer_company/global_state/providers/user_provider_state.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';

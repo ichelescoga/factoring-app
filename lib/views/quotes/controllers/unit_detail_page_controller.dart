@@ -1,5 +1,5 @@
 import 'package:developer_company/data/models/client_model.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/shared/controllers/base_controller.dart';
 import 'package:developer_company/shared/utils/discount_status_text.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class UnitDetailPageController extends BaseController {
   bool applyDefaultDiscount = false;
   TextEditingController seasonDiscount = TextEditingController(text: "0");
   TextEditingController extraDiscount = TextEditingController(text: "0");
-  
+
   String? statusDiscount;
   String? resolutionDiscount;
 
@@ -64,8 +64,7 @@ class UnitDetailPageController extends BaseController {
   void updateController(
     String? argsExtraDiscount,
     String? argsStatusDiscount,
-    String? argsResolutionDiscount, 
-
+    String? argsResolutionDiscount,
     String? argsStartMoney,
     String? argsPaymentMonths,
     String? argsEmail,
@@ -85,14 +84,14 @@ class UnitDetailPageController extends BaseController {
     paymentMonths.text = argsPaymentMonths ?? "";
   }
 
-  void updateClientInfo(ClientModel client){
+  void updateClientInfo(ClientModel client) {
     clientId.text = client.id.toString();
     clientName.text = client.name!;
     clientPhone.text = client.phone!;
     email.text = client.email!;
   }
 
-  void cleanInfoClient(){
+  void cleanInfoClient() {
     clientId.clear();
     clientName.clear();
     clientPhone.clear();
@@ -107,7 +106,6 @@ class UnitDetailPageController extends BaseController {
     seasonDiscount.text = "0";
     extraDiscount.text = "0";
     statusDiscount = null;
-
 
     detailCompany.clear();
     detailIncomes.clear();

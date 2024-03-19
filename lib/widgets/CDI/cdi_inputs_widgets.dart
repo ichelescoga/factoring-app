@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'package:developer_company/controllers/cdi_check_button_controller.dart';
-import 'package:developer_company/utils/cdi_components.dart';
+import 'package:developer_company/shared/constants/cdi/cdi_constants_components.dart';
 import 'package:developer_company/widgets/CDI/cdi_check_button_widget.dart';
 import 'package:developer_company/widgets/two_cascade_dropdown_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:developer_company/widgets/autocomplete_dropdown.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/widgets/upload_button_widget.dart';
-import 'package:developer_company/utils/selected_icon.dart';
-import 'package:developer_company/utils/get_keyboard_type_from_string.dart';
-import 'package:developer_company/data/models/image_model.dart';
+import 'package:developer_company/utils/common/selected_icon.dart';
+import 'package:developer_company/utils/common/get_keyboard_type_from_string.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
 
 Widget buildDropdownWidget(Map<String, dynamic> widgetEP, String id,
     Map<String, TextEditingController> controllers, bool isEnable) {

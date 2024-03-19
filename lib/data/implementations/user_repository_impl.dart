@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/user_model.dart';
+import 'package:developer_company/data/models/common/user_model.dart';
 import 'package:developer_company/data/providers/user_provider.dart';
 import 'package:developer_company/data/repositories/user_repository.dart';
 

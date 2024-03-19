@@ -1,4 +1,4 @@
-import 'package:developer_company/mocks/factoring_menu_mock.dart';
+import 'package:developer_company/mocks/factoring/factoring_menu_mock.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';

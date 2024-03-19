@@ -1,9 +1,9 @@
-import 'package:developer_company/data/models/image_model.dart';
-import 'package:developer_company/data/providers/factoring_provider.dart';
+import 'package:developer_company/data/models/common/image_model.dart';
+import 'package:developer_company/data/providers/factoring/factoring_provider.dart';
 import 'package:developer_company/shared/constants/components_body_keys.dart';
 import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
-import 'package:developer_company/utils/handle_upload_image.dart';
+import 'package:developer_company/utils/common/handle_upload_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

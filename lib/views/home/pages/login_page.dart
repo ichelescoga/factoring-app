@@ -1,11 +1,11 @@
 import 'package:developer_company/data/implementations/user_repository_impl.dart';
-import 'package:developer_company/data/models/user_model.dart';
+import 'package:developer_company/data/models/common/user_model.dart';
 import 'package:developer_company/data/providers/user_provider.dart';
 import 'package:developer_company/data/repositories/user_repository.dart';
 import 'package:developer_company/global_state/providers/user_provider_state.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 import 'package:developer_company/shared/utils/permission_level.dart';
-import 'package:developer_company/utils/ask_permission.dart';
+import 'package:developer_company/utils/common/ask_permission.dart';
 import 'package:developer_company/views/home/controllers/login_page_controller.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/custom_style.dart';
@@ -188,7 +188,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                         ),
                       ),
-                      obscureText: !loginPageController.passwordVisibility.value,
+                      obscureText:
+                          !loginPageController.passwordVisibility.value,
                     ),
                   ),
                   const SizedBox(height: Dimensions.heightSize),

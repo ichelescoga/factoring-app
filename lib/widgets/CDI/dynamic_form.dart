@@ -1,9 +1,9 @@
 import "package:developer_company/controllers/cdi_check_button_controller.dart";
-import "package:developer_company/data/models/image_model.dart";
+import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/controllers/manage_company_page_controller.dart';
 import "package:developer_company/shared/utils/http_adapter.dart";
-import "package:developer_company/utils/cdi_components.dart";
-import "package:developer_company/utils/cdi_functions.dart";
+import 'package:developer_company/shared/constants/cdi/cdi_constants_components.dart';
+import 'package:developer_company/utils/common/cdi_functions.dart';
 import "package:developer_company/widgets/CDI/cdi_inputs_widgets.dart";
 import "package:developer_company/widgets/autocomplete_dropdown.dart";
 import "package:flutter/material.dart";
