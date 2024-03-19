@@ -4,7 +4,7 @@ import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/accept_reject_request/controller/accept_reject_request_controller.dart';
+import 'package:developer_company/views/factoring/accept_reject_request/controller/accept_reject_request_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_rezisable_widget.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';

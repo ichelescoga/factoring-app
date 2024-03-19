@@ -1,9 +1,9 @@
 import 'package:developer_company/views/CDI/cdi_anidate_page.dart';
 import 'package:developer_company/views/CDI/cdi_list_page.dart';
 import 'package:developer_company/views/CDI/cdi_manage_page.dart';
-import 'package:developer_company/views/accept_reject_request/pages/accept_reject_request.dart';
+import 'package:developer_company/views/factoring/accept_reject_request/pages/accept_reject_request.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
-import 'package:developer_company/views/analyst_credit_app_process/approving_analyst/pages/recommender_page.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/pages/recommender_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
 import 'package:developer_company/views/factoring/application_evaluation/pages/aplication_evaluation_page.dart';

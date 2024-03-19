@@ -16,7 +16,7 @@ import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/analyst_form_credi_appl.dart';
 import 'package:developer_company/widgets/custom_animated_expand_card.dart';
 import 'package:developer_company/widgets/custom_button_rezisable_widget.dart';
-import 'package:developer_company/views/analyst_credit_app_process/approving_analyst/controller/recommender_controller.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/controller/recommender_controller.dart';
 
 class RecommendingAnalystPage extends StatefulWidget {
   const RecommendingAnalystPage({Key? key}) : super(key: key);
