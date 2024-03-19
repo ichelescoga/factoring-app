@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:developer_company/widgets/custom_horizontal_divider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/upload_button_widget.dart';
 import 'package:developer_company/shared/validations/nit_validation.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+// import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
 import 'package:developer_company/views/factoring/credit_application_form/controller/credit_application_form_controller.dart';

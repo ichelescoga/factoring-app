@@ -20,12 +20,12 @@ double extractDouble(String input) {
   return double.tryParse(numberString) ?? 0.0;
 }
 
-String simpleNumberCurrency(String input) {
-  RegExp regex = RegExp(r'Q\s*([\d,.]+)');
-  String numberString = regex.firstMatch(input)?.group(1) ?? '0';
+// String simpleNumberCurrency(String input) {
+//   RegExp regex = RegExp(r'Q\s*([\d,.]+)');
+//   String numberString = regex.firstMatch(input)?.group(1) ?? '0';
 
-  return numberString;
-}
+//   return numberString;
+// }
 
 String formatDateGt(String _date) {
   DateTime _newDate = DateTime.parse(_date);

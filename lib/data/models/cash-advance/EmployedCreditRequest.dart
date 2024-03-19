@@ -1,4 +1,5 @@
-import 'package:developer_company/shared/helpers/cash-advance/extractNumber.dart';
+// import 'package:developer_company/shared/helpers/cash-advance/extractNumber.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 
 class EmployedCreditRequest {
   int id;

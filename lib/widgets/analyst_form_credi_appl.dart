@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +13,7 @@ import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
 import 'package:developer_company/shared/validations/nit_validation.dart';
 import 'package:developer_company/widgets/custom_horizontal_divider.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+// import 'package:developer_company/shared/services/quetzales_currency.dart';
 import 'package:developer_company/shared/abstract/analyst_form_abs_controller.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
 import 'package:developer_company/shared/validations/lower_than_number_validator%20copy.dart';
@@ -28,7 +29,6 @@ class AnalystFormCreditApplication<T extends AnalystAbsFormController>
         super(key: key);
 
   late Responsive responsive;
-
 
   final T _ctrl;
   final VoidCallback doAction;
