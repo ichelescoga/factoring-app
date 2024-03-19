@@ -138,6 +138,11 @@ class _DashboardPageState extends State<DashboardPage> {
                         "loadAll": true,
                         "mode": 2
                       })),
+          // authItem(
+          //     PermissionLevel.discountsByQuote,
+          //     "Descuentos",
+          //     () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
+          //         arguments: {"isWatchMode": false})),
         ],
       ),
     );

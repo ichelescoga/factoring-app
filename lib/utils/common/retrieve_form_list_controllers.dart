@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:developer_company/controllers/cdi_check_button_controller.dart';
+import 'package:developer_company/controllers/CDI/cdi_check_button_controller.dart';
 import 'package:developer_company/data/models/common/image_model.dart';
 import 'package:developer_company/shared/constants/cdi/cdi_constants_components.dart';
 import 'package:flutter/material.dart';

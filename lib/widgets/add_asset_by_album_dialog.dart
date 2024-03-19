@@ -1,4 +1,4 @@
-import "package:developer_company/controllers/add_asset_by_album_dialog_controller.dart";
+import "package:developer_company/controllers/cash-advance/add_asset_by_album_dialog_controller.dart";
 import "package:developer_company/data/implementations/Album_repository_impl.dart";
 import "package:developer_company/data/implementations/upload_image_impl.dart";
 import "package:developer_company/data/models/album_model.dart";

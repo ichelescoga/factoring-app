@@ -10,7 +10,7 @@ import 'package:developer_company/data/repositories/improve_client_contact_repos
 import 'package:developer_company/global_state/providers/user_provider_state.dart';
 import 'package:developer_company/main.dart';
 import 'package:developer_company/shared/resources/strings.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:developer_company/shared/utils/discount_status_text.dart';
 import 'package:developer_company/shared/validations/email_validator.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';

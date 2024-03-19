@@ -1,4 +1,4 @@
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 
 String handleBalanceToFinance(String sellPrice, String initialPayment) {
   try {

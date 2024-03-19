@@ -7,7 +7,7 @@ import 'package:developer_company/data/providers/upload_image.provider.dart';
 import 'package:developer_company/data/repositories/loan_application_repository.dart';
 import 'package:developer_company/data/repositories/upload_image_repository.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 import 'package:developer_company/views/bank_executive/pages/form_detail_client.dart';
 import 'package:developer_company/views/quotes/controllers/unit_detail_page_controller.dart';

@@ -6,7 +6,7 @@ import "package:developer_company/shared/resources/dimensions.dart";
 import "package:developer_company/shared/resources/strings.dart";
 import "package:developer_company/shared/routes/router_paths.dart";
 import "package:developer_company/shared/services/pdf_download_share.dart";
-import "package:developer_company/shared/services/quetzales_currency.dart";
+import "package:developer_company/shared/services/cash-advance/quetzales_currency.dart";
 import "package:developer_company/shared/utils/http_adapter.dart";
 import "package:developer_company/views/credit_request/controllers/finish_sell_form_controller.dart";
 import 'package:developer_company/views/credit_request/forms/finish_sell_form.dart';
