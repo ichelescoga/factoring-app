@@ -1,4 +1,4 @@
-import 'package:developer_company/shared/helpers/extractNumber.dart';
+import 'package:developer_company/shared/helpers/cash-advance/extractNumber.dart';
 
 class EmployedCreditRequest {
   int id;

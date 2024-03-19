@@ -1,4 +1,4 @@
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 
 class LoanSimulationRequest {
   final dynamic annualInterest;
@@ -40,7 +40,7 @@ class LoanSimulationResponse {
   });
 
   factory LoanSimulationResponse.fromJson(Map<String, dynamic> json) {
-    
+
     return LoanSimulationResponse(
       iteration: json['iteration'],
       month: json['month'].toString(),

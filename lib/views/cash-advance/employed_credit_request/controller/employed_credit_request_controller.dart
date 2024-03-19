@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:developer_company/data/providers/cash-advance/cash_advance_provider.dart';
-import 'package:developer_company/shared/helpers/extractNumber.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/helpers/cash-advance/extractNumber.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
