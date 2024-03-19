@@ -1,7 +1,7 @@
 import 'package:developer_company/data/models/accounting_model.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/accounting/controller/accounting_controller.dart';
+import 'package:developer_company/views/cash-advance/accounting/controller/accounting_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/filter_box.dart';
 import 'package:developer_company/widgets/layout.dart';

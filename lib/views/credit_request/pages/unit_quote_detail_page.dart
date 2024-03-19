@@ -11,7 +11,7 @@ import 'package:developer_company/data/repositories/unit_quotation_repository.da
 import 'package:developer_company/global_state/providers/client_provider_state.dart';
 
 import 'package:developer_company/shared/resources/strings.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:developer_company/shared/utils/discount_status_text.dart';
 import 'package:developer_company/shared/utils/http_adapter.dart';
 

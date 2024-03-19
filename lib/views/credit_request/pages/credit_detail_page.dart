@@ -14,7 +14,7 @@ import "package:developer_company/shared/resources/colors.dart";
 import "package:developer_company/shared/resources/dimensions.dart";
 import "package:developer_company/shared/resources/strings.dart";
 import "package:developer_company/shared/routes/router_paths.dart";
-import "package:developer_company/shared/services/quetzales_currency.dart";
+import "package:developer_company/shared/services/cash-advance/quetzales_currency.dart";
 import "package:developer_company/shared/utils/http_adapter.dart";
 import "package:developer_company/views/bank_executive/pages/form_detail_client.dart";
 import "package:developer_company/views/credit_request/helpers/handle_balance_to_finance.dart";

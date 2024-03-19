@@ -1,4 +1,4 @@
-import 'package:developer_company/data/models/accept_reject_request_model.dart';
+import 'package:developer_company/data/models/cash-advance/accept_reject_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

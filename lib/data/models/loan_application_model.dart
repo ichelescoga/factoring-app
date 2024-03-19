@@ -1,4 +1,4 @@
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 
 class LoanApplication {
   final String? idAplicacion;
@@ -66,6 +66,6 @@ class LoanApplication {
         fechaNacimiento: json['Id_cliente_CLIENTE']["Fecha_nacimiento"],
         puesto: json['Id_cliente_CLIENTE']["Puesto"],
         );
-        
+
   }
 }

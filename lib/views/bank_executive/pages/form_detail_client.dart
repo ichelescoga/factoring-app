@@ -2,7 +2,7 @@ import 'package:developer_company/data/implementations/loan_application_reposito
 import 'package:developer_company/data/models/loan_application_model.dart';
 import 'package:developer_company/data/providers/loan_application_provider.dart';
 import 'package:developer_company/data/repositories/loan_application_repository.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:developer_company/shared/validations/days_old_validator.dart';
 import 'package:developer_company/shared/validations/dpi_validator.dart';
 import 'package:developer_company/shared/validations/grater_than_number_validator.dart';
@@ -119,7 +119,7 @@ class _FormDetailClientState extends State<FormDetailClient> {
               if (!hasFocus) {
                 unitDetailPageController.detailIncomes.text =
                     quetzalesCurrency(unitDetailPageController.detailIncomes.text);
-              } 
+              }
             },
             enabled: widget.isEditMode,
             validator: (value) {

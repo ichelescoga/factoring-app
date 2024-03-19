@@ -1,5 +1,5 @@
 import 'package:developer_company/data/models/accounting_model.dart';
-import 'package:developer_company/mocks/application_evaluation_mock.dart';
+import 'package:developer_company/mocks/cash-advance/application_evaluation_mock.dart';
 import 'package:get/get.dart';
 
 class AccountingAdvanceController extends GetxController {

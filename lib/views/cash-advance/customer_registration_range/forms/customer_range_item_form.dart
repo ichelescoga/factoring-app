@@ -1,5 +1,5 @@
 import 'package:developer_company/shared/resources/colors.dart';
-import 'package:developer_company/views/customer_registration_range/controller/customer_register_controller.dart';
+import 'package:developer_company/views/cash-advance/customer_registration_range/controller/customer_register_controller.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

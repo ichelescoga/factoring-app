@@ -1,7 +1,7 @@
-import 'package:developer_company/data/models/application_evaluation_model.dart';
+import 'package:developer_company/data/models/cash-advance/EmployedCreditRequest.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/application_evaluation/controller/application_evaluation_controller.dart';
+import 'package:developer_company/views/cash-advance/application_evaluation/controller/application_evaluation_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/filter_box.dart';
 import 'package:developer_company/widgets/layout.dart';
@@ -43,7 +43,7 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
           children: [
             FilterBox(
                 elements: controller.data,
-                handleFilteredData: (List<ApplicationEvalModel> data) {
+                handleFilteredData: (List<EmployedCreditRequest> data) {
                   controller.dataFiltered.clear();
                   controller.dataFiltered.addAll(data);
                   controller.update();
@@ -61,25 +61,19 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                         AppColors.secondaryMainColor),
                     columns: <DataColumn>[
                       columnLabel("No. Autorización"),
-                      columnLabel("Cliente"),
-                      columnLabel("Monto de Facturas"),
-                      columnLabel("Porcentaje de utilization"),
-                      columnLabel("Monto utilization"),
-                      columnLabel("Dias de utilization"),
-                      columnLabel("Intereses"),
-                      columnLabel("Commission"),
-                      columnLabel("IVA"),
-                      columnLabel("Total descuento"),
-                      columnLabel("Desembolso"),
-                      columnLabel("Fecha de Desembolso"),
+                      columnLabel("Código empleado"),
+                      columnLabel("Tasa comisión"),
+                      columnLabel("Monto"),
+                      columnLabel("Fecha"),
+                      columnLabel("Fecha de desembolso"),
                       columnLabel("Fecha de pago"),
-                      columnLabel("Cupo disponible"),
-                      columnLabel("Saldo en mora"),
-                      columnLabel("Análisis"),
-                      columnLabel("Aprobar/Denegar")
+                      columnLabel("Comisión"),
+                      columnLabel("Monto a descontar"),
+                      columnLabel("Estado"),
+                      columnLabel("")
                     ],
-                    rows:
-                        List<DataRow>.generate(controller.dataFiltered.length, (index) {
+                    rows: List<DataRow>.generate(controller.dataFiltered.length,
+                        (index) {
                       final item = controller.dataFiltered.elementAt(index);
                       print(index);
                       return DataRow(

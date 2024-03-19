@@ -1,4 +1,4 @@
-import "package:developer_company/controllers/quick_client_contact_dialog_controller.dart";
+import "package:developer_company/controllers/cash-advance/quick_client_contact_dialog_controller.dart";
 import "package:developer_company/data/implementations/client_contact_impl.dart";
 import "package:developer_company/data/implementations/improve_client_contact_repository_impl.dart";
 import "package:developer_company/data/models/client_contact_model.dart";

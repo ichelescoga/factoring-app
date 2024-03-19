@@ -5,7 +5,7 @@ import "package:developer_company/data/repositories/pre_sell_respository.dart";
 import "package:developer_company/shared/resources/colors.dart";
 import "package:developer_company/shared/resources/dimensions.dart";
 import "package:developer_company/shared/resources/strings.dart";
-import "package:developer_company/shared/services/quetzales_currency.dart";
+import "package:developer_company/shared/services/cash-advance/quetzales_currency.dart";
 import "package:developer_company/shared/validations/not_empty.dart";
 import "package:developer_company/shared/validations/years_old_validator.dart";
 import "package:developer_company/views/credit_request/controllers/finish_sell_form_controller.dart";

@@ -1,6 +1,6 @@
 import 'package:developer_company/shared/validations/not_empty.dart';
-import 'package:developer_company/views/customer_registration_range/controller/customer_register_controller.dart';
-import 'package:developer_company/views/customer_registration_range/forms/customer_range_item_form.dart';
+import 'package:developer_company/views/cash-advance/customer_registration_range/controller/customer_register_controller.dart';
+import 'package:developer_company/views/cash-advance/customer_registration_range/forms/customer_range_item_form.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';

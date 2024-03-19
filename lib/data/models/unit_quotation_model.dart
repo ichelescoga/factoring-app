@@ -2,7 +2,7 @@
 
 
 import 'package:developer_company/data/models/client_model.dart';
-import 'package:developer_company/shared/services/quetzales_currency.dart';
+import 'package:developer_company/shared/services/cash-advance/quetzales_currency.dart';
 import 'package:intl/intl.dart';
 
 class Quotation {
