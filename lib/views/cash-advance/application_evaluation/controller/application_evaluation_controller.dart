@@ -1,5 +1,5 @@
-import 'package:developer_company/data/models/EmployedCreditRequest.dart';
-import 'package:developer_company/data/providers/cash_advance_provider.dart';
+import 'package:developer_company/data/models/cash-advance/EmployedCreditRequest.dart';
+import 'package:developer_company/data/providers/cash-advance/cash_advance_provider.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
 import 'package:get/get.dart';
 

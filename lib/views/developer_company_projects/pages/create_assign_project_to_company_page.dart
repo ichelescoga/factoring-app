@@ -1,4 +1,4 @@
-import 'package:developer_company/controllers/cdi_check_button_controller.dart';
+import 'package:developer_company/controllers/CDI/cdi_check_button_controller.dart';
 import 'package:developer_company/data/implementations/CDI/cdi_repository_impl.dart';
 import 'package:developer_company/data/implementations/project__repository_impl.dart';
 import 'package:developer_company/data/models/image_model.dart';

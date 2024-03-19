@@ -1,7 +1,7 @@
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/validations/not_empty.dart';
-import 'package:developer_company/views/employed_credit_request/controller/employed_credit_request_controller.dart';
+import 'package:developer_company/views/cash-advance/employed_credit_request/controller/employed_credit_request_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/custom_dropdown_widget.dart';

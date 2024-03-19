@@ -1,12 +1,12 @@
 import 'package:developer_company/views/CDI/cdi_anidate_page.dart';
 import 'package:developer_company/views/CDI/cdi_list_page.dart';
 import 'package:developer_company/views/CDI/cdi_manage_page.dart';
-import 'package:developer_company/views/accept_reject_request/pages/accept_reject_request.dart';
-import 'package:developer_company/views/accounting/pages/accounting_page.dart';
+import 'package:developer_company/views/cash-advance/accept_reject_request/pages/accept_reject_request.dart';
+import 'package:developer_company/views/cash-advance/accounting/pages/accounting_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
-import 'package:developer_company/views/application_evaluation/pages/aplication_evaluation_page.dart';
+import 'package:developer_company/views/cash-advance/application_evaluation/pages/aplication_evaluation_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_client_detail_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_client_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_executive_page.dart';
@@ -29,7 +29,7 @@ import 'package:developer_company/views/credit_request/pages/credit_user_applica
 import 'package:developer_company/views/credit_request/pages/credits_reserved_approved.dart';
 import 'package:developer_company/views/credit_request/pages/unit_quote_detail_page.dart';
 import 'package:developer_company/views/credit_request/pages/unit_quote_page.dart';
-import 'package:developer_company/views/customer_registration_range/pages/customer_register_range_page.dart';
+import 'package:developer_company/views/cash-advance/customer_registration_range/pages/customer_register_range_page.dart';
 import 'package:developer_company/views/developer_company/pages/list_companies_page.dart';
 import 'package:developer_company/views/developer_company/pages/manage_company_page.dart';
 import 'package:developer_company/views/developer_company_projects/pages/create_assign_project_to_company_page.dart';
@@ -39,7 +39,7 @@ import 'package:developer_company/views/discounts/pages/discount_detail_by_quote
 import 'package:developer_company/views/discounts/pages/discount_detail_by_quote_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_maintenance_page.dart';
 import 'package:developer_company/views/discounts/pages/discounts_by_quote_page.dart';
-import 'package:developer_company/views/employed_credit_request/pages/employed_credi_request.dart';
+import 'package:developer_company/views/cash-advance/employed_credit_request/pages/employed_credi_request.dart';
 import 'package:developer_company/views/financial_entity/pages/financial_entity_creation_page.dart';
 import 'package:developer_company/views/home/pages/dashboard_page.dart';
 import 'package:developer_company/views/home/pages/home_page.dart';

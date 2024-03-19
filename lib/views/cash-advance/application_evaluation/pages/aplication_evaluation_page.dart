@@ -1,7 +1,7 @@
-import 'package:developer_company/data/models/EmployedCreditRequest.dart';
+import 'package:developer_company/data/models/cash-advance/EmployedCreditRequest.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/application_evaluation/controller/application_evaluation_controller.dart';
+import 'package:developer_company/views/cash-advance/application_evaluation/controller/application_evaluation_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
 import 'package:developer_company/widgets/filter_box.dart';
 import 'package:developer_company/widgets/layout.dart';

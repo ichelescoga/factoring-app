@@ -1,4 +1,4 @@
-import 'package:developer_company/controllers/cdi_check_button_controller.dart';
+import 'package:developer_company/controllers/CDI/cdi_check_button_controller.dart';
 import 'package:developer_company/data/implementations/CDI/cdi_repository_impl.dart';
 import 'package:developer_company/data/implementations/company_repository_impl.dart';
 import 'package:developer_company/data/models/image_model.dart';
@@ -35,7 +35,7 @@ class _CreateCompanyPageState extends State<CreateCompanyPage> {
 
   final CompanyRepository companyProvider =
       CompanyRepositoryImpl(CompanyProvider());
-      
+
   final Map<String, dynamic> arguments = Get.arguments;
 
   Map<String, TextEditingController> formControllers = {};
@@ -87,7 +87,7 @@ class _CreateCompanyPageState extends State<CreateCompanyPage> {
     if (result) {
       Get.back(closeOverlays: true, result: result);
     }
-  
+
     EasyLoading.dismiss();
   }
 
