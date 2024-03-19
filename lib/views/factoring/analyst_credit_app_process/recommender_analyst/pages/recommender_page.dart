@@ -1,22 +1,23 @@
-import 'package:developer_company/shared/resources/strings.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:easy_stepper/easy_stepper.dart';
 import 'package:developer_company/widgets/layout.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:developer_company/widgets/sidebar_widget.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
+import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
 import 'package:developer_company/widgets/custom_input_widget.dart';
 import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/analyst_form_credi_appl.dart';
 import 'package:developer_company/widgets/custom_animated_expand_card.dart';
 import 'package:developer_company/widgets/custom_button_rezisable_widget.dart';
-import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/controller/recommender_controller.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/controller/approving_controller.dart';
 
 class RecommendingAnalystPage extends StatefulWidget {
   const RecommendingAnalystPage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class RecommendingAnalystPage extends StatefulWidget {
 }
 
 class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
-  late RecommendingAnalystFormController controller;
+  late ApprovingAnalystFormController controller;
   late Responsive responsive;
 
   final _formKey = GlobalKey<FormState>();
@@ -56,7 +57,7 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
   @override
   void initState() {
     super.initState();
-    controller = Get.put(RecommendingAnalystFormController());
+    controller = Get.put(ApprovingAnalystFormController());
   }
 
   @override
@@ -74,6 +75,88 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
           child: SingleChildScrollView(
         child: Column(
           children: [
+            CustomAnimatedExpandCard(
+                child: Column(
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: responsive.wp(40),
+                            height: responsive.hp(14),
+                            child: CustomInputWidget(
+                                controller: controller.interestRate,
+                                label: "Tasa de interés",
+                                hintText: "Tasa de interés",
+                                enabled: false,
+                                prefixIcon: Icons.abc),
+                          ),
+                          VerticalDivider(
+                            width: 5,
+                            thickness: 5,
+                            endIndent: 0,
+                            color: AppColors.secondaryMainColor,
+                          ),
+                          Container(
+                            width: responsive.wp(40),
+                            height: responsive.hp(14),
+                            child: CustomInputWidget(
+                                controller: controller.commissionRate,
+                                label: "Tasa de comisión",
+                                hintText: "Tasa de comisión",
+                                enabled: false,
+                                prefixIcon: Icons.person),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: DataTable(
+                          showCheckboxColumn: false,
+                          headingRowHeight: responsive.hp(6),
+                          headingRowColor: MaterialStateProperty.all<Color>(
+                              AppColors.secondaryMainColor),
+                          columns: <DataColumn>[
+                            columnLabel("No. Autorización"),
+                            columnLabel("Cliente"),
+                            columnLabel("Monto de Facturas"),
+                            columnLabel("Porcentaje de utilization"),
+                            columnLabel("Monto utilization"),
+                            columnLabel("Dias de utilization"),
+                            columnLabel("Intereses"),
+                            columnLabel("Comisión"),
+                            columnLabel("IVA"),
+                            columnLabel("Total descuento"),
+                            columnLabel("Desembolso"),
+                            columnLabel("Fecha de Desembolso"),
+                            columnLabel("Fecha de pago"),
+                            columnLabel("Cupo disponible"),
+                            columnLabel("Saldo en mora"),
+                            columnLabel("Análisis"),
+                          ],
+                          rows: List<DataRow>.generate(controller.data.length,
+                              (index) {
+                            final item = controller.data.elementAt(index);
+                            print(index);
+                            return DataRow(
+                                color: index % 2 == 0
+                                    ? MaterialStateProperty.all<Color>(
+                                        AppColors.lightColor)
+                                    : MaterialStateProperty.all<Color>(
+                                        AppColors.lightSecondaryColor),
+                                cells: item
+                                    .toMap()
+                                    .values
+                                    .map((e) => cellItem(e))
+                                    .toList());
+                          })),
+                    )
+                  ],
+                ),
+                title: "Historial",
+                subtitle: "Créditos"),
             CustomAnimatedExpandCard(
                 title: "Resumen",
                 subtitle: "Monto",
@@ -154,6 +237,31 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
           ],
         ),
       )),
+    );
+  }
+
+  DataCell cellItem(String data) {
+    return DataCell(Container(
+      constraints: BoxConstraints(maxWidth: Get.width / 3),
+      child: Text(data),
+    ));
+  }
+
+  DataColumn columnLabel(String label) {
+    return DataColumn(
+      label: Expanded(
+        child: Text(
+          label,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 17,
+            color: Colors.white,
+            overflow: TextOverflow.ellipsis,
+          ),
+          textAlign: TextAlign.center,
+          maxLines: 2,
+        ),
+      ),
     );
   }
 

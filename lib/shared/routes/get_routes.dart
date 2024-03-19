@@ -5,9 +5,10 @@ import 'package:developer_company/views/factoring/accept_reject_request/pages/ac
 import 'package:developer_company/views/cash-advance/accept_reject_request/pages/accept_reject_request.dart';
 import 'package:developer_company/views/cash-advance/accounting/pages/accounting_page.dart';
 import 'package:developer_company/views/advisers/pages/create_adviser_page.dart';
-import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/pages/recommender_page.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/pages/approving_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/recommender_analyst/pages/recommender_page.dart';
 import 'package:developer_company/views/factoring/application_evaluation/pages/aplication_evaluation_page.dart';
 import 'package:developer_company/views/cash-advance/application_evaluation/pages/aplication_evaluation_page.dart';
 import 'package:developer_company/views/bank_executive/pages/bank_client_detail_page.dart';
@@ -256,6 +257,7 @@ class GetRoutes {
       GetPage(
           name: RouterPaths.ANALYST_RECOMMENDING_PAGE,
           page: () => const RecommendingAnalystPage()),
+      GetPage(name: RouterPaths.ANALYST_APPROVING_PAGE, page: () => const ApprovingAnalystPage()),
     ];
   }
 }

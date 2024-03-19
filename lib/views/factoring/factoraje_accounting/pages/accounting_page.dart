@@ -1,12 +1,12 @@
-import 'package:developer_company/data/models/factoring/factoraje_accounting_model.dart';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:developer_company/widgets/layout.dart';
+import 'package:developer_company/widgets/filter_box.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
-import 'package:developer_company/views/factoring/factoraje_accounting/controller/accounting_controller.dart';
 import 'package:developer_company/widgets/app_bar_sidebar.dart';
-import 'package:developer_company/widgets/filter_box.dart';
-import 'package:developer_company/widgets/layout.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:developer_company/data/models/factoring/factoraje_accounting_model.dart';
+import 'package:developer_company/views/factoring/factoraje_accounting/controller/accounting_controller.dart';
 
 class AccountingFactoragePage extends StatefulWidget {
   const AccountingFactoragePage({Key? key}) : super(key: key);

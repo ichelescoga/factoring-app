@@ -97,6 +97,7 @@ class RouterPaths {
   static const String ANALYST_RECOMMENDING_PAGE = "/analystRecommendingPage";
   static const String ANALYST_RECOMMENDING_APPROVED =
       "/analystRecommendingApprove";
+  static const String ANALYST_APPROVING_PAGE = "/analystApprovingPage";
   //ApplicationEvaluations CASH_ADVANCE
   static const String CASH_ADVANCE_APPLICATION_EVALUATION_PAGE =
       "/cashAdvanceApplicationEvaluationPage";
