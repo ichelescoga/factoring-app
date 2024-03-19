@@ -133,28 +133,29 @@ class _CDIManagePageState extends State<CDIManagePage> {
                         onTap: () => Navigator.pop(context, false)),
                   ),
                   const SizedBox(width: Dimensions.formSpaceBetweenButtons),
-                  Expanded(
-                      child: CustomButtonWidget(
-                    padding: EdgeInsets.zero,
-                    color: AppColors.blueColor,
-                    text: "Guardar",
-                    onTap: () {
-                      if (manageCDIFormKey.currentState!.validate()) {
-                        final inputValues = retrieveFormControllersInput(
-                            formWidgets, formControllers);
-                        final imageValues = retrieveFormControllersImage(
-                            formWidgets, imageControllers);
-                        final checkButtonsValues =
-                            retrieveFormControllersCheckBox(
-                                formWidgets, checkControllers);
-                        _handleSaveFormData(
-                            inputValues, imageValues, {}, checkButtonsValues);
-                      } else {
-                        EasyLoading.showInfo(
-                            "Por favor verifique que los campos sean validos.");
-                      }
-                    },
-                  )),
+                  if (!viewModeData)
+                    Expanded(
+                        child: CustomButtonWidget(
+                      padding: EdgeInsets.zero,
+                      color: AppColors.blueColor,
+                      text: "Guardar",
+                      onTap: () {
+                        if (manageCDIFormKey.currentState!.validate()) {
+                          final inputValues = retrieveFormControllersInput(
+                              formWidgets, formControllers);
+                          final imageValues = retrieveFormControllersImage(
+                              formWidgets, imageControllers);
+                          final checkButtonsValues =
+                              retrieveFormControllersCheckBox(
+                                  formWidgets, checkControllers);
+                          _handleSaveFormData(
+                              inputValues, imageValues, {}, checkButtonsValues);
+                        } else {
+                          EasyLoading.showInfo(
+                              "Por favor verifique que los campos sean validos.");
+                        }
+                      },
+                    )),
                 ],
               ),
               const SizedBox(
