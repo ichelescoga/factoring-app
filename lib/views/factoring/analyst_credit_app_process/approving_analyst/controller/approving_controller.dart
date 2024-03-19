@@ -12,6 +12,7 @@ class ApprovingAnalystFormController extends GetxController
   TextEditingController authorization = TextEditingController();
   TextEditingController invoiceSerie = TextEditingController();
   TextEditingController invoiceAmount = TextEditingController();
+  TextEditingController commentsRecommender = TextEditingController();
   TextEditingController comments = TextEditingController();
 
   TextEditingController interestRate = TextEditingController();
