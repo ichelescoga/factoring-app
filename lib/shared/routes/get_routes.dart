@@ -8,6 +8,8 @@ import 'package:developer_company/views/advisers/pages/create_adviser_page.dart'
 import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/pages/approving_page.dart';
 import 'package:developer_company/views/analysts/pages/analyst_detail_credit_client.dart';
 import 'package:developer_company/views/analysts/pages/analyst_list_credits.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/billing/pages/billing_page.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/disbursement/pages/disbursement.dart';
 import 'package:developer_company/views/factoring/analyst_credit_app_process/recommender_analyst/pages/recommender_page.dart';
 import 'package:developer_company/views/factoring/application_evaluation/pages/aplication_evaluation_page.dart';
 import 'package:developer_company/views/cash-advance/application_evaluation/pages/aplication_evaluation_page.dart';
@@ -67,197 +69,86 @@ class GetRoutes {
     return [
       GetPage(name: RouterPaths.HOME_PAGE, page: () => const HomePage()),
       GetPage(name: RouterPaths.LOGIN_PAGE, page: () => const LoginPage()),
-      GetPage(
-          name: RouterPaths.REGISTER_PAGE, page: () => const RegisterPage()),
-      GetPage(
-          name: RouterPaths.DASHBOARD_PAGE, page: () => const DashboardPage()),
+      GetPage(name: RouterPaths.REGISTER_PAGE, page: () => const RegisterPage()),
+      GetPage(name: RouterPaths.DASHBOARD_PAGE, page: () => const DashboardPage()),
 
-      GetPage(
-          name: RouterPaths.CREATE_ADVISER_PAGE,
-          page: () => const CreateAdviserPage()),
-      GetPage(
-          name: RouterPaths.QUOTE_CONSULT_PAGE,
-          page: () => const QuoteConsultPage()),
-      GetPage(
-          name: RouterPaths.QUOTE_STATS_PAGE,
-          page: () => const QuoteStatsPage()),
-      GetPage(
-          name: RouterPaths.QUOTE_UNIT_STATUS_PAGE,
-          page: () => const QuoteUnitStatusPage()),
-      GetPage(
-          name: RouterPaths.UNIT_DETAIL_PAGE,
-          page: () => const UnitDetailPage()),
-      GetPage(
-          name: RouterPaths.UNIT_QUOTE_PAGE, page: () => const UnitQuotePage()),
-      GetPage(
-          name: RouterPaths.UNIT_QUOTE_DETAIL_PAGE,
-          page: () => const UnitQuoteDetailPage()),
-      GetPage(
-          name: RouterPaths.CREDIT_APPLICATION_PAGE,
-          page: () => const CreditApplicationPage()),
-      GetPage(
-          name: RouterPaths.CREDIT_USER_APPLICATION_PAGE,
-          page: () => const CreditUserApplicationPage()),
-      GetPage(
-          name: RouterPaths.FINANCIAL_ENTITY_CREATION_PAGE,
-          page: () => const FinancialEntityCreationPage()),
-      GetPage(
-          name: RouterPaths.BANK_EXECUTIVE_PAGE,
-          page: () => const BankExecutivePage()),
-      GetPage(
-          name: RouterPaths.BANK_EXECUTIVE_CLIENT_PAGE,
-          page: () => const BankExecutiveClientPage()),
-      GetPage(
-          name: RouterPaths.BANK_CLIENT_DETAIL_PAGE,
-          page: () => const BankClientDetailPage()),
-      GetPage(
-          name: RouterPaths.BANK_EXECUTIVE_STATS_PAGE,
-          page: () => const BankExecutiveStatsPage()),
-      GetPage(
-          name: RouterPaths.BANK_EXECUTIVE_UNIT_STATUS_PAGE,
-          page: () => const BankExecutiveUnitStatusPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_DETAIL_PAGE,
-          page: () => const ClientDetailPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_QUOTE_PAGE,
-          page: () => const ClientQuotePage()),
-      GetPage(
-          name: RouterPaths.CLIENT_DASHBOARD_PAGE,
-          page: () => const ClientDashboardPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_BANK_OFFERS_PAGE,
-          page: () => const ClientBankOffersPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_OFFER_DETAIL_PAGE,
-          page: () => const ClientOfferDetailPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_DOCUMENTS_PAGE,
-          page: () => const ClientDocumentsPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_CREDIT_ADVANCE_PAGE,
-          page: () => const ClientCreditAdvancePage()),
-      GetPage(
-          name: RouterPaths.CLIENT_CREDIT_SCHEDULE_PAYMENTS_PAGE,
-          page: () => const CreditSchedulePaymentsPage()),
-      GetPage(
-          name: RouterPaths.CLIENT_CREDIT_DETAIL_PAGE,
-          page: () => const ClientCreditDetailPage()),
-      GetPage(
-          name: RouterPaths.ANALYST_CREDITS_BY_CLIENT_PAGE,
-          page: () => const AnalystListCredits()),
-      GetPage(
-          name: RouterPaths.ANALYST_DETAIL_CREDIT_PAGE,
-          page: () =>
-              const AnalystDetailCreditClient()), //equal to CREDIT_RESOLUTION_DETAIL_PAGE change the buttons posible refactor
-      GetPage(
-          name: RouterPaths.CREDIT_DETAIL_PAGE,
-          page: () => const CreditDetailPage()),
-      GetPage(
-          name: RouterPaths.CREDIT_RESOLUTION_DETAIL_PAGE,
-          page: () => const CreditResolutionDetailPage()),
-      GetPage(
-          name: RouterPaths.ADVISER_CREDITS_RESERVED_APPROVED,
-          page: () => const CreditsReservedApproved()),
+      GetPage(name: RouterPaths.CREATE_ADVISER_PAGE, page: () => const CreateAdviserPage()),
+      GetPage(name: RouterPaths.QUOTE_CONSULT_PAGE, page: () => const QuoteConsultPage()),
+      GetPage(name: RouterPaths.QUOTE_STATS_PAGE, page: () => const QuoteStatsPage()),
+      GetPage(name: RouterPaths.QUOTE_UNIT_STATUS_PAGE, page: () => const QuoteUnitStatusPage()),
+      GetPage(name: RouterPaths.UNIT_DETAIL_PAGE, page: () => const UnitDetailPage()),
+      GetPage(name: RouterPaths.UNIT_QUOTE_PAGE, page: () => const UnitQuotePage()),
+      GetPage(name: RouterPaths.UNIT_QUOTE_DETAIL_PAGE, page: () => const UnitQuoteDetailPage()),
+      GetPage(name: RouterPaths.CREDIT_APPLICATION_PAGE, page: () => const CreditApplicationPage()),
+      GetPage(name: RouterPaths.CREDIT_USER_APPLICATION_PAGE, page: () => const CreditUserApplicationPage()),
+      GetPage(name: RouterPaths.FINANCIAL_ENTITY_CREATION_PAGE, page: () => const FinancialEntityCreationPage()),
+      GetPage(name: RouterPaths.BANK_EXECUTIVE_PAGE, page: () => const BankExecutivePage()),
+      GetPage(name: RouterPaths.BANK_EXECUTIVE_CLIENT_PAGE, page: () => const BankExecutiveClientPage()),
+      GetPage(name: RouterPaths.BANK_CLIENT_DETAIL_PAGE, page: () => const BankClientDetailPage()),
+      GetPage(name: RouterPaths.BANK_EXECUTIVE_STATS_PAGE, page: () => const BankExecutiveStatsPage()),
+      GetPage(name: RouterPaths.BANK_EXECUTIVE_UNIT_STATUS_PAGE, page: () => const BankExecutiveUnitStatusPage()),
+      GetPage(name: RouterPaths.CLIENT_DETAIL_PAGE, page: () => const ClientDetailPage()),
+      GetPage(name: RouterPaths.CLIENT_QUOTE_PAGE, page: () => const ClientQuotePage()),
+      GetPage(name: RouterPaths.CLIENT_DASHBOARD_PAGE, page: () => const ClientDashboardPage()),
+      GetPage(name: RouterPaths.CLIENT_BANK_OFFERS_PAGE, page: () => const ClientBankOffersPage()),
+      GetPage(name: RouterPaths.CLIENT_OFFER_DETAIL_PAGE, page: () => const ClientOfferDetailPage()),
+      GetPage(name: RouterPaths.CLIENT_DOCUMENTS_PAGE, page: () => const ClientDocumentsPage()),
+      GetPage(name: RouterPaths.CLIENT_CREDIT_ADVANCE_PAGE, page: () => const ClientCreditAdvancePage()),
+      GetPage(name: RouterPaths.CLIENT_CREDIT_SCHEDULE_PAYMENTS_PAGE, page: () => const CreditSchedulePaymentsPage()),
+      GetPage(name: RouterPaths.CLIENT_CREDIT_DETAIL_PAGE, page: () => const ClientCreditDetailPage()),
+      GetPage(name: RouterPaths.ANALYST_CREDITS_BY_CLIENT_PAGE, page: () => const AnalystListCredits()),
+      // GetPage(name: RouterPaths.ANALYST_DETAIL_CREDIT_PAGE, page: () => const AnalystDetailCreditClient()), //equal to CREDIT_RESOLUTION_DETAIL_PAGE change the buttons posible refactor
+      GetPage(name: RouterPaths.CREDIT_DETAIL_PAGE, page: () => const CreditDetailPage()),
+      GetPage(name: RouterPaths.CREDIT_RESOLUTION_DETAIL_PAGE, page: () => const CreditResolutionDetailPage()),
+      GetPage(name: RouterPaths.ADVISER_CREDITS_RESERVED_APPROVED, page: () => const CreditsReservedApproved()),
 
       // MARKETING 🖼️🖼️🎞️🎞️
-      GetPage(
-          name: RouterPaths.MARKETING_MAINTENANCE_ALBUMS,
-          page: () => const MarketingAlbumsMaintenancePage()),
-      GetPage(
-          name: RouterPaths.MARKETING_MAINTENANCE_DETAIL_ALBUM,
-          page: () => const MarketingAlbumDetailMaintenancePage()),
-      GetPage(
-          name: RouterPaths.MARKETING_CARROUSEL_ALBUMS,
-          page: () => const MarketingCarrouselAlbumsPage(),
-          transition: Transition.upToDown),
-      GetPage(
-          name: RouterPaths.MARKETING_DETAIL_ALBUM,
-          page: () => const MarketingAlbumDetailPage()),
+      GetPage(name: RouterPaths.MARKETING_MAINTENANCE_ALBUMS, page: () => const MarketingAlbumsMaintenancePage()),
+      GetPage(name: RouterPaths.MARKETING_MAINTENANCE_DETAIL_ALBUM, page: () => const MarketingAlbumDetailMaintenancePage()),
+      GetPage(name: RouterPaths.MARKETING_CARROUSEL_ALBUMS, page: () => const MarketingCarrouselAlbumsPage(), transition: Transition.upToDown),
+      GetPage(name: RouterPaths.MARKETING_DETAIL_ALBUM, page: () => const MarketingAlbumDetailPage()),
 
       // QUICK CONTACTS 🧑‍🦰🧑‍🦰
-      GetPage(
-          name: RouterPaths.QUICK_CONTACT_LIST_PAGE,
-          page: () => const QuickClientContactListPage()),
+      GetPage(name: RouterPaths.QUICK_CONTACT_LIST_PAGE, page: () => const QuickClientContactListPage()),
 
       // DISCOUNTS
-      GetPage(
-          name: RouterPaths.DISCOUNT_DETAIL_BY_QUOTE_MAINTENANCE_PAGE,
-          page: () => const DiscountDetailByQuoteMaintenancePage()),
-      GetPage(
-          name: RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
-          page: () => const DiscountsByQuotePage()),
-      GetPage(
-          name: RouterPaths.DISCOUNT_DETAIL_BY_QUOTE_PAGE,
-          page: () => const DiscountDetailByQuotePage()),
-      GetPage(
-          name: RouterPaths.DISCOUNTS_BY_QUOTE_MAINTENANCE_PAGE,
-          page: () => const DiscountsByQuoteMaintenancePage()),
+      GetPage(name: RouterPaths.DISCOUNT_DETAIL_BY_QUOTE_MAINTENANCE_PAGE, page: () => const DiscountDetailByQuoteMaintenancePage()),
+      GetPage(name: RouterPaths.DISCOUNTS_BY_QUOTE_PAGE, page: () => const DiscountsByQuotePage()),
+      GetPage(name: RouterPaths.DISCOUNT_DETAIL_BY_QUOTE_PAGE, page: () => const DiscountDetailByQuotePage()),
+      GetPage(name: RouterPaths.DISCOUNTS_BY_QUOTE_MAINTENANCE_PAGE, page: () => const DiscountsByQuoteMaintenancePage()),
 
       // COMPANIES 🏢🏢
 
-      GetPage(
-          name: RouterPaths.MANAGE_COMPANY_PAGE,
-          page: () => const CreateCompanyPage()),
-      GetPage(
-          name: RouterPaths.LIST_COMPANIES_PAGE,
-          page: () => const ListCompanies()),
+      GetPage(name: RouterPaths.MANAGE_COMPANY_PAGE, page: () => const CreateCompanyPage()),
+      GetPage(name: RouterPaths.LIST_COMPANIES_PAGE, page: () => const ListCompanies()),
 
       // PROJECTS 📐📐
-      GetPage(
-          name: RouterPaths.LIST_COMPANY_PROJECTS_PAGE,
-          page: () => const listCompaniesToProjectsPage()),
-      GetPage(
-          name: RouterPaths.LIST_PROJECTS_BY_COMPANY_PAGE,
-          page: () => const ListProjectsByCompanyState()),
-      GetPage(
-          name: RouterPaths.ASSIGN_PROJECT_TO_COMPANY_PAGE,
-          page: () => const createAssignProjectToCompanyPage()),
+      GetPage(name: RouterPaths.LIST_COMPANY_PROJECTS_PAGE, page: () => const listCompaniesToProjectsPage()),
+      GetPage(name: RouterPaths.LIST_PROJECTS_BY_COMPANY_PAGE, page: () => const ListProjectsByCompanyState()),
+      GetPage(name: RouterPaths.ASSIGN_PROJECT_TO_COMPANY_PAGE, page: () => const createAssignProjectToCompanyPage()),
 
       //CDI
       GetPage(name: RouterPaths.LIST_CDI_PAGE, page: () => const CDIListPage()),
-      GetPage(
-          name: RouterPaths.MANAGE_CDI_PAGE, page: () => const CDIManagePage()),
-      GetPage(
-          name: RouterPaths.CDI_SECOND_LEVEL,
-          page: () => const CDISecondLevel()),
+      GetPage(name: RouterPaths.MANAGE_CDI_PAGE, page: () => const CDIManagePage()),
+      GetPage(name: RouterPaths.CDI_SECOND_LEVEL, page: () => const CDISecondLevel()),
 
       //APPLICATION EVALUATION PAGES
-      GetPage(
-          name: RouterPaths.APPLICATION_EVALUATION_PAGE,
-          page: () => const ApplicationEvaluationPage()),
-      GetPage(
-          name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
-          page: () => const CreditApplicationFormPage()),
-      GetPage(
-          name: RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
-          page: () => const AccountingFactoragePage()),
-      GetPage(
-          name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST,
-          page: () => const AcceptRejectRequestPage()),
-      GetPage(
-          name: RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE,
-          page: () => CashAdvanceApplicationEvaluationPage()),
-      GetPage(
-          name: RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE,
-          page: () => const RegisterCustomerRangePage()),
-      GetPage(
-          name: RouterPaths
-              .CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE,
-          page: () => const AccountingAdvancePage()),
-      GetPage(
-          name: RouterPaths
-              .CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE,
-          page: () => const EmployedCreditRequestPage()),
-      GetPage(
-          name: RouterPaths.CASH_ADVANCE_CUSTOMER_ACCEPT_REJECT_REQUEST,
-          page: () => const CashAdvanceAcceptRejectRequestPage()),
+      GetPage(name: RouterPaths.APPLICATION_EVALUATION_PAGE, page: () => const ApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.CREDIT_APPLICATION_FORM_PAGE, page: () => const CreditApplicationFormPage()),
+      GetPage(name: RouterPaths.CUSTOMER_ACCOUNTING_PAGE, page: () => const AccountingFactoragePage()),
+      GetPage(name: RouterPaths.CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const AcceptRejectRequestPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE, page: () => CashAdvanceApplicationEvaluationPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE, page: () => const RegisterCustomerRangePage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE, page: () => const AccountingAdvancePage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE, page: () => const EmployedCreditRequestPage()),
+      GetPage(name: RouterPaths.CASH_ADVANCE_CUSTOMER_ACCEPT_REJECT_REQUEST, page: () => const CashAdvanceAcceptRejectRequestPage()),
 
       //ANALYST PROCESS
-      GetPage(
-          name: RouterPaths.ANALYST_RECOMMENDING_PAGE,
-          page: () => const RecommendingAnalystPage()),
+      GetPage(name: RouterPaths.ANALYST_RECOMMENDING_PAGE, page: () => const RecommendingAnalystPage()),
       GetPage(name: RouterPaths.ANALYST_APPROVING_PAGE, page: () => const ApprovingAnalystPage()),
+      GetPage(name: RouterPaths.ANALYST_DISBURSEMENT_PAGE, page: () => const FactoringDisbursementPage()),
+      GetPage(name: RouterPaths.ANALYST_BILLING_PAGE, page: () => const FactoringBillingPage()),
+
     ];
   }
 }

@@ -65,6 +65,17 @@ class _RequestEnteredState extends State<RequestEntered> {
       case 2:
         {
           nextPage = RouterPaths.ANALYST_APPROVING_PAGE;
+          break;
+        }
+      case 3:
+        {
+          nextPage = RouterPaths.ANALYST_DISBURSEMENT_PAGE;
+          break;
+        }
+      case 4:
+        {
+          nextPage = RouterPaths.ANALYST_BILLING_PAGE;
+          break;
         }
     }
     fetch();
