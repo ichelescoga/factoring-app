@@ -24,7 +24,7 @@ List<Map<String, dynamic>> factoring_menu = [
           {
             "entityId": "9",
             "label": "Representante legal",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/9",
+            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/4",
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
