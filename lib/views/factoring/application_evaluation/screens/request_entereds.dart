@@ -1,4 +1,5 @@
 import 'package:developer_company/data/models/factoring/application_evaluation_model.dart';
+import 'package:developer_company/shared/constants/factoring/request_status.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/routes/router_paths.dart';
@@ -24,22 +25,20 @@ class _RequestEnteredState extends State<RequestEntered> {
   AppColors appColors = AppColors();
   late Responsive responsive;
   late ApplicationEvaluationController controller;
-  final REQUEST_ENTERED = "1";
-
   late String nextPage;
 
   fetchData() async {
     EasyLoading.show(status: Strings.loading);
     Map<String, dynamic> args = Get.arguments;
     var fatherId = args['father'];
-    await controller.fetchData(fatherId, REQUEST_ENTERED);
+    await controller.fetchData(fatherId, FacRequestStatus.ENTERED);
     EasyLoading.dismiss();
     setState(() {});
   }
 
   fetchAllData() async {
     EasyLoading.show(status: Strings.loading);
-    await controller.fetchAll(REQUEST_ENTERED);
+    await controller.fetchAll(widget.mode);
     EasyLoading.dismiss();
     setState(() {});
   }

@@ -1,4 +1,5 @@
 import 'package:developer_company/data/models/factoring/application_evaluation_model.dart';
+import 'package:developer_company/shared/constants/factoring/request_status.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/strings.dart';
 import 'package:developer_company/shared/utils/responsive.dart';
@@ -23,21 +24,20 @@ class _RequestDeniedState extends State<RequestDenied> {
   AppColors appColors = AppColors();
   late Responsive responsive;
   late ApplicationEvaluationController controller;
-  final REQUEST_DENIED = "4";
 
   fetchData() async {
     EasyLoading.show(status: Strings.loading);
     // TODO: Implement easy loading
     Map<String, dynamic> args = Get.arguments;
     var fatherId = args['father'];
-    await controller.fetchData(fatherId, REQUEST_DENIED);
+    await controller.fetchData(fatherId, FacRequestStatus.DENIED);
     EasyLoading.dismiss();
     setState(() {});
   }
 
   fetchAllData() async {
     EasyLoading.show(status: Strings.loading);
-    await controller.fetchAll(REQUEST_DENIED);
+    await controller.fetchAll(widget.mode);
     EasyLoading.dismiss();
     setState(() {});
   }
