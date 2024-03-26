@@ -20,6 +20,7 @@ class CustomInputWidget extends StatelessWidget {
   final Function(bool)? onFocusChangeInput;
   final FocusNode? focusNode;
   final Function(String)? onFieldSubmitted ;
+  final Color fillColor;
 
   const CustomInputWidget(
       {Key? key,
@@ -38,7 +39,8 @@ class CustomInputWidget extends StatelessWidget {
       this.onTapOutside,
       this.suffixIcon,
       this.focusNode,
-      this.onFieldSubmitted
+      this.onFieldSubmitted,
+      this.fillColor = AppColors.lightColor,
       })
       : super(key: key);
 
@@ -79,7 +81,7 @@ class CustomInputWidget extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               labelStyle: CustomStyle.textStyle,
               filled: true,
-              fillColor: AppColors.lightColor,
+              fillColor: fillColor,
               hintStyle: CustomStyle.textStyle,
               focusedBorder: CustomStyle.focusBorder,
               enabledBorder: CustomStyle.focusErrorBorder,

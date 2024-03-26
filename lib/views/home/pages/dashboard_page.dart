@@ -138,6 +138,25 @@ class _DashboardPageState extends State<DashboardPage> {
                         "loadAll": true,
                         "mode": 2
                       })),
+
+          authItem(
+              PermissionLevel.discountsByQuote,
+              "Desembolso",
+              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+                      arguments: {
+                        "isWatchMode": false,
+                        "loadAll": true,
+                        "mode": 3
+                      })),
+          authItem(
+              PermissionLevel.discountsByQuote,
+              "Facturación",
+              () => Get.toNamed(RouterPaths.APPLICATION_EVALUATION_PAGE,
+                      arguments: {
+                        "isWatchMode": false,
+                        "loadAll": true,
+                        "mode": 4
+                      })),
           // authItem(
           //     PermissionLevel.discountsByQuote,
           //     "Descuentos",

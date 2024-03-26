@@ -26,6 +26,8 @@ class _RequestEnteredState extends State<RequestEntered> {
   late ApplicationEvaluationController controller;
   final REQUEST_ENTERED = "1";
 
+  late String nextPage;
+
   fetchData() async {
     EasyLoading.show(status: Strings.loading);
     Map<String, dynamic> args = Get.arguments;
@@ -54,6 +56,28 @@ class _RequestEnteredState extends State<RequestEntered> {
   void initState() {
     super.initState();
     controller = Get.put(ApplicationEvaluationController());
+    switch (widget.mode) {
+      case 1:
+        {
+          nextPage = RouterPaths.ANALYST_RECOMMENDING_PAGE;
+          break;
+        }
+      case 2:
+        {
+          nextPage = RouterPaths.ANALYST_APPROVING_PAGE;
+          break;
+        }
+      case 3:
+        {
+          nextPage = RouterPaths.ANALYST_DISBURSEMENT_PAGE;
+          break;
+        }
+      case 4:
+        {
+          nextPage = RouterPaths.ANALYST_BILLING_PAGE;
+          break;
+        }
+    }
     fetch();
   }
 
@@ -149,8 +173,7 @@ class _RequestEnteredState extends State<RequestEntered> {
                                 "requestId": element.requestId,
                                 "mode": widget.mode.toString(),
                               };
-                              final isQuoteUpdate = await Get.toNamed(
-                                  RouterPaths.ANALYST_RECOMMENDING_PAGE,
+                              final isQuoteUpdate = await Get.toNamed(nextPage,
                                   parameters: parameters);
 
                               if (isQuoteUpdate) {

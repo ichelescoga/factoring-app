@@ -16,18 +16,17 @@ import 'package:developer_company/widgets/custom_button_widget.dart';
 import 'package:developer_company/widgets/analyst_form_credi_appl.dart';
 import 'package:developer_company/widgets/custom_animated_expand_card.dart';
 import 'package:developer_company/widgets/custom_button_rezisable_widget.dart';
-import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/controller/recommender_controller.dart';
+import 'package:developer_company/views/factoring/analyst_credit_app_process/approving_analyst/controller/approving_controller.dart';
 
-class RecommendingAnalystPage extends StatefulWidget {
-  const RecommendingAnalystPage({Key? key}) : super(key: key);
+class ApprovingAnalystPage extends StatefulWidget {
+  const ApprovingAnalystPage({Key? key}) : super(key: key);
 
   @override
-  State<RecommendingAnalystPage> createState() =>
-      _RecommendingAnalystPageState();
+  State<ApprovingAnalystPage> createState() => _ApprovingAnalystPageState();
 }
 
-class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
-  late RecommendingAnalystFormController controller;
+class _ApprovingAnalystPageState extends State<ApprovingAnalystPage> {
+  late ApprovingAnalystFormController controller;
   late Responsive responsive;
 
   final _formKey = GlobalKey<FormState>();
@@ -56,7 +55,7 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
   @override
   void initState() {
     super.initState();
-    controller = Get.put(RecommendingAnalystFormController());
+    controller = Get.put(ApprovingAnalystFormController());
   }
 
   @override
@@ -74,6 +73,51 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
           child: SingleChildScrollView(
         child: Column(
           children: [
+            CustomAnimatedExpandCard(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: DataTable(
+                      showCheckboxColumn: false,
+                      headingRowHeight: responsive.hp(6),
+                      headingRowColor: MaterialStateProperty.all<Color>(
+                          AppColors.secondaryMainColor),
+                      columns: <DataColumn>[
+                        columnLabel("No. Autorización"),
+                        columnLabel("Cliente"),
+                        columnLabel("Monto de Facturas"),
+                        columnLabel("Porcentaje de utilization"),
+                        columnLabel("Monto utilization"),
+                        columnLabel("Dias de utilization"),
+                        columnLabel("Intereses"),
+                        columnLabel("Comisión"),
+                        columnLabel("IVA"),
+                        columnLabel("Total descuento"),
+                        columnLabel("Desembolso"),
+                        columnLabel("Fecha de Desembolso"),
+                        columnLabel("Fecha de pago"),
+                        columnLabel("Cupo disponible"),
+                        columnLabel("Saldo en mora"),
+                        columnLabel("Análisis"),
+                      ],
+                      rows: List<DataRow>.generate(controller.data.length,
+                          (index) {
+                        final item = controller.data.elementAt(index);
+                        print(index);
+                        return DataRow(
+                            color: index % 2 == 0
+                                ? MaterialStateProperty.all<Color>(
+                                    AppColors.lightColor)
+                                : MaterialStateProperty.all<Color>(
+                                    AppColors.lightSecondaryColor),
+                            cells: item
+                                .toMap()
+                                .values
+                                .map((e) => cellItem(e))
+                                .toList());
+                      })),
+                ),
+                title: "Historial",
+                subtitle: "Créditos"),
             CustomAnimatedExpandCard(
                 title: "Resumen",
                 subtitle: "Monto",
@@ -96,6 +140,12 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
                         controller: controller.invoiceAmount,
                         label: "Monto solicitado",
                         hintText: "Monto solicitado",
+                        enabled: false,
+                        prefixIcon: Icons.monetization_on),
+                    CustomInputWidget(
+                        controller: controller.invoiceAmount,
+                        label: "Comentario del analista",
+                        hintText: "Comentario del analista",
                         enabled: false,
                         prefixIcon: Icons.monetization_on),
                   ],
@@ -154,6 +204,31 @@ class _RecommendingAnalystPageState extends State<RecommendingAnalystPage> {
           ],
         ),
       )),
+    );
+  }
+
+  DataCell cellItem(String data) {
+    return DataCell(Container(
+      constraints: BoxConstraints(maxWidth: Get.width / 3),
+      child: Text(data),
+    ));
+  }
+
+  DataColumn columnLabel(String label) {
+    return DataColumn(
+      label: Expanded(
+        child: Text(
+          label,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 17,
+            color: Colors.white,
+            overflow: TextOverflow.ellipsis,
+          ),
+          textAlign: TextAlign.center,
+          maxLines: 2,
+        ),
+      ),
     );
   }
 

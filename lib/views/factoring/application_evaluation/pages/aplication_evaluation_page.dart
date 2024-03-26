@@ -64,6 +64,18 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
             title = "Aprobar créditos";
             break;
           }
+        case 3:
+          {
+            options.removeLast();
+            title = "Desembolso";
+            break;
+          }
+        case 4:
+          {
+            options.removeLast();
+            title = "Facturar";
+            break;
+          }
       }
     }
     itemSelected = options.first;
@@ -98,37 +110,12 @@ class _ApplicationEvaluationPageState extends State<ApplicationEvaluationPage> {
                 loadAll: loadAllData,
                 mode: mode,
               ),
-            if (itemSelected.id == "rejected")
+            if (itemSelected.id == "rejected" && mode < 3)
               RequestDenied(
                 loadAll: loadAllData,
                 mode: mode,
               ),
           ],
         ));
-  }
-
-  DataCell cellItem(String data) {
-    return DataCell(Container(
-      constraints: BoxConstraints(maxWidth: Get.width / 3),
-      child: Text(data),
-    ));
-  }
-
-  DataColumn columnLabel(String label) {
-    return DataColumn(
-      label: Expanded(
-        child: Text(
-          label,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 17,
-            color: Colors.white,
-            overflow: TextOverflow.ellipsis,
-          ),
-          textAlign: TextAlign.center,
-          maxLines: 2,
-        ),
-      ),
-    );
   }
 }
