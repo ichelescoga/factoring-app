@@ -22,55 +22,51 @@ List<Map<String, dynamic>> factoring_menu = [
         "getByIdEndpoint": null,
         "options": [
           {
-            "entityId": "4",
+            "entityId": "9",
             "label": "Representante legal",
             "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/4",
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
             "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "viewModeData": true,
           },
           {
-            "entityId": "3",
+            "entityId": "10",
             "label": "Oficinas",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/3",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "7",
+            "entityId": "12",
             "label": "Notificaciones",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/7",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "8",
+            "entityId": "13",
             "label": "Agente retenedor",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/8",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "5",
+            "entityId": "14",
             "label": "Cuenta de banco",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
-          }
+            "getByIdEndpoint": null,
+          },
         ]
       },
       {
@@ -85,57 +81,61 @@ List<Map<String, dynamic>> factoring_menu = [
         "getByIdEndpoint": null,
         "options": [
           {
-            "entityId": "9",
+            "entityId": "15",
             "label": "Contrato cliente",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/9",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "10",
+            "entityId": "16",
             "label": "Constitución empresa",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/10",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "11",
+            "entityId": "17",
             "label": "Documentos representante legal",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/11",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "12",
+            "entityId": "18",
             "label": "Estados Financieros",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/12",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
+            "getByIdEndpoint": null,
           },
           {
-            "entityId": "13",
+            "entityId": "19",
             "label": "Proyección de flujo de caja",
-            "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/13",
+            "listEndpoint": null,
             "editEndpoint": null,
             "addEndpoint": "entity/v1/addEntity",
             "removeEndpoint": null,
-            "getByIdEndpoint": "entity/v1/getEntityById",
-            "viewModeData": true
-          }
+            "getByIdEndpoint": null,
+          },
         ]
       },
+      // {
+      //   "entityId": "11",
+      //   "label": "Cuentas de bancos",
+      //   "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+      //   "editEndpoint": null,
+      //   "addEndpoint": "entity/v1/addEntity",
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
       {
         "type": "CUSTOM_PATH",
         "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
@@ -148,6 +148,30 @@ List<Map<String, dynamic>> factoring_menu = [
         "removeEndpoint": null,
         "getByIdEndpoint": null,
       },
+      // {
+      //   "type": "CUSTOM_PATH",
+      //   "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+      //   "entityId":
+      //       "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+      //   "label": "Fabrica de créditos",
+      //   "listEndpoint": null,
+      //   "editEndpoint": null,
+      //   "addEndpoint": null,
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "type": "CUSTOM_PATH",
+      //   "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+      //   "entityId":
+      //       "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+      //   "label": "Fabrica de créditos",
+      //   "listEndpoint": null,
+      //   "editEndpoint": null,
+      //   "addEndpoint": null,
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
       {
         "type": "CUSTOM_PATH",
         "ROUTE": RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
@@ -160,6 +184,70 @@ List<Map<String, dynamic>> factoring_menu = [
         "removeEndpoint": null,
         "getByIdEndpoint": null,
       },
+
+      // COPY
+      // {
+      //   "type": "CUSTOM_CARD",
+      //   "entityId": "9",
+      //   "label": "Expediente",
+      //   "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/3",
+      //   "editEndpoint": null,
+      //   "addEndpoint": "entity/v1/addEntity",
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "type": "CUSTOM_CARD",
+      //   "entityId": "10",
+      //   "label": "Representa Legal",
+      //   "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/4",
+      //   "editEndpoint": null,
+      //   "addEndpoint": "entity/v1/addEntity",
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "entityId": "11",
+      //   "label": "Cuentas de bancos",
+      //   "listEndpoint": "entity/v1/getModsByEntity/CLIENT_ID/5",
+      //   "editEndpoint": null,
+      //   "addEndpoint": "entity/v1/addEntity",
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "type": "CUSTOM_PATH",
+      //   "ROUTE": RouterPaths.CREDIT_APPLICATION_FORM_PAGE,
+      //   "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+      //   "label": "Nueva solicitud de crédito",
+      //   "listEndpoint": null,
+      //   "editEndpoint": null,
+      //   "addEndpoint": null,
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "type": "CUSTOM_PATH",
+      //   "ROUTE": RouterPaths.APPLICATION_EVALUATION_PAGE,
+      //   "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+      //   "label": "Fabrica de créditos",
+      //   "listEndpoint": null,
+      //   "editEndpoint": null,
+      //   "addEndpoint": null,
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
+      // {
+      //   "type": "CUSTOM_PATH",
+      //   "ROUTE": RouterPaths.CUSTOMER_ACCOUNTING_PAGE,
+      //   "entityId": "8", //Para recuperar en los argumentos de la pagina en entidad del cliente.
+      //   "label": "Contabilidad",
+      //   "listEndpoint": null,
+      //   "editEndpoint": null,
+      //   "addEndpoint": null,
+      //   "removeEndpoint": null,
+      //   "getByIdEndpoint": null,
+      // },
     ]
   },
 ];
