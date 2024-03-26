@@ -9,8 +9,7 @@ class CDIProvider {
     final endpoint = "entity/v1/getComponents";
 
     try {
-      final response = await http.getApiWithBody(
-          endpoint, {'Content-Type': 'application/json'}, {"id": entity});
+      final response = await http.getApi("$endpoint/$entity", {});
 
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
