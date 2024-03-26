@@ -1,0 +1,135 @@
+import 'package:developer_company/shared/routes/router_paths.dart';
+
+List<Map<String, dynamic>> cash_advance_menu = [
+  {
+    "entityId": "8",
+    "label": "Cliente",
+    "listEndpoint": "entitya/v1/getEntities/8",
+    "editEndpoint": null,
+    "addEndpoint": "entitya/v1/addEntity",
+    "removeEndpoint": null,
+    "getByIdEndpoint": null,
+    "mods": [
+      {
+        "entityId": "9",
+        "label": "Expediente",
+        "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/3",
+        "editEndpoint": null,
+        "addEndpoint": "entitya/v1/addEntity",
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+      {
+        "entityId": "10",
+        "label": "Representa Legal",
+        "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/4",
+        "editEndpoint": null,
+        "addEndpoint": "entitya/v1/addEntity",
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+      {
+        "entityId": "12",
+        "label": "Empleado",
+        "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/6",
+        "editEndpoint": null,
+        "addEndpoint": "entitya/v1/addEntity",
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+        "mods": [
+          {
+            "type": "CDI_PATH",
+            "entityId": "11",
+            "label": "Cuentas de banco",
+            "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/5",
+            "editEndpoint": null,
+            "addEndpoint": "entitya/v1/addEntity",
+            "removeEndpoint": null,
+            "getByIdEndpoint": null,
+          },
+        ]
+      },
+      {
+        "entityId": "12",
+        "label": "Empleado Solicitud",
+        "listEndpoint": "entitya/v1/getModsByEntity/CLIENT_ID/14",
+        "editEndpoint": null,
+        "addEndpoint": "entitya/v1/addEntity",
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+        "mods": [
+          {
+            "type": "CUSTOM_PATH",
+            "ROUTE": RouterPaths
+                .CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE,
+            "entityId": "11",
+            "label": "Solicitud de anticipos",
+            "listEndpoint": null,
+            "editEndpoint": null,
+            "addEndpoint": null,
+            "removeEndpoint": null,
+            "getByIdEndpoint": null,
+          },
+          {
+            "type": "CUSTOM_PATH",
+            "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE,
+            "entityId": "11",
+            "label": "Solicitudes",
+            "listEndpoint": null,
+            "editEndpoint": null,
+            "addEndpoint": null,
+            "removeEndpoint": null,
+            "getByIdEndpoint": null,
+          },
+        ]
+      },
+      {
+        "type": "CUSTOM_PATH",
+        "ROUTE":
+            RouterPaths.CASH_ADVANCE_APPLICATION_CUSTOMER_APPLICATION_RANGE,
+        "entityId": "8",
+        "label": "Alta de cliente",
+        "listEndpoint": null,
+        "editEndpoint": null,
+        "addEndpoint": null,
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+      {
+        "type": "CUSTOM_PATH",
+        "ROUTE": RouterPaths
+            .CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_APPLICATION_PAGE,
+        "entityId": "8",
+        "label": "Solicitud de anticipo",
+        "listEndpoint": null,
+        "editEndpoint": null,
+        "addEndpoint": null,
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+      {
+        "type": "CUSTOM_PATH",
+        "ROUTE":
+            RouterPaths.CASH_ADVANCE_APPLICATION_ADVANCE_CREDIT_ACCOUNTING_PAGE,
+        "entityId": "8",
+        "label": "Contabilización",
+        "listEndpoint": null,
+        "editEndpoint": null,
+        "addEndpoint": null,
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+      {
+        "type": "CUSTOM_PATH",
+        "ROUTE": RouterPaths.CASH_ADVANCE_APPLICATION_EVALUATION_PAGE,
+        "entityId": "8",
+        "label": "Solicitudes",
+        "listEndpoint": null,
+        "editEndpoint": null,
+        "addEndpoint": null,
+        "removeEndpoint": null,
+        "getByIdEndpoint": null,
+      },
+    ]
+  },
+];

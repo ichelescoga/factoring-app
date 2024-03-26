@@ -1,3 +1,4 @@
+import 'package:developer_company/mocks/cash-advance/cash_advance_menu_mock.dart';
 import 'package:developer_company/mocks/factoring/factoring_menu_mock.dart';
 import 'package:developer_company/shared/resources/colors.dart';
 import 'package:developer_company/shared/resources/dimensions.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import "package:flutter_dotenv/flutter_dotenv.dart";
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -23,6 +25,10 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<Map<String, dynamic>> cdi = dotenv.env["IS_CASH_ADVANCE"] == "true"
+      ? cash_advance_menu
+      : factoring_menu;
 
   final List<SideBarItem> sideBarList = [
     SideBarItem(
@@ -67,8 +73,6 @@ class _DashboardPageState extends State<DashboardPage> {
   final spaceButton = SizedBox(height: Dimensions.heightSize);
   final defaultPadding = EdgeInsets.only(left: 0, right: 0);
 
-  List<Map<String, dynamic>> cdi = factoring_menu;
-
   Future askPermission() async {
     await Permission.manageExternalStorage.request();
     var status = await Permission.manageExternalStorage.status;
@@ -85,6 +89,8 @@ class _DashboardPageState extends State<DashboardPage> {
   void initState() {
     super.initState();
     askPermission();
+
+    print("${dotenv.env["IS_CASH_ADVANCE"] == "true"}");
   }
 
   @override
@@ -138,7 +144,6 @@ class _DashboardPageState extends State<DashboardPage> {
                         "loadAll": true,
                         "mode": 2
                       })),
-
           authItem(
               PermissionLevel.discountsByQuote,
               "Desembolso",
@@ -157,11 +162,6 @@ class _DashboardPageState extends State<DashboardPage> {
                         "loadAll": true,
                         "mode": 4
                       })),
-          // authItem(
-          //     PermissionLevel.discountsByQuote,
-          //     "Descuentos",
-          //     () => Get.toNamed(RouterPaths.DISCOUNTS_BY_QUOTE_PAGE,
-          //         arguments: {"isWatchMode": false})),
         ],
       ),
     );
